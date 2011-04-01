@@ -23,57 +23,23 @@ root {
   width: 910px;
   height: 900px;
   }
-#header {
+
+#page1 {
   position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 918px;
-  height: 122px;
-  }
-.header-links a:link {text-decoration:none; color:white;}
-.header-links a:visited {text-decoration:none; color:white;}
-.header-links a:hover {text-decoration:none; color: #EFB563; background-color: transparent; }
-.header-links a:active {text-decoration:none; color: white;}
-.header-links {
-    position:absolute;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    top: 79px;
-    height: 100px;
-    font: normal 16px Kalinga, "Trebuchet MS","MS Sans Serif",Geneva;
-    color: white;
-    z-index:1000;
+  top: 25px;
+  left: 80px;
+  width: 380px;
+  height: 590px;
 }
 
-#course {left: 150px;}
-#course a.hover #origin a{background-color: red}
-#origin {left: 235px;}
-#sweet {left: 320px;}
-#biteme {left: 460px;}
-#even {left: 550px;}
-#myrecipes {left: 675px;}
-
-#nav{
-    display: none;
-    background-color: white;
-    font: normal 16px Kalinga, "Trebuchet MS","MS Sans Serif",Geneva;
-    text-decoration: none;
-    padding: 10px;
-    position: absolute;
-    top: 100px;
-    left: 150px;
-    z-index:1001;
-    list-style-type: none;
-    }
-
-
-#content {
-  background: #fff;
+#page2 {
   position: absolute;
-  top: 120px;
-  }
+  top: 25px;
+  left: 510px;
+  width: 380px;
+  height: 590px;
+}
+
 #footer {
   background: #0f0;
   position: absolute;
