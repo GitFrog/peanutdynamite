@@ -6416,3 +6416,10 @@ Started GET "/" for 127.0.0.1 at 2011-03-31 23:22:38 -0400
   [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes`[0m
 Rendered recipes/index.html.erb within layouts/application (20.0ms)
 Completed 200 OK in 53ms (Views: 35.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-03-31 23:36:53 -0400
+  Processing by RecipesController#index as HTML
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes`
+Rendered recipes/index.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 52ms (Views: 34.0ms | ActiveRecord: 1.0ms)
