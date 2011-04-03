@@ -2,7 +2,9 @@ DeadGrandmaCookies::Application.routes.draw do resources :home
 
   get "recipes/index"
   get "pages/about"
-  root :to => "recipes#index"
+  get "pages/home"
+  root :to => "pages#home"
+  resources :pages
   resources :recipes
   
   #match 'recipes' => 'recipes#index'

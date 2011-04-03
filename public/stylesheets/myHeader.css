@@ -39,6 +39,14 @@ root {
   width: 380px;
   height: 590px;
 }
+#LogoQuote {
+  position: relative;
+  top: 130px;
+  left: 30px;
+  width: 320px;
+  height: 400px;
+  text-align: center;
+}
 
 #footer {
   background: #0f0;
