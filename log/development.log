@@ -6795,3 +6795,15 @@ Started GET "/" for 127.0.0.1 at 2011-04-03 19:57:07 -0400
   Processing by PagesController#home as HTML
 Rendered pages/home.html.erb within layouts/application (6.0ms)
 Completed 200 OK in 36ms (Views: 36.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-03 20:07:38 -0400
+  Processing by PagesController#home as HTML
+Rendered pages/home.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 34ms (Views: 34.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-03 20:30:14 -0400
+  Processing by PagesController#home as HTML
+Rendered pages/home.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 33ms (Views: 33.0ms | ActiveRecord: 0.0ms)
