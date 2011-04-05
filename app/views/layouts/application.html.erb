@@ -8,10 +8,16 @@
   
 </head>
 <body>
-  <div id="start"><%= image_tag('background_book.jpg') %>
-    <div id="page1">
-       <%= yield %>
-    </div>
+  <div id="start"><%= image_tag('bookimg.jpg') %>
+    <div class ="tab" id="tab_home"><%= link_to image_tag('tab_home.jpg', :mouseover => "tab_home_press.jpg"), :action => 'home', :controller => 'pages' %></div>
+    <div class ="tab" id="tab_about"><%= link_to image_tag('tab_about.jpg', :border => 0, :mouseover => "tab_about_press.jpg"), :action => 'about', :controller => 'pages' %></div>
+    <div class ="tab" id="tab_courses"><%= image_tag('tab_courses.jpg', :mouseover => "tab_courses_press.jpg") %></div>
+    <div class ="tab" id="tab_lifeissweet"><%= image_tag('tab_lifeissweet.jpg', :mouseover => "tab_lifeissweet_press.jpg") %></div>
+    <div class ="tab" id="tab_biteme"><%= image_tag('tab_biteme.jpg', :mouseover => "tab_biteme_press.jpg") %></div>
+    <div class ="tab" id="tab_mybook"><%= image_tag('tab_mybook.jpg', :mouseover => "tab_mybook_press.jpg") %></div>
+  
+    <%= yield %>
+    
   </div>
 </body>
 </html>
