@@ -8243,3 +8243,29 @@ Started GET "/pages/home" for 127.0.0.1 at 2011-04-07 21:52:09 -0400
   [1m[35mStory Load (3.0ms)[0m  SELECT `stories`.* FROM `stories` ORDER BY story_date desc LIMIT 3
 Rendered pages/home.html.erb within layouts/application (20.0ms)
 Completed 200 OK in 118ms (Views: 48.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-08 22:25:52 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mStory Load (352.0ms)[0m  [1mSELECT `stories`.* FROM `stories` ORDER BY story_date desc LIMIT 3[0m
+Rendered pages/home.html.erb within layouts/application (320.0ms)
+Completed 200 OK in 1266ms (Views: 387.0ms | ActiveRecord: 352.0ms)
+
+
+Started GET "/pages/about" for 127.0.0.1 at 2011-04-08 22:26:17 -0400
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 107ms (Views: 107.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages/home" for 127.0.0.1 at 2011-04-08 22:26:19 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mStory Load (1.0ms)[0m  SELECT `stories`.* FROM `stories` ORDER BY story_date desc LIMIT 3
+Rendered pages/home.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 71ms (Views: 50.0ms | ActiveRecord: 1.0ms)
+  [1m[36mSQL (1.0ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (1.0ms)[0m  SHOW TABLES
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateRecipes (20110227040204)
+  [1m[35mSQL (84.0ms)[0m  CREATE TABLE `recipes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `title` text, `story` text, `recipe` text, `created_on` datetime, `pic_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+Mysql2::Error: Table 'recipes' already exists: CREATE TABLE `recipes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `title` text, `story` text, `recipe` text, `created_on` datetime, `pic_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
