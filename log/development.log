@@ -14968,3 +14968,54 @@ Started GET "/recipes/7" for 127.0.0.1 at 2011-04-18 18:25:02 -0400
   [1m[35mStory Load (0.0ms)[0m  SELECT `stories`.* FROM `stories` WHERE (`stories`.recipe_id = 7) LIMIT 1
 Rendered recipes/show.html.erb within layouts/application (220.0ms)
 Completed 200 OK in 316ms (Views: 287.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/pages/home" for 127.0.0.1 at 2011-04-18 19:28:30 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mStory Load (42.0ms)[0m  [1mSELECT `stories`.* FROM `stories` ORDER BY storyDate desc LIMIT 3[0m
+Rendered pages/home.html.erb within layouts/application (121.0ms)
+Completed   in 235ms
+
+ActionView::Template::Error (undefined method `third?' for #<Array:0x46f0c80>):
+    12: <div id="page2">
+    13:   <br/><br/>
+    14:   <div id="titlefont">Recently added stories...</div><br/>
+    15:   <% if @stories.third? %>
+    16:   <div id="pfont"><%= @stories.first.story %></div><br/>
+    17:   <div id="pfont"><%= @stories.second.story %></div><br/>
+    18:   <div id="pfont"><%= @stories.third.story %></div>
+  app/views/pages/home.html.erb:15:in `_app_views_pages_home_html_erb___97292429_37082868__672715389'
+  app/controllers/pages_controller.rb:5:in `home'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (50.0ms)
+
+
+Started GET "/pages/home" for 127.0.0.1 at 2011-04-18 19:29:00 -0400
+  Processing by PagesController#home as HTML
+  [1m[35mStory Load (0.0ms)[0m  SELECT `stories`.* FROM `stories` ORDER BY storyDate desc LIMIT 3
+Rendered pages/home.html.erb within layouts/application (14.0ms)
+Completed   in 88ms
+
+ActionView::Template::Error (undefined method `empty?' for #<Story:0x46f8480>):
+    12: <div id="page2">
+    13:   <br/><br/>
+    14:   <div id="titlefont">Recently added stories...</div><br/>
+    15:   <% if @stories.third.empty? %>
+    16:   <div id="pfont"><%= @stories.first.story %></div><br/>
+    17:   <div id="pfont"><%= @stories.second.story %></div><br/>
+    18:   <div id="pfont"><%= @stories.third.story %></div>
+  app/views/pages/home.html.erb:15:in `_app_views_pages_home_html_erb___97292429_37197480__672715389'
+  app/controllers/pages_controller.rb:5:in `home'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (26.0ms)
+
+
+Started GET "/pages/home" for 127.0.0.1 at 2011-04-18 19:29:27 -0400
+  Processing by PagesController#home as HTML
+  [1m[36mStory Load (1.0ms)[0m  [1mSELECT `stories`.* FROM `stories` ORDER BY storyDate desc LIMIT 3[0m
+Rendered pages/home.html.erb within layouts/application (54.0ms)
+Completed 200 OK in 107ms (Views: 84.0ms | ActiveRecord: 1.0ms)
