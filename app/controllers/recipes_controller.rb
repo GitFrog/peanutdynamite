@@ -28,11 +28,8 @@ class RecipesController < ApplicationController
   # GET /recipes/new.xml
   def new
     @recipe = Recipe.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @recipe }
-    end
+    #redirect_to @user
+    #@story = Story.new
   end
 
   # GET /recipes/1/edit
@@ -47,8 +44,8 @@ class RecipesController < ApplicationController
 
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to(@recipe, :notice => 'Recipe was successfully created.') }
-        format.xml  { render :xml => @recipe, :status => :created, :location => @recipe }
+        format.html { redirect_to(@user) }
+        #format.xml  { render :xml => @recipe, :status => :created, :location => @recipe }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @recipe.errors, :status => :unprocessable_entity }

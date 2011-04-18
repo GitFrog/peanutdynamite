@@ -1,35 +1,20 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>User:</b>
-  <%= @recipe.user_id %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%= @recipe.title %>
-</p>
-
-<p>
-  <b>Story:</b>
-  <%= @recipe.story %>
-</p>
-
-<p>
-  <b>Recipe:</b>
-  <%= @recipe.recipe %>
-</p>
-
-<p>
-  <b>Created on:</b>
-  <%= @recipe.created_on %>
-</p>
-
-<p>
-  <b>Pic:</b>
-  <%= @recipe.pic_id %>
-</p>
+<div id="page1">
+  <div><p><%= @recipe.title%></p></div>
+  <div><p><%= @recipe.course%> | <%= @recipe.recDate.to_s(:long)%></p></div>
+  <div><%= simple_format(@recipe.ingredients)%></div>
 
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+  <div><%= @recipe.instructions.class.to_s %></div>
+
+  
+  <div>Prep in <%= @recipe.prepTime%> minutes<br/></div>
+  <div>Cook for <%= @recipe.cookTime%> minutes<br/></div>
+  <div>Makes for <%= @recipe.yield %> hungry<% if @recipe.cookTime == 1 %> person<% else %> people<%  end %></div>
+</div>
+<div id="page2">
+  <div><p>Story</p></div>
+  <% if @recipe.stories.count > 0 %>
+    <div><%= @recipe.stories.first.story%></div>
+  <% end %>
+
+</div>

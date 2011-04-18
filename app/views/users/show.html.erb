@@ -1,0 +1,32 @@
+<div id="page1">
+  <br/><br/>
+  <div id="pfont"><%=@user.bookname%></div>
+  <div id="pfont">Welcome <%=@user.name%>!</div>
+  <div><%= link_to "add new recipe", new_recipe_path %></div>
+  <div><%= link_to "Sign out", signout_path, :method => :delete %></div>
+  <br/>
+  <% @user.recipes.each do |recipe| %>
+
+    <div id="pfont"><%= recipe.title %> (
+    <% if recipe.stories.count == 0 %>
+      no stories
+    <% elsif recipe.stories.count == 1 %>
+      1 story
+    <% else %>
+      <%= recipe.stories.count %> stories
+    <% end %>)
+    <%= link_to "view", recipe %>
+    </div><br/>
+
+  <%  end %>
+  <% if @user.recipes.size == 0 %>
+    <div id="pfont">You have no recipes yet</div>
+  <% end  %>
+</div>
+<div id="page2">
+
+
+</div>
+
+<%#= link_to 'Edit', edit_recipe_path(@recipe) %> 
+<%#= link_to 'Back', recipes_path %>

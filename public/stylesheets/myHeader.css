@@ -37,7 +37,7 @@ root {
 #tab_biteme{top:313px}
 #tab_mybook{top:420px}
 
-#titlefont {font-size:1.6em;}
+#titlefont {font-size:1.6em; color: rgb(252,21,21);}
 #pfont {font-size:1.2em; font-family:Georgia,Arial; line-height:1.5em;}
 
 #page1 {

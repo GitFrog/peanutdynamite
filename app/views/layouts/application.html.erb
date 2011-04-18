@@ -14,7 +14,7 @@
     <div class ="tab" id="tab_courses"><%= image_tag('tab_courses.jpg', :mouseover => "tab_courses_press.jpg") %></div>
     <div class ="tab" id="tab_lifeissweet"><%= image_tag('tab_lifeissweet.jpg', :mouseover => "tab_lifeissweet_press.jpg") %></div>
     <div class ="tab" id="tab_biteme"><%= image_tag('tab_biteme.jpg', :mouseover => "tab_biteme_press.jpg") %></div>
-    <div class ="tab" id="tab_mybook"><%= image_tag('tab_mybook.jpg', :mouseover => "tab_mybook_press.jpg") %></div>
+    <div class ="tab" id="tab_mybook"><%= link_to image_tag('tab_mybook.jpg', :border => 0, :class => "tab", :mouseover => "tab_mybook_press.jpg"), :action => 'show', :controller => 'users'  %></div>
   
     <%= yield %>
     
