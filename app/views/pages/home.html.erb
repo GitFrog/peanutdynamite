@@ -12,7 +12,7 @@
 <div id="page2">
   <br/><br/>
   <div id="titlefont">Recently added stories...</div><br/>
-  <% if @stories.count > 2 %>
+  <% if @stories.size == 3 %>
   <div id="pfont"><%= @stories.first.story %></div><br/>
   <div id="pfont"><%= @stories.second.story %></div><br/>
   <div id="pfont"><%= @stories.third.story %></div>

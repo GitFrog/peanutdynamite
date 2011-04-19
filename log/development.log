@@ -16226,3 +16226,164 @@ Started GET "/recipes/7" for 127.0.0.1 at 2011-04-18 21:14:38 -0400
   [1m[35mStory Load (0.0ms)[0m  SELECT `stories`.* FROM `stories` WHERE (`stories`.recipe_id = 7) LIMIT 1
 Rendered recipes/show.html.erb within layouts/application (109.0ms)
 Completed 200 OK in 185ms (Views: 125.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/recipes/7" for 127.0.0.1 at 2011-04-18 21:45:05 -0400
+  Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 7 LIMIT 1[0m
+  [1m[35mSQL (2.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 7)
+  [1m[36mStory Load (1.0ms)[0m  [1mSELECT `stories`.* FROM `stories` WHERE (`stories`.recipe_id = 7) LIMIT 1[0m
+Rendered recipes/show.html.erb within layouts/application (74.0ms)
+Completed 200 OK in 167ms (Views: 87.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/recipes/7" for 127.0.0.1 at 2011-04-18 21:45:24 -0400
+  Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 7 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 7)[0m
+  [1m[35mStory Load (0.0ms)[0m  SELECT `stories`.* FROM `stories` WHERE (`stories`.recipe_id = 7) LIMIT 1
+Rendered recipes/show.html.erb within layouts/application (95.0ms)
+Completed 200 OK in 144ms (Views: 111.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/recipes/7" for 127.0.0.1 at 2011-04-18 21:46:21 -0400
+  Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 7 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 7)
+  [1m[36mStory Load (0.0ms)[0m  [1mSELECT `stories`.* FROM `stories` WHERE (`stories`.recipe_id = 7) LIMIT 1[0m
+Rendered recipes/show.html.erb within layouts/application (70.0ms)
+Completed 200 OK in 159ms (Views: 86.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/recipes/7" for 127.0.0.1 at 2011-04-18 21:47:25 -0400
+  Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 7 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 7)[0m
+  [1m[35mStory Load (1.0ms)[0m  SELECT `stories`.* FROM `stories` WHERE (`stories`.recipe_id = 7) LIMIT 1
+Rendered recipes/show.html.erb within layouts/application (72.0ms)
+Completed 200 OK in 116ms (Views: 85.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/recipes/7" for 127.0.0.1 at 2011-04-18 21:48:17 -0400
+  Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 7 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 7)
+  [1m[36mStory Load (0.0ms)[0m  [1mSELECT `stories`.* FROM `stories` WHERE (`stories`.recipe_id = 7) LIMIT 1[0m
+Rendered recipes/show.html.erb within layouts/application (71.0ms)
+Completed 200 OK in 142ms (Views: 88.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/recipes/7" for 127.0.0.1 at 2011-04-18 21:48:23 -0400
+  Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 7 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 7)[0m
+  [1m[35mStory Load (1.0ms)[0m  SELECT `stories`.* FROM `stories` WHERE (`stories`.recipe_id = 7) LIMIT 1
+Rendered recipes/show.html.erb within layouts/application (96.0ms)
+Completed 200 OK in 154ms (Views: 114.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/recipes/7" for 127.0.0.1 at 2011-04-18 21:49:09 -0400
+  Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 7 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 7)
+  [1m[36mStory Load (0.0ms)[0m  [1mSELECT `stories`.* FROM `stories` WHERE (`stories`.recipe_id = 7) LIMIT 1[0m
+Rendered recipes/show.html.erb within layouts/application (96.0ms)
+Completed 200 OK in 141ms (Views: 111.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes/7" for 127.0.0.1 at 2011-04-18 21:49:26 -0400
+  Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 7 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 7)[0m
+  [1m[35mStory Load (1.0ms)[0m  SELECT `stories`.* FROM `stories` WHERE (`stories`.recipe_id = 7) LIMIT 1
+Rendered recipes/show.html.erb within layouts/application (81.0ms)
+Completed 200 OK in 131ms (Views: 98.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/recipes/7" for 127.0.0.1 at 2011-04-18 21:49:51 -0400
+  Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 7 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 7)
+  [1m[36mStory Load (1.0ms)[0m  [1mSELECT `stories`.* FROM `stories` WHERE (`stories`.recipe_id = 7) LIMIT 1[0m
+Rendered recipes/show.html.erb within layouts/application (79.0ms)
+Completed 200 OK in 130ms (Views: 94.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/recipes/7" for 127.0.0.1 at 2011-04-18 21:51:23 -0400
+  Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 7 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 7)[0m
+  [1m[35mStory Load (1.0ms)[0m  SELECT `stories`.* FROM `stories` WHERE (`stories`.recipe_id = 7) LIMIT 1
+Rendered recipes/show.html.erb within layouts/application (70.0ms)
+Completed 200 OK in 120ms (Views: 87.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/show" for 127.0.0.1 at 2011-04-18 21:51:36 -0400
+  Processing by UsersController#show as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  [1m[35mRecipe Load (3.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE (`recipes`.user_id = 8)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 6)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 7)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 7)[0m
+Rendered users/show.html.erb within layouts/application (153.0ms)
+Completed 200 OK in 241ms (Views: 179.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/recipes/6" for 127.0.0.1 at 2011-04-18 21:51:38 -0400
+  Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 6 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 6)[0m
+Rendered recipes/show.html.erb within layouts/application (66.0ms)
+Completed 200 OK in 112ms (Views: 81.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/show" for 127.0.0.1 at 2011-04-18 21:53:29 -0400
+  Processing by UsersController#show as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` WHERE (`recipes`.user_id = 8)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 6)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 7)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 7)
+Rendered users/show.html.erb within layouts/application (142.0ms)
+Completed 200 OK in 220ms (Views: 170.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/recipes/7" for 127.0.0.1 at 2011-04-18 21:53:31 -0400
+  Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 7 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 7)
+  [1m[36mStory Load (0.0ms)[0m  [1mSELECT `stories`.* FROM `stories` WHERE (`stories`.recipe_id = 7) LIMIT 1[0m
+Rendered recipes/show.html.erb within layouts/application (124.0ms)
+Completed 200 OK in 173ms (Views: 141.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/recipes/7" for 127.0.0.1 at 2011-04-18 21:54:00 -0400
+  Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 7 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 7)[0m
+  [1m[35mStory Load (0.0ms)[0m  SELECT `stories`.* FROM `stories` WHERE (`stories`.recipe_id = 7) LIMIT 1
+Rendered recipes/show.html.erb within layouts/application (102.0ms)
+Completed 200 OK in 150ms (Views: 118.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/recipes/7" for 127.0.0.1 at 2011-04-18 21:54:15 -0400
+  Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 7 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 7)
+  [1m[36mStory Load (1.0ms)[0m  [1mSELECT `stories`.* FROM `stories` WHERE (`stories`.recipe_id = 7) LIMIT 1[0m
+Rendered recipes/show.html.erb within layouts/application (86.0ms)
+Completed 200 OK in 131ms (Views: 100.0ms | ActiveRecord: 2.0ms)

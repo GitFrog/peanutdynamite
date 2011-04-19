@@ -1,13 +1,16 @@
 <div id="page1">
   <div><p><%= @recipe.title%></p></div>
   <div><p><%= @recipe.course%> | <%= @recipe.recDate.to_s(:long)%></p></div>
-  <div><%= simple_format(@recipe.ingredients)%></div>
-
-  <div><%= simple_format(@recipe.instructions) %></div>
-
+  <div style="overflow: auto; width:400px; height:150px;">
+    <%= simple_format(@recipe.ingredients)%>
+  </div>
+  <br/>
+  <div style="overflow: auto; width:400px; height:300px;">
+    <%= simple_format(@recipe.instructions)%>
+  </div>
   
-  <div>Prep in <%= @recipe.prepTime%> minutes<br/></div>
-  <div>Cook for <%= @recipe.cookTime%> minutes<br/></div>
+  <br/>
+  <div>Prep in <%= @recipe.prepTime%> minutes   |  Cook for <%= @recipe.cookTime%> minutes <br/></div>
   <div>Makes for <%= @recipe.yield %> hungry<% if @recipe.cookTime == 1 %> person<% else %> people<%  end %></div>
 </div>
 <div id="page2">
