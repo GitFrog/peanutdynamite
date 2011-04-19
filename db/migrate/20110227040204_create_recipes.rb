@@ -5,7 +5,7 @@ class CreateRecipes < ActiveRecord::Migration
       t.integer :pic_id
       t.text :title
       t.text :course
-      t.datetime :recDate
+      t.timestamp :recDate
       t.integer :prepTime
       t.integer :cookTime
       t.integer :totalTime

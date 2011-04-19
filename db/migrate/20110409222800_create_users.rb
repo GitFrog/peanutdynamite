@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.text :name
       t.text :bookname
       t.text :encrypted_password
-      t.timestamp :salt
+      t.text :salt
       t.timestamps
     end
   end

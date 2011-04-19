@@ -3,8 +3,7 @@
   <div><p><%= @recipe.course%> | <%= @recipe.recDate.to_s(:long)%></p></div>
   <div><%= simple_format(@recipe.ingredients)%></div>
 
-
-  <div><%= @recipe.instructions.class.to_s %></div>
+  <div><%= simple_format(@recipe.instructions) %></div>
 
   
   <div>Prep in <%= @recipe.prepTime%> minutes<br/></div>
