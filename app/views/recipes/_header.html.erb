@@ -1,0 +1,23 @@
+<br/>
+<div id="title2_black">
+  <%= @recipe.title %>
+  <font size="1" style="font-size:14px; color:gray;">
+    <% if @myfavourite == false %>
+      <%= link_to "keeper!", current_user.add_keeper!(@recipe) %> | <%= link_to "maybe?!", current_user.add_maybe!(@recipe) %>
+    <% else %>
+      This is in your book
+    <% end %>
+  </font>
+</div>
+<div id ="title4_gray">   by <%= @author.name %> on <%= @recipe.created_at.to_s(:long) %></div>
+
+
+
+
+
+
+
+
+
+
+

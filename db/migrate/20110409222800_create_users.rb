@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.text :salt
       t.timestamps
     end
+    add_index :users, :email, :unique => true
   end
 
   def self.down

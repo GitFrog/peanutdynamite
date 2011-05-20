@@ -1,0 +1,144 @@
+/*
+    Document   : newCascadeStyleSheet
+    Created on : 9-Mar-2011, 3:03:05 PM
+    Author     : Lee Hulse-Smith
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root {
+    display: block;
+}
+
+#start {
+  margin-left:auto;
+  margin-right:auto;
+  background: #fff;
+  position: relative;
+  width: 972px;
+  height: 900px;
+  margin: 0px auto;
+  padding: 0px;
+  text-decoration: none;
+  border: none;
+  border-spacing: 0px;
+  }
+
+#title1_red {font-family:Georgia,Arial; font-size:1.6em; color: rgb(252,21,21);}
+
+#title2_org {font-family:Georgia,Arial; font-size:2.4em; line-height:1.5em; color: #FFC81F;}
+#title5_org {font-family:Georgia,Arial; font-size:1.8em; line-height:1.5em; color: #FFC81F;}
+#title6_org {font-family:Georgia,Arial; font-size:1.6em; line-height:1.5em; color: #FFC81F;}
+
+#title0_black {font-family:Georgia,Arial; font-size:2.8em; line-height:1.5em; color: black;}
+#title1_black {font-family:Georgia,Arial; font-size:2.6em; line-height:1.5em; color: black;}
+#title2_black {font-family:Georgia,Arial; font-size:2.4em; line-height:1.5em; color: black;}
+#title3_black {font-family:Georgia,Arial; font-size:2.2em; line-height:1.5em; color: black;}
+#title4_black {font-family:Georgia,Arial; font-size:2.0em; line-height:1.5em; color: black;}
+#title5_black {font-family:Georgia,Arial; font-size:1.8em; line-height:1.5em; color: black;}
+#title6_black {font-family:Georgia,Arial; font-size:1.6em; line-height:1.5em; color: black;}
+#title7_black {font-family:Georgia,Arial; font-size:1.4em; line-height:1.5em; color: black;}
+#title8_black {font-family:Georgia,Arial; font-size:1.2em; line-height:1.5em; color: black;}
+#title9_black {font-family:Georgia,Arial; font-size:1.1em; line-height:1.5em; color: black;}
+
+#title1_gray {font-family:Georgia,Arial; font-size:1.6em; line-height:1.5em; color: gray;}
+#title2_gray {font-family:Georgia,Arial; font-size:1.4em; line-height:1.5em; color: gray;}
+#title3_gray {font-family:Georgia,Arial; font-size:1.2em; line-height:1.5em; color: gray;}
+#title4_gray {font-family:Georgia,Arial; font-size:1.0em; line-height:1.5em; color: gray;}
+
+#title2_green {font-family:Georgia,Arial; font-size:1.6em; line-height:1.5em; color: rgb(0,153,51);}
+
+#title4_ingred {font-family:Georgia,Arial; font-size:1.0em; line-height:150%; color: gray;
+                width: 50%; height: 140px; position: absolute;}
+
+.indent{position: relative; left:15px; text-decoration: none; }
+#pfont {font-size:1.2em; font-family:Georgia,Arial; line-height:1.5em;}
+
+#page {
+  position: absolute;
+  top: 105px;
+  left: 90px;
+  width: 780px;
+  height: 1110px;
+  border-style: none;
+}
+#column1 {
+  position: absolute;
+  top: 105px;
+  left: 90px;
+  width: 380px;
+  height: 1110px;
+  border-style: none;
+}
+#column2 {
+  position: absolute;
+  top: 115px;
+  left: 510px;
+  width: 320px;
+  height: 1110px;
+  border-style: none;
+  }
+
+  #picture{
+  width: 250px;
+  height: 250px;
+  border-style: dashed;
+  text-align: center;
+}
+
+
+#mybook_title{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 760px;
+  height: 140px;
+  border-bottom: 3px dotted #37ff54
+
+}
+
+
+#mybook_col1{
+  position: absolute;
+  top: 130px;
+  left: 20px;
+  width: 600px;
+  height: 870px;
+
+}
+
+#LogoQuote {
+  position: absolute;
+  top: 10px;
+  left: -10px;
+}
+#arrow1{position: absolute; top: -20px; left:130px;}
+#arrow2{position: absolute; top: -20px; left:300px;}
+#arrow3{position: absolute; top: -20px; left:480px;}
+#arrow4{position: absolute; top: -20px; left:650px;}
+
+#home_quote {
+  position: absolute;
+  font-size:2.4em;
+  color:gray;
+  font-family:Georgia,Arial;
+  line-height:1.2em;
+  top: 380px;
+  left: 150px;
+  height: 100px;
+  width: 480px;
+  text-align: center;
+}
+#footer {
+  background: #0f0;
+  position: absolute;
+  top: 500px;
+  left: 0px;
+  width: 800px;
+  height: 100px;
+}

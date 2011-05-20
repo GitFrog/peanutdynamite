@@ -22,5 +22,9 @@ DeadGrandmaCookies::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+
+  # Connect to ImageMagick
+  Paperclip.options[:command_path] = "c:/progra~1/imagemagick-6.6.9-q16"
+  Paperclip.options[:swallow_stderr] = false
 end
 

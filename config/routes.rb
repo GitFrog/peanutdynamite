@@ -5,6 +5,7 @@ DeadGrandmaCookies::Application.routes.draw do resources :home
   get "pages/home"
   get "users/new"
   get "users/show"
+  get "users/ajaxshow"
 
   root :to => "pages#home"
   resources :pages

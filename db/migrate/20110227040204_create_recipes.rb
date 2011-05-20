@@ -4,14 +4,16 @@ class CreateRecipes < ActiveRecord::Migration
       t.integer :user_id
       t.integer :pic_id
       t.text :title
-      t.text :course
-      t.timestamp :recDate
+      t.text :instructions
+      t.text :ingredients
       t.integer :prepTime
       t.integer :cookTime
       t.integer :totalTime
-      t.text :instructions
       t.integer :yield
-      t.text :ingredients
+      t.text :tag1
+      t.text :tag2
+      t.text :tag3
+      t.text :tag4
       t.timestamps
      end
   end

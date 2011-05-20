@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-  has_many :recipes
+
+  has_many :favourites
+  has_many :recipes, :through => :favourites 
   has_many :stories
 
   attr_accessor :password
@@ -18,17 +20,42 @@ class User < ActiveRecord::Base
 
   before_save :encrypt_password
 
-    def has_password?(submitted_password)
-      encrypted_password == encrypt(submitted_password)
-    end
+  def has_favourite?(recipe)
+    favourites.find_by_recipe_id(recipe)
+  end
 
-    def self.authenticate(email,submitted_password)
-      user = find_by_email(email)
-      return nil if user.nil?
-      return user if user.has_password?(submitted_password)
-    end
+  def add_keeper!(recipe)
+    favourites.create!(:recipe_id => recipe.id, :keeper => "keeper")
+  end
 
-    def self.authenticate_with_salt(id, cookie_salt)
+  def add_maybe!(recipe)
+    favourites.create!(:recipe_id => recipe.id, :keeper => "maybe")
+  end
+  
+  def switch_pile!(recipe)
+    fav = favourite.find_by_recipe_id(recipe)
+    if fav(:keeper => "keeper")
+      fav.update_attributes(:keeper => "maybe")
+    else fav(:keeper => "maybe")
+      fav.update_attributes(:keeper => "keeper")
+    end
+  end
+
+  def remove_favourite!(recipe)
+    favourites.find_by_recipe_id(recipe).destroy
+  end
+  
+  def has_password?(submitted_password)
+    encrypted_password == encrypt(submitted_password)
+  end
+
+  def self.authenticate(email,submitted_password)
+    user = find_by_email(email)
+    return nil if user.nil?
+    return user if user.has_password?(submitted_password)
+  end
+
+  def self.authenticate_with_salt(id, cookie_salt)
     user = find_by_id(id)
     return nil  if user.nil?
     return user if user.salt == cookie_salt

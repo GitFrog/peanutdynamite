@@ -16,7 +16,14 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   # GET /recipes/1.xml
   def show
-    @recipe = Recipe.find(params[:id])
+      @recipe = Recipe.find(params[:id])
+      @story = @recipe.stories.first
+      @author = User.find(@recipe.user_id)
+      if current_user.has_favourite?(@recipe)
+        @myfavourite = true
+      else
+        @myfavourite = false
+      end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -28,6 +35,8 @@ class RecipesController < ApplicationController
   # GET /recipes/new.xml
   def new
     @recipe = Recipe.new
+    @user = current_user
+    @keep = "Add New Recipe"
     #redirect_to @user
     #@story = Story.new
   end
@@ -41,11 +50,19 @@ class RecipesController < ApplicationController
   # POST /recipes.xml
   def create
     @recipe = Recipe.new(params[:recipe])
+    @recipe.tag1 = params[:food_tags][0]
+    @recipe.tag2 = params[:food_tags][1]
+    @recipe.tag3 = params[:food_tags][2]
+    @recipe.tag4 = params[:food_tags][3]
 
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to(@user) }
-        #format.xml  { render :xml => @recipe, :status => :created, :location => @recipe }
+        if Favourite.create(:user => current_user, :recipe_id => @recipe.id, :keeper => "keeper")
+          format.html { redirect_to(current_user) }
+          #format.xml  { render :xml => @recipe, :status => :created, :location => @recipe }
+        else
+          @recipe.destroy
+        end
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @recipe.errors, :status => :unprocessable_entity }
