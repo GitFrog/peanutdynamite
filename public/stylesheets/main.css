@@ -77,7 +77,7 @@ root {
 }
 #column2 {
   position: absolute;
-  top: 115px;
+  top: 105px;
   left: 510px;
   width: 320px;
   height: 1110px;
@@ -97,16 +97,15 @@ root {
   top: 0px;
   left: 0px;
   width: 760px;
-  height: 140px;
-  border-bottom: 3px dotted #37ff54
+  height: 153px;
+  
 
 }
 
-
 #mybook_col1{
   position: absolute;
-  top: 130px;
-  left: 20px;
+  top: 170px;
+  left: 30px;
   width: 600px;
   height: 870px;
 

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
-  has_many :favourites
-  has_many :recipes, :through => :favourites 
+  has_many :recipefavourites
+  has_many :recipes, :through => :recipefavourites
   has_many :stories
 
   attr_accessor :password
@@ -21,28 +21,28 @@ class User < ActiveRecord::Base
   before_save :encrypt_password
 
   def has_favourite?(recipe)
-    favourites.find_by_recipe_id(recipe)
+    self.recipefavourites.find_by_recipe_id(recipe)
   end
 
   def add_keeper!(recipe)
-    favourites.create!(:recipe_id => recipe.id, :keeper => "keeper")
+    recipefavourites.create!(:recipe_id => recipe.id, :rating => "keeper")
   end
 
   def add_maybe!(recipe)
-    favourites.create!(:recipe_id => recipe.id, :keeper => "maybe")
+    self.Recipefavourite.create!(:recipe_id => recipe.id, :rating => "maybe")
   end
   
   def switch_pile!(recipe)
-    fav = favourite.find_by_recipe_id(recipe)
-    if fav(:keeper => "keeper")
+    fav = self.recipefavourites.find_by_recipe_id(recipe)
+    if fav(:rating => "keeper")
       fav.update_attributes(:keeper => "maybe")
-    else fav(:keeper => "maybe")
-      fav.update_attributes(:keeper => "keeper")
+    else fav(:rating => "maybe")
+      fav.update_attributes(:rating => "keeper")
     end
   end
 
-  def remove_favourite!(recipe)
-    favourites.find_by_recipe_id(recipe).destroy
+  def remove_favourite(recipe)
+    self.recipefavourites.find_by_recipe_id(recipe).destroy
   end
   
   def has_password?(submitted_password)

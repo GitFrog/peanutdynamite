@@ -1,17 +1,20 @@
 DeadGrandmaCookies::Application.routes.draw do resources :home
 
   get "recipes/index"
+  get "stories/scrollup"
   get "pages/about"
   get "pages/home"
   get "users/new"
   get "users/show"
-  get "users/ajaxshow"
+  get "recipefavourites/destroy"
+  get "recipefavourites/update"
 
   root :to => "pages#home"
   resources :pages
   resources :recipes
   resources :stories
   resources :users
+  resources :recipefavourites
   resources :sessions, :only => [:new, :create, :destroy]
 
   match '/signup',  :to => 'users#new'

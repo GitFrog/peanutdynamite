@@ -10,8 +10,6 @@ class UsersController < ApplicationController
 
       @keep = case params[:keep]
         when nil then "keeper"
-        when "k" then "keeper"
-        when "m" then "maybe"
         else params[:keep]
       end
 
@@ -21,7 +19,7 @@ class UsersController < ApplicationController
         when "app" then "appetizer"
         when "soup" then "soup, stew"
         when "salad" then "salad"            
-        when "sauce" then "sause"
+        when "sauce" then "sauce"
         when "side" then "side"
         when "main" then "main"
         when "sweet" then "sweet"
@@ -45,9 +43,9 @@ class UsersController < ApplicationController
 
 
       if @show == nil
-        @recipes = @user.recipes.where("favourites.keeper = ?", @keep).order(@sort).limit(items_per_page)
+        @recipes = @user.recipes.where("recipefavourites.rating = ?", @keep).order(@sort).limit(items_per_page)
       else
-         @recipes = @user.recipes.where("recipes.course = ? AND favourites.keeper = ?", @show, @keep).order(@sort).limit(items_per_page)
+        @recipes = @user.recipes.where("recipes.course = ? AND recipefavourites.rating = ?", @show, @keep).order(@sort).limit(items_per_page)
       end
         
      

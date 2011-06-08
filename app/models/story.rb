@@ -13,7 +13,23 @@ class Story < ActiveRecord::Base
     self.class.first(:conditions => ["id > ? AND recipe_id = ?", id, self.recipe_id], :order => "id asc")
   end
 
+  def my_first_story
+    self.class.first(:conditions => ["recipe_id = ? AND user_id = ?", self.recipe_id, self.user_id], :order => "id asc")
+  end
+
+  def my_previous_story
+    self.class.first(:conditions => ["id < ? AND recipe_id = ? AND user_id = ?", id, self.recipe_id, self.user_id], :order => "id desc")
+  end
+
+  def my_next_story
+    self.class.first(:conditions => ["id > ? AND recipe_id = ? AND user_id = ?", id, self.recipe_id, self.user_id], :order => "id asc")
+  end
+
+  def my_story_location
+    (self.class.count(:conditions => ["id < ? AND recipe_id = ? AND user_id = ?", id, self.recipe_id, self.user_id]) + 1).to_s + "/" + self.class.count(:conditions => ["recipe_id = ? AND user_id = ?", self.recipe_id, self.user_id]).to_s
+  end
   
-
-
+  def story_location
+    (self.class.count(:conditions => ["id < ? AND recipe_id = ?", id, self.recipe_id]) + 1).to_s + "/" + self.class.count(:conditions => ["recipe_id = ?", self.recipe_id]).to_s
+  end
 end

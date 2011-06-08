@@ -3,18 +3,37 @@
 
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <br/>
-  
   <div>
-    <%= f.label :title, :class => "input", :id => "titlelabel" %>
-    <%= f.text_field :title, :class => "input", :id => "titlefield" %>
+    <%= f.label "Let others see your recipe?", :class => "input", :id => "privatelabel" %>
+    <%= f.check_box :private, :class => "input", :id => "privatefield" %>
   </div>
   <div>
     <%= f.label :ingredients, :class => "input", :id => "ingredlabel"%>
     <%= f.text_area :ingredients, :class => "input", :id => "ingredfield" %>
   </div>
   <div>
+    <%= f.label :instructions, :class => "input", :id => "instructlabel" %>
+    <%= f.text_area :instructions, :class => "input", :id => "instructfield" %>
+  </div>
+  <div>
+    <%= f.label :title, :class => "input", :id => "titlelabel" %>
+    <%= f.text_field :title, :class => "input", :id => "titlefield" %>
+  </div>
+  <div>
     <%= f.label :course, :class => "input", :id => "courselabel" %>
     <%= f.select :course , course_select, {}, {:class => "input", :id => "coursefield"} %>
+  </div>
+  <div>
+    <%= f.label "Prep (min)", :class => "input", :id => "preplabel" %>
+    <%= f.number_field :prepTime, :class => "input", :id => "prepfield" %>
+  </div>
+  <div>
+    <%= f.label "Cook (min)", :class => "input", :id => "cooklabel" %>
+    <%= f.number_field :cookTime, :class => "input", :id => "cookfield" %>
+  </div>
+  <div>
+    <%= f.label "Serves", :class => "input", :id => "yieldlabel" %>
+    <%= f.number_field :yield, :class => "input", :id => "yieldfield" %>
   </div>
   <div class ="input" id = "foodlabel">Categorize</div>
   <div class ="input" id = "foodchecks"> 
@@ -54,28 +73,9 @@
       </tr>
     </table>      
   </div>
-
-
-
- <div>
-    <%= f.label :instructions, :class => "input", :id => "instructlabel" %>
-    <%= f.text_area :instructions, :class => "input", :id => "instructfield" %>
- </div>    
- <div>
-    <%= f.label "Prep (min)", :class => "input", :id => "preplabel" %>
-    <%= f.number_field :prepTime, :class => "input", :id => "prepfield" %>
- </div>
- <div>
-    <%= f.label "Cook (min)", :class => "input", :id => "cooklabel" %>
-    <%= f.number_field :cookTime, :class => "input", :id => "cookfield" %>
- </div>
- <div>
-    <%= f.label "Serves", :class => "input", :id => "yieldlabel" %>
-    <%= f.number_field :yield, :class => "input", :id => "yieldfield" %>
- </div>
- <div class="actions">
+  <div class="actions">
     <%= f.submit "Add Recipe", :class => "input", :id => "submit" %>
- </div>
+  </div>
 
   
  <% end %>

@@ -1,0 +1,51 @@
+<br/>
+
+<% if (@myfavourite == true && @mystories == '1') %>
+    <div id="title2_black">My Stories</div>
+<% else %>
+    <div id="title2_black">All Stories</div>
+<% end %>
+
+<% if @myfavourite %>
+    <div>
+      <%=  link_to "show mine (" + @recipe.my_story_count(current_user.id) + ")", :action => 'show', :controller => 'recipes', :id => @recipe.id, :mystories => '1' %> |
+      <%=  link_to "show all ("+@recipe.stories.count.to_s+")", :action => 'show', :controller => 'recipes', :id => @recipe.id, :mystories => '0' %> |
+      <%=  link_to "add a story", {:controller => 'stories', :action => 'new', :recipe_id => @recipe} %>
+    </div>
+    <br/>
+<% else %>
+    <br/><br/>
+<% end %>
+
+<% if (@myfavourite == true && @mystories == '1') %>
+    <div id ="title4_gray" align ="center">
+      <% if @story.my_previous_story %><%= link_to '<<prev', :action => 'show', :controller => 'stories', :id => @story.my_previous_story, :mystories => '1' %>
+      <% else %><%= '<<prev' %><% end %>
+      <%= @story.my_story_location %>
+      <% if @story.my_next_story %><%= link_to 'next>>', :action => 'show', :controller => 'stories', :id => @story.my_next_story, :mystories => '1' %>
+      <% else %><%= 'next>>' %><% end %>
+    </div>
+<% else %>
+    <div id ="title4_gray" align ="center">
+      <% if @story.previous_story %><%= link_to '<<prev', :action => 'show', :controller => 'stories', :id => @story.previous_story, :mystories => '0' %>
+      <% else %><%= '<<prev' %><% end %>
+      <%= @story.story_location %>
+      <% if @story.next_story %><%= link_to 'next>>', :action => 'show', :controller => 'stories', :id => @story.next_story, :mystories => '0' %>
+      <% else %><%= 'next>>' %><% end %>
+    </div>
+<% end %>
+    
+
+
+  <br/>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,28 +1,7 @@
-<br/><br/>
-  <div align ="center">
-  <div>
 
-    <% if @myfavourite == true %>
-      <%=  link_to "show mine", :action => 'show', :controller => 'users', :sort => "new", :show => @show, :keep => @keep %> |
-      <%=  link_to "show all", :action => 'show', :controller => 'users', :sort => "old", :show => @show, :keep => @keep %> |
-      <%= link_to "add a story", {:controller => 'stories', :action => 'new', :recipe_id => @recipe} %>
-    <% end %>
-
-  </div>
-
-  <% if @story != nil %>
-    <div id ="title4_gray" align ="center">
-      <% if @story.previous_story %><%= link_to('<<prev', @story.previous_story)%>
-      <% else %><%= '<<prev' %><% end %>
-       (<%=@recipe.stories.count%><% if @recipe.stories.count == 1 %> Story<% else %> Stories<% end %>) 
-      <% if @story.next_story %><%= link_to('next>>', @story.next_story)%>
-      <% else %><%= 'next>>' %><% end %>
-
-    </div>
-    <br/>
-    
+<div align ="center">
     <div id="title5_org" align ="center"><%= @story.title %></div>
-    <div id ="title4_gray" align ="center">by <%= @author.name %> on <%= @story.created_at.to_s(:long) %></div>
+    <div id ="title4_gray" align ="center">by <%= @author_story.name %> on <%= @story.created_at.to_s(:long) %></div>
 
     <br/>
 
@@ -40,10 +19,6 @@
 
 
   
-  <%  else %>
   
-  
-  <%  end %>
-
   
 

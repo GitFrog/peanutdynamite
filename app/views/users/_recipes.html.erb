@@ -1,34 +1,65 @@
  <br/>
-    <div id ="title2_black"><% if @show.nil? %>All Recipes<% else %><%= @show.capitalize %><% end %> </div>
-    <div>
-      <%=  link_to "newest", :action => 'show', :controller => 'users', :sort => "new", :show => @show, :keep => @keep %> |
-      <%=  link_to "oldest", :action => 'show', :controller => 'users', :sort => "old", :show => @show, :keep => @keep %> |
-      <%=  link_to "by chef", :action => 'show', :controller => 'users', :sort => "chef", :show => @show, :keep => @keep %> |
-      <%=  link_to "rating", :action => 'show', :controller => 'users', :sort => "rate", :show => @show, :keep => @keep %> |
-      <%=  link_to "views", :action => 'show', :controller => 'users', :sort => "view", :show => @show, :keep => @keep %> |
-      <%=  link_to "stories", :action => 'show', :controller => 'users', :sort => "story", :show => @show, :keep => @keep %>
-    </div>
-  <ul type ="disc">
-     <% @recipes.each do |recipe| %>
-        <li id="title6_black">
-          <%= link_to recipe.title, recipe, {:style=>'color:black; hover'} %>
-          <font size="1" style="font-size:14px; color:gray;"> (
-          <% if recipe.stories.count == 0 %>
-            no stories
-          <% elsif recipe.stories.count == 1 %>
-            1 story
-          <% else %>
-            <%= recipe.stories.count %> stories
-          <% end %> |
-          <%= link_to "to maybe"%> |
-          <%= link_to "remove"%>)
-          </font>
-        </li>
-    <% end %>
-    <% if @recipes.size == 0 %>
-      <li id="pfont">no recipes yet</li>
-    <% end  %>
-  </ul>
+    
+ <table width = "700">
+   <tr>
+      <td>
+          
+     </td>
+     <td align ="center">
+        like
+     </td>
+     <td align ="center">
+        hate
+     </td>
+     <td align ="center">
+        stories
+     </td>
+      <td align ="center">
+
+     </td>
+   </tr>
+   <% @recipes.each do |recipe| %>
+    <tr width ="400">
+      <td>       
+         <div id="title6_black">
+             <%= link_to recipe.title_concat, recipe, {:style=>'color:black; hover'} %>
+         </div>       
+     </td>
+     <td>
+        <div id="title6_gray" align ="center">
+          <%= "4"%>
+        </div>
+     </td>
+     <td>
+        <div id="title6_gray" align ="center">
+          <%= "5"%>
+        </div>
+     </td>
+     <td>
+        <div id="title6_gray" align ="center">
+         <%= recipe.stories.count %>
+         
+        </div>
+     </td>
+     <td>
+        <div id="title6_gray">
+          <% if @keep == 'keeper' %>
+            <%= link_to "to maybe", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'maybe', :loc => @keep %> |
+          <% elsif @keep == 'maybe' %>
+            <%= link_to "to keeper", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'keeper', :loc => @keep %> |
+          <% end %>
+          <%= link_to "hate it", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'hate', :loc => @keep %> |
+          <%= link_to "remove", :action => 'destroy', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id %>
+        </div>
+     </td>
+     
+   </tr>
+   <% end  %>
+ </table>
+
+
+
+ 
 
 
   

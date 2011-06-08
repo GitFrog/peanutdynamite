@@ -3,7 +3,6 @@ class CreateStories < ActiveRecord::Migration
     create_table :stories do |t|
       t.integer :recipe_id
       t.integer :user_id
-      t.integer :pic_id
       t.text :title
       t.text :thestory
       t.text :category

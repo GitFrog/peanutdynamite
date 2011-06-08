@@ -1,28 +1,25 @@
 class RecipesController < ApplicationController
   
   layout "application"
-
-  # GET /recipes
-  # GET /recipes.xml
-  def index
-    @recipes = Recipe.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @recipes }
-    end
-  end
-
-  # GET /recipes/1
-  # GET /recipes/1.xml
+  
   def show
       @recipe = Recipe.find(params[:id])
-      @story = @recipe.stories.first
-      @author = User.find(@recipe.user_id)
+      @author_recipe = User.find(@recipe.user_id)
+      @story_count = @recipe.stories.count
       if current_user.has_favourite?(@recipe)
         @myfavourite = true
+        @mystories = case params[:mystories]
+            when nil then '1'
+            else params[:mystories]
+            end
+        @story = @recipe.stories.where(:user_id => current_user.id).first
+        @author_story = User.find(@story.user_id)
+        @my_story_count = @recipe.stories.where(:user_id => current_user.id).count
       else
         @myfavourite = false
+        @mystories = '0'
+        @story = @recipe.stories.first
+        @author_story = User.find(@story.user_id)
       end
 
     respond_to do |format|
@@ -37,6 +34,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
     @user = current_user
     @keep = "Add New Recipe"
+    @show = ""
     #redirect_to @user
     #@story = Story.new
   end
@@ -50,15 +48,14 @@ class RecipesController < ApplicationController
   # POST /recipes.xml
   def create
     @recipe = Recipe.new(params[:recipe])
-    @recipe.tag1 = params[:food_tags][0]
-    @recipe.tag2 = params[:food_tags][1]
-    @recipe.tag3 = params[:food_tags][2]
-    @recipe.tag4 = params[:food_tags][3]
-
+    
     respond_to do |format|
       if @recipe.save
-        if Favourite.create(:user => current_user, :recipe_id => @recipe.id, :keeper => "keeper")
-          format.html { redirect_to(current_user) }
+        if Recipefavourite.create(:user => current_user, :recipe_id => @recipe.id, :rating => "maybe")
+          params[:food_tags][0...4].each do |food_tag|
+            Recipetag.create(:recipe_id => @recipe.id, :tag => food_tag)
+          end
+          format.html { redirect_to :action => 'show', :controller => 'users', :keep => "maybe" }
           #format.xml  { render :xml => @recipe, :status => :created, :location => @recipe }
         else
           @recipe.destroy
@@ -89,12 +86,6 @@ class RecipesController < ApplicationController
   # DELETE /recipes/1
   # DELETE /recipes/1.xml
   def destroy
-    @recipe = Recipe.find(params[:id])
-    @recipe.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(recipes_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to current_user
   end
 end
