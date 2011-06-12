@@ -17,7 +17,9 @@
     <br/><br/>
 <% end %>
 
-<% if (@myfavourite == true && @mystories == '1') %>
+<% if @story == nil %>
+    <br/>
+<% elsif (@myfavourite == true && @my_story_count.to_i > 0 && @mystories == '1') %>
     <div id ="title4_gray" align ="center">
       <% if @story.my_previous_story %><%= link_to '<<prev', :action => 'show', :controller => 'stories', :id => @story.my_previous_story, :mystories => '1' %>
       <% else %><%= '<<prev' %><% end %>

@@ -1,16 +1,19 @@
 
 <div align ="center">
+   <% if @story != nil %>
     <div id="title5_org" align ="center"><%= @story.title %></div>
     <div id ="title4_gray" align ="center">by <%= @author_story.name %> on <%= @story.created_at.to_s(:long) %></div>
-
+   
     <br/>
 
     <div id ="picture"><%= image_tag @story.photo.url(:small) %></div>
+    <% end %>
 </div>
 <br/>
-    <div>
+    <div id ="title8_black">
       <% if @story == nil %>
         This recipe has no stories yet.
+        
       <% else %>
         <div id="title8_black"><%= @story.thestory %></div>
       <% end %>

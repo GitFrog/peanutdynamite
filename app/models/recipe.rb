@@ -9,6 +9,10 @@ class Recipe < ActiveRecord::Base
     self.stories.where(:user_id => current_user_id).count.to_s
   end
 
+  def all_story_count
+    self.stories.count.to_s
+  end
+
   def title_concat
     if title.length > 33 then
       title[0..30] + '...'
@@ -16,5 +20,15 @@ class Recipe < ActiveRecord::Base
       title
     end
   end
+  
+  def num_of_likes
+    self.recipefavourites.where(:rating => "keeper").count
+  end
+  
+  def num_of_hates
+    self.recipefavourites.where(:rating => "hate").count
+  end
+
+
 
 end

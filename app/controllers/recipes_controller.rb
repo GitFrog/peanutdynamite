@@ -3,24 +3,34 @@ class RecipesController < ApplicationController
   layout "application"
   
   def show
-      @recipe = Recipe.find(params[:id])
-      @author_recipe = User.find(@recipe.user_id)
-      @story_count = @recipe.stories.count
-      if current_user.has_favourite?(@recipe)
-        @myfavourite = true
-        @mystories = case params[:mystories]
-            when nil then '1'
-            else params[:mystories]
-            end
-        @story = @recipe.stories.where(:user_id => current_user.id).first
-        @author_story = User.find(@story.user_id)
-        @my_story_count = @recipe.stories.where(:user_id => current_user.id).count
-      else
-        @myfavourite = false
-        @mystories = '0'
-        @story = @recipe.stories.first
-        @author_story = User.find(@story.user_id)
+
+    @recipe = Recipe.find(params[:id]) #grab the recipe...easy enough
+    @author_recipe = User.find(@recipe.user_id) # now grab author of said recipe
+    @story_count = @recipe.stories.count # alright, how many stories does this recipe have?
+      
+    if current_user.has_favourite?(@recipe) # If this recipe is one of my favourites then...
+
+      @myfavourite = true # Tells the view that this recipe is one of my favourite
+      @my_story_count = @recipe.stories.where(:user_id => current_user.id).count
+      @mystories = case params[:mystories] # are we scrolling through my stories, or all stories?
+        when nil then '1' # if not instructed, then scroll through my stories first
+        else params[:mystories]
+        end
+      if @my_story_count > 0 #if I have stories then...
+        @story = @recipe.stories.where(:user_id => current_user.id).first # Grab my first story
+        @author_story = current_user # I'm obviously the author of this story!
       end
+        
+    else # This is just some recipe I've come across
+
+      @myfavourite = false # obviously this in not one of my favourites
+      @mystories = '0' # scroll through all stories (since I don't have any linked to this recipe)
+      if @story_count > 0 #if this recipe has any stories then...
+        @story = @recipe.stories.first # Grab the first story
+        @author_story = User.find(@story.user_id) # Get the stories author
+      end
+
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -52,8 +62,10 @@ class RecipesController < ApplicationController
     respond_to do |format|
       if @recipe.save
         if Recipefavourite.create(:user => current_user, :recipe_id => @recipe.id, :rating => "maybe")
-          params[:food_tags][0...4].each do |food_tag|
-            Recipetag.create(:recipe_id => @recipe.id, :tag => food_tag)
+          if params[:food_tags] != nil
+            params[:food_tags][0...4].each do |food_tag|
+              Recipetag.create(:recipe_id => @recipe.id, :tag => food_tag)
+            end
           end
           format.html { redirect_to :action => 'show', :controller => 'users', :keep => "maybe" }
           #format.xml  { render :xml => @recipe, :status => :created, :location => @recipe }

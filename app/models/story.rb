@@ -2,6 +2,7 @@ class Story < ActiveRecord::Base
 
   belongs_to :recipe
   belongs_to :user
+  has_many :storytags
 
   has_attached_file :photo, :styles => {:thumb=> "50x50#", :small=> "250x250#" }
 

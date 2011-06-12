@@ -8,9 +8,7 @@ class CreateFavourites < ActiveRecord::Migration
       t.timestamps
      end
      add_index :favourites, :user_id
-     add_index :favourites, :recipe_id
-     add_index :favourites, [:user_id, :recipe_id], :unique => true
-     
+     add_index :favourites, :recipe_id        
   end
 
   def self.down

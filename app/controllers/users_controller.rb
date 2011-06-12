@@ -2,9 +2,10 @@ class UsersController < ApplicationController
 
  
   def show #this shows the users recipe book
+
     if signed_in?
 
-      items_per_page = 20
+      items_per_page = 25
 
       @user = current_user
 
@@ -35,27 +36,36 @@ class UsersController < ApplicationController
         when "new" then "created_at DESC"
         when "old" then "created_at ASC"
         when "chef" then "user_id"
-        when "rate" then nil
-        when "view" then nil
-        when "story" then nil
+        when "rate" then "rate"
+        when "story" then "story"
       else params[:sort]
       end
 
 
       if @show == nil
-        @recipes = @user.recipes.where("recipefavourites.rating = ?", @keep).order(@sort).limit(items_per_page)
+        if @sort == "rate"
+          @recipes = @user.recipes.where("recipefavourites.rating = ?", @keep).sort_by{|recipe| -recipe.num_of_likes.to_i}[0...items_per_page]
+        elsif @sort == "story"
+          @recipes = @user.recipes.where("recipefavourites.rating = ?", @keep).sort_by{|recipe| -recipe.all_story_count.to_i}[0...items_per_page]
+        else
+          @recipes = @user.recipes.where("recipefavourites.rating = ?", @keep).order(@sort).limit(items_per_page)
+        end
       else
-        @recipes = @user.recipes.where("recipes.course = ? AND recipefavourites.rating = ?", @show, @keep).order(@sort).limit(items_per_page)
-      end
-        
-     
+         if @sort == "rate"
+          @recipes = @user.recipes.where("recipes.course = ? AND recipefavourites.rating = ?", @show, @keep).sort_by{|recipe| -recipe.num_of_likes.to_i}[0...items_per_page]
+        elsif @sort == "story"
+          @recipes = @user.recipes.where("recipes.course = ? AND recipefavourites.rating = ?", @show, @keep).sort_by{|recipe| -recipe.all_story_count.to_i}[0...items_per_page]
+        else
+          @recipes = @user.recipes.where("recipes.course = ? AND recipefavourites.rating = ?", @show, @keep).order(@sort).limit(items_per_page)
+        end
+      end     
     else
       @user = User.new
       render 'new'
     end
   end
 
-   def new
+  def new
     @user = User.new
   end
 

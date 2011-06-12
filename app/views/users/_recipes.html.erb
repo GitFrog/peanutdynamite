@@ -6,16 +6,16 @@
           
      </td>
      <td align ="center">
-        like
+        likes
      </td>
      <td align ="center">
-        hate
+        hates
      </td>
      <td align ="center">
         stories
      </td>
       <td align ="center">
-
+        move or remove
      </td>
    </tr>
    <% @recipes.each do |recipe| %>
@@ -27,12 +27,12 @@
      </td>
      <td>
         <div id="title6_gray" align ="center">
-          <%= "4"%>
+          <%= recipe.num_of_likes %>
         </div>
      </td>
      <td>
         <div id="title6_gray" align ="center">
-          <%= "5"%>
+          <%= recipe.num_of_hates %>
         </div>
      </td>
      <td>
@@ -44,11 +44,11 @@
      <td>
         <div id="title6_gray">
           <% if @keep == 'keeper' %>
-            <%= link_to "to maybe", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'maybe', :loc => @keep %> |
+            <%= link_to "maybe", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'maybe', :loc => @keep %> |
           <% elsif @keep == 'maybe' %>
-            <%= link_to "to keeper", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'keeper', :loc => @keep %> |
+            <%= link_to "keeper", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'keeper', :loc => @keep %> |
           <% end %>
-          <%= link_to "hate it", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'hate', :loc => @keep %> |
+          <%= link_to "hate", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'hate', :loc => @keep %> |
           <%= link_to "remove", :action => 'destroy', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id %>
         </div>
      </td>
