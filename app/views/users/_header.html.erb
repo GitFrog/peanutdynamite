@@ -1,5 +1,6 @@
- <div align="center">
-      <br/>
+
+<!-- Book Title and Main Links -->
+    <div align="center"><br/>
       <div id="title0_black"><%=@user.bookname%></div>
       <div>
       <%= link_to "main", :action => 'show', :controller => 'users' %> |
@@ -7,41 +8,40 @@
       <%= link_to "edit book" %> |
       <%= link_to "sign out", signout_path, :method => :delete %>
       </div>
-
-
-
- </div>
+    </div>
+    
+<!--  Keeper / Maybe flip-flop -->
     <div id="title4_gray">
-
         <% if @keep == "keeper" then %>
           <%= link_to "switch to maybe's", :action => 'show', :controller => 'users', :show => @show, :sort => @sort, :keep => "maybe" %>
         <% elsif @keep == "maybe" then %>
           <%= link_to "switch to keepers", :action => 'show', :controller => 'users', :show => @show, :sort => @sort, :keep => "keeper" %>
-        <% else %>
-          <br/>
+        <% else %><br/>
         <% end %>
+    </div>
 
-      </div>
+<!--  Recipe Header -->
     <div id ="title2_black">
       <% if @keep == 'keeper' then %>Keeper's :<% elsif @keep == 'maybe' then %>Maybe's :<% else %><%= @keep %> <% end %>
       <font size="1" style="font-size:28px; color:orange">
         <% if @show.nil? %>All Recipes
         <% else %><%= @show.capitalize %>
         <% end %>
-      </font>
+      </font>      
     </div>
 
-   <% if (@keep == 'keeper' || @keep == 'maybe') %>
-<div>
-      <%=  link_to "newest", :action => 'show', :controller => 'users', :sort => "new", :show => @show, :keep => @keep %> |
-      <%=  link_to "oldest", :action => 'show', :controller => 'users', :sort => "old", :show => @show, :keep => @keep %> |
-      <%=  link_to "chef", :action => 'show', :controller => 'users', :sort => "chef", :show => @show, :keep => @keep %> |
-      <%=  link_to "rating", :action => 'show', :controller => 'users', :sort => "rate", :show => @show, :keep => @keep %> |
-      <%=  link_to "stories", :action => 'show', :controller => 'users', :sort => "story", :show => @show, :keep => @keep %>
-    </div>
-<% else %>
-<br/>
-<%end%>
+<!--  Recipe Sorting Options -->
+    <% if (@keep == 'keeper' || @keep == 'maybe') %>
+      <div>
+        <%=  link_to "newest", :action => 'show', :controller => 'users', :sort => "new", :show => @show, :keep => @keep, :page => @page %> |
+        <%=  link_to "oldest", :action => 'show', :controller => 'users', :sort => "old", :show => @show, :keep => @keep, :page => @page %> |
+        <%=  link_to "chef", :action => 'show', :controller => 'users', :sort => "chef", :show => @show, :keep => @keep, :page => @page %> |
+        <%=  link_to "rating", :action => 'show', :controller => 'users', :sort => "rate", :show => @show, :keep => @keep, :page => @page %> |
+        <%=  link_to "stories", :action => 'show', :controller => 'users', :sort => "story", :show => @show, :keep => @keep, :page => @page %>
+      </div>
+    <% else %>
+      <br/>
+    <%end%>
       
 
     

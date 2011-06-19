@@ -1,13 +1,12 @@
-<br/>
 
 <% if (@myfavourite == true && @mystories == '1') %>
-    <div id="title2_black">My Stories</div>
+    <div id="title2_black" align ="center">My Stories</div>
 <% else %>
-    <div id="title2_black">All Stories</div>
+    <div id="title2_black" align ="center">All Stories</div>
 <% end %>
 
 <% if @myfavourite %>
-    <div>
+    <div align ="center">
       <%=  link_to "show mine (" + @recipe.my_story_count(current_user.id) + ")", :action => 'show', :controller => 'recipes', :id => @recipe.id, :mystories => '1' %> |
       <%=  link_to "show all ("+@recipe.stories.count.to_s+")", :action => 'show', :controller => 'recipes', :id => @recipe.id, :mystories => '0' %> |
       <%=  link_to "add a story", {:controller => 'stories', :action => 'new', :recipe_id => @recipe} %>

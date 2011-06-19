@@ -1,7 +1,11 @@
 class RecipesController < ApplicationController
   
   layout "application"
-  
+
+  def index
+
+  end
+
   def show
 
     @recipe = Recipe.find(params[:id]) #grab the recipe...easy enough

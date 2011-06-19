@@ -3,15 +3,15 @@ class CreateStories < ActiveRecord::Migration
     create_table :stories do |t|
       t.integer :recipe_id
       t.integer :user_id
-      t.text :title
+      t.string :title, :limit => 50
       t.text :thestory
-      t.text :category
-      t.text :photo_file_name
-      t.text :photo_content_type
+      t.string :category, :limit => 15
+      t.string :photo_file_name
+      t.string :photo_content_type
       t.integer :photo_file_size
       t.timestamps
     end
-    add_index :recipes, :users
+    add_index :recipe_id, :user_id
   end
 
   def self.down

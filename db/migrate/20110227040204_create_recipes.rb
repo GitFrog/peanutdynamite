@@ -5,8 +5,8 @@ class CreateRecipes < ActiveRecord::Migration
       t.integer :private
       t.text :ingredients
       t.text :instructions
-      t.text :title
-      t.text :course
+      t.string :title, :limit => 100
+      t.string :course, :limit => 12
       t.integer :prepTime
       t.integer :cookTime
       t.integer :yield

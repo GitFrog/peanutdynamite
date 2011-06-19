@@ -9,6 +9,15 @@ class UsersController < ApplicationController
 
       @user = current_user
 
+      @page = case params[:page].to_i
+        when nil then 0
+        when -1 then 0
+        else params[:page].to_i
+      end
+
+      start_record = @page * items_per_page
+      end_record = (@page+1) * items_per_page
+
       @keep = case params[:keep]
         when nil then "keeper"
         else params[:keep]
@@ -41,24 +50,28 @@ class UsersController < ApplicationController
       else params[:sort]
       end
 
-
       if @show == nil
         if @sort == "rate"
-          @recipes = @user.recipes.where("recipefavourites.rating = ?", @keep).sort_by{|recipe| -recipe.num_of_likes.to_i}[0...items_per_page]
+          @recipes = @user.recipes.where("recipefavourites.rating = ?", @keep).sort_by{|recipe| -recipe.num_of_likes.to_i}[start_record...end_record]
         elsif @sort == "story"
-          @recipes = @user.recipes.where("recipefavourites.rating = ?", @keep).sort_by{|recipe| -recipe.all_story_count.to_i}[0...items_per_page]
+          @recipes = @user.recipes.where("recipefavourites.rating = ?", @keep).sort_by{|recipe| -recipe.all_story_count.to_i}[start_record...end_record]
         else
-          @recipes = @user.recipes.where("recipefavourites.rating = ?", @keep).order(@sort).limit(items_per_page)
+          @recipes = @user.recipes.where("recipefavourites.rating = ?", @keep).order(@sort)[start_record...end_record]
         end
       else
          if @sort == "rate"
-          @recipes = @user.recipes.where("recipes.course = ? AND recipefavourites.rating = ?", @show, @keep).sort_by{|recipe| -recipe.num_of_likes.to_i}[0...items_per_page]
+          @recipes = @user.recipes.where("recipes.course = ? AND recipefavourites.rating = ?", @show, @keep).sort_by{|recipe| -recipe.num_of_likes.to_i}[start_record...end_record]
         elsif @sort == "story"
-          @recipes = @user.recipes.where("recipes.course = ? AND recipefavourites.rating = ?", @show, @keep).sort_by{|recipe| -recipe.all_story_count.to_i}[0...items_per_page]
+          @recipes = @user.recipes.where("recipes.course = ? AND recipefavourites.rating = ?", @show, @keep).sort_by{|recipe| -recipe.all_story_count.to_i}[start_record...end_record]
         else
-          @recipes = @user.recipes.where("recipes.course = ? AND recipefavourites.rating = ?", @show, @keep).order(@sort).limit(items_per_page)
+          @recipes = @user.recipes.where("recipes.course = ? AND recipefavourites.rating = ?", @show, @keep).order(@sort)[start_record...end_record]
         end
-      end     
+      end
+
+      if @recipes == nil then
+        #@page -= 1
+      end
+
     else
       @user = User.new
       render 'new'

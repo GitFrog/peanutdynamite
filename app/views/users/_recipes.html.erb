@@ -1,61 +1,51 @@
- <br/>
-    
- <table width = "700">
-   <tr>
-      <td>
-          
-     </td>
-     <td align ="center">
-        likes
-     </td>
-     <td align ="center">
-        hates
-     </td>
-     <td align ="center">
-        stories
-     </td>
-      <td align ="center">
-        move or remove
-     </td>
-   </tr>
-   <% @recipes.each do |recipe| %>
-    <tr width ="400">
-      <td>       
-         <div id="title6_black">
-             <%= link_to recipe.title_concat, recipe, {:style=>'color:black; hover'} %>
-         </div>       
-     </td>
-     <td>
-        <div id="title6_gray" align ="center">
-          <%= recipe.num_of_likes %>
-        </div>
-     </td>
-     <td>
-        <div id="title6_gray" align ="center">
-          <%= recipe.num_of_hates %>
-        </div>
-     </td>
-     <td>
-        <div id="title6_gray" align ="center">
-         <%= recipe.stories.count %>
-         
-        </div>
-     </td>
-     <td>
-        <div id="title6_gray">
+<!--  Pagination -->
+<div id ="pagination">            
+    <%= link_to '<<', :action => 'show', :controller => 'users', :show => @show, :sort => @sort, :keep => @keep, :page => @page-1 %>
+    <%= ' - pg ' + (@page+1).to_s + ' - '%>
+    <% if @recipes != nil %><%= link_to '>>', :action => 'show', :controller => 'users', :show => @show, :sort => @sort, :keep => @keep, :page => @page+1 %><%end%>
+</div>
+
+<!--  Recipe Table -->
+<br/>
+ <% if (@recipes != nil  && @recipes.count != 0) %>
+ <table width = "720">
+    <tr>
+      <td width ="430"></td>
+      <td width ="40" align ="center">:)</td>
+      <td width ="40" align ="center">:(</td>
+      <td width ="40" align ="center">[][]</td>
+      <td width ="170" align ="center">actions</td>
+    </tr>
+  
+   <%@recipes.each do |recipe| %>
+    <tr>
+      <td><div id="title6_black">
+          <%= link_to recipe.title_concat, recipe, {:style=>'color:black; hover'} %></div>
+          <div id="title8_gray"> 
+          <%#= recipe.users.first.name[0...30] %></div>
+      </td>      
+     <td><div id="title6_gray" align ="center">
+          <%= recipe.num_of_likes %></div></td>
+     <td><div id="title6_gray" align ="center">
+          <%= recipe.num_of_hates %></div></td>
+     <td><div id="title6_gray" align ="center">
+         <%= recipe.stories.count %></div></td>
+     <td><div id="title6_gray" align ="right">
           <% if @keep == 'keeper' %>
-            <%= link_to "maybe", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'maybe', :loc => @keep %> |
+            <%= link_to "maybe", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'maybe', :loc => @keep, :page => @page %>,
           <% elsif @keep == 'maybe' %>
-            <%= link_to "keeper", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'keeper', :loc => @keep %> |
+            <%= link_to "keeper", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'keeper', :loc => @keep, :page => @page %>,
           <% end %>
-          <%= link_to "hate", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'hate', :loc => @keep %> |
+          <%= link_to "reject", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'hate', :loc => @keep, :page => @page %>,
           <%= link_to "remove", :action => 'destroy', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id %>
         </div>
-     </td>
-     
+     </td>     
    </tr>
-   <% end  %>
+   <% end %>  
  </table>
+ <% else %>
+    <br/><div id="title2_gray" text-align = "center">An empty page, begging to be filled.</div>
+ <% end %>
 
 
 
