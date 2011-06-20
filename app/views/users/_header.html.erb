@@ -32,13 +32,7 @@
 
 <!--  Recipe Sorting Options -->
     <% if (@keep == 'keeper' || @keep == 'maybe') %>
-      <div>
-        <%=  link_to "newest", :action => 'show', :controller => 'users', :sort => "new", :show => @show, :keep => @keep, :page => @page %> |
-        <%=  link_to "oldest", :action => 'show', :controller => 'users', :sort => "old", :show => @show, :keep => @keep, :page => @page %> |
-        <%=  link_to "chef", :action => 'show', :controller => 'users', :sort => "chef", :show => @show, :keep => @keep, :page => @page %> |
-        <%=  link_to "rating", :action => 'show', :controller => 'users', :sort => "rate", :show => @show, :keep => @keep, :page => @page %> |
-        <%=  link_to "stories", :action => 'show', :controller => 'users', :sort => "story", :show => @show, :keep => @keep, :page => @page %>
-      </div>
+      <div><%= sort_options %></div>
     <% else %>
       <br/>
     <%end%>

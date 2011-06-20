@@ -29,6 +29,10 @@ class Recipe < ActiveRecord::Base
     self.recipefavourites.where(:rating => "hate").count
   end
 
+  def rating_equation
+    num_of_likes - num_of_hates
+  end
+
 
 
 end

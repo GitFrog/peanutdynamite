@@ -6,8 +6,11 @@ DeadGrandmaCookies::Application.routes.draw do resources :home
   get "pages/home"
   get "users/new"
   get "users/show"
+  get "viewers/show"
   get "recipefavourites/destroy"
   get "recipefavourites/update"
+  get "recipefavourites/create"
+  
 
   root :to => "pages#home"
   resources :pages

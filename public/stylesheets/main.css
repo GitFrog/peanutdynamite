@@ -75,9 +75,9 @@ root {
   height: 1090px;
   padding-left: 20px;
   padding-right: 20px;
-  border-style: none dashed none dashed;
+  border-style: none none none none;
   border-color: lightgrey;
-  background-image: url("/image/napkin.jpg");
+  background-image: url("/images/napkin.jpg");
   background-repeat: no-repeat
 }
 #column2 {
@@ -88,7 +88,7 @@ root {
   height: 1090px;
   padding-left: 20px;
   padding-right: 20px;
-  border-style: none dashed none none;
+  border-style: none none none none;
   border-color: lightgrey;
   }
 
@@ -100,7 +100,7 @@ root {
   text-align: center;
 }
 
-#pagination {
+.pagination {
   position: absolute;
   top: -60px;
   left: 420px;
@@ -111,12 +111,11 @@ root {
   line-height:1.5em;
   color: grey;
 }
-#recipebackground {
-    position: absolute;
-  top: -60px;
-  left: -10px;
 
-    
+#recipebackground {
+  position: absolute;
+  top: -60px;
+  left: -10px;    
 }
 
 #mybook_title {
@@ -130,6 +129,14 @@ root {
 #mybook_col1 {
   position: absolute;
   top: 170px;
+  left: 30px;
+  width: 600px;
+  height: 870px;
+}
+
+#viewer_col1 {
+  position: absolute;
+  top: 80px;
   left: 30px;
   width: 600px;
   height: 870px;

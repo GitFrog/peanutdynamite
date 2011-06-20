@@ -25,34 +25,34 @@ div.field, div.actions {
   resize: none;
 }
 
-#titlefield {width: 400px; top: 660px; left:10px;}
-#titlelabel {top: 640px; left: 10px;}
+#titlefield {width: 400px; top: 640px; left:10px;}
+#titlelabel {top: 620px; left: 10px;}
 
-#privatefield {top: -15px; left: 210px;}
-#privatelabel {top: -15px; left: 10px;}
+#publicfield {top: -45px; left: 240px;}
+#privatefield {top: -45px; left: 340px;}
 
-#ingredfield {width: 400px; top: 30px; height: 230px; left:10px;}
-#ingredlabel {top: 10px; left: 10px;}
+#ingredfield {width: 400px; top: 10px; height: 230px; left:10px;}
+#ingredlabel {top: -10px; left: 10px;}
 
-#instructfield {width: 400px; top: 300px; height: 320px; left:10px;}
-#instructlabel {top: 280px; left:10px;}
+#instructfield {width: 400px; top: 280px; height: 320px; left:10px;}
+#instructlabel {top: 260px; left:10px;}
 
-#coursefield {width: 100px; top: 720px; left: 10px;}
-#courselabel {top: 700px; left: 10px;}
+#coursefield {width: 100px; top: 700px; left: 10px;}
+#courselabel {top: 680px; left: 10px;}
 
-#prepfield {width: 80px; top: 720px; left: 130px;}
-#preplabel {top: 700px; left: 130px;}
+#prepfield {width: 80px; top: 700px; left: 130px;}
+#preplabel {top: 680px; left: 130px;}
 
-#cookfield {width: 80px; top: 720px; left: 230px;}
-#cooklabel {top: 700px; left: 230px;}
+#cookfield {width: 80px; top: 700px; left: 230px;}
+#cooklabel {top: 680px; left: 230px;}
 
-#yieldfield {width: 80px; top: 720px; left: 330px;}
-#yieldlabel {top: 700px; left: 330px;}
+#yieldfield {width: 80px; top: 700px; left: 330px;}
+#yieldlabel {top: 680px; left: 330px;}
 
-#foodchecks {top: 785px; left: 30px; width: 520px;}
-#foodlabel {top: 760px; left: 10px;}
+#foodchecks {top: 765px; left: 30px; width: 520px;}
+#foodlabel {top: 740px; left: 10px;}
 
-#submit {top: 930px; left: 320px;}
+#submit {top: 910px; left: 320px;}
 
 
 

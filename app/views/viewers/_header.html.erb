@@ -1,0 +1,27 @@
+  
+<!--  Browser Header -->
+<br/>
+<div id ="title2_black">
+  <font size="1" style="font-size:28px; color:limegreen">
+    <% if @course.nil? %>All Recipes<% else %><%= @course.capitalize %><% end %>
+  </font>      
+</div>
+
+<!--  Recipe Sorting Options -->    
+<div>
+  <%=  link_to "newest", :action => 'show', :controller => 'viewers', :sortby => "new", :course => @course, :page => @page %> |
+  <%=  link_to "oldest", :action => 'show', :controller => 'viewers', :sortby => "old", :course => @course, :page => @page %> |
+  <%=  link_to "chef", :action => 'show', :controller => 'viewers', :sortby => "chef", :course => @course, :page => @page %> |
+  <%=  link_to "rating", :action => 'show', :controller => 'viewers', :sortby => "rate", :course => @course, :page => @page %> |
+  <%=  link_to "stories", :action => 'show', :controller => 'viewers', :sortby => "story", :course => @course, :page => @page %>
+</div>
+   
+      
+
+    
+
+
+  
+  
+
+

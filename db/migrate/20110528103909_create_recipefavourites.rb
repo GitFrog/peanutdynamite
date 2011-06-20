@@ -1,4 +1,17 @@
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
+class CreateRecipefavourites < ActiveRecord::Migration
+  def self.up
+    create_table :recipefavourites do |t|
+      t.integer :user_id
+      t.integer :recipe_id
+      t.string :rating, :limit => 6
+      t.text :modification
+      t.timestamps
+     end
+     add_index :user_id
+     add_index :recipe_id
+  end
 
-puts "Hello World"
+  def self.down
+    drop_table :recipefavourites
+  end
+end

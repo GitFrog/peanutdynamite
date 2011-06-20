@@ -1,5 +1,5 @@
 <!--  Pagination -->
-<div id ="pagination">            
+<div class ="pagination" >
     <%= link_to '<<', :action => 'show', :controller => 'users', :show => @show, :sort => @sort, :keep => @keep, :page => @page-1 %>
     <%= ' - pg ' + (@page+1).to_s + ' - '%>
     <% if @recipes != nil %><%= link_to '>>', :action => 'show', :controller => 'users', :show => @show, :sort => @sort, :keep => @keep, :page => @page+1 %><%end%>

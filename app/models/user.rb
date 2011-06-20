@@ -25,11 +25,11 @@ class User < ActiveRecord::Base
   end
 
   def add_keeper!(recipe)
-    recipefavourites.create!(:recipe_id => recipe.id, :rating => "keeper")
+    self.recipefavourites.create!(:recipe_id => recipe.id, :rating => "keeper")
   end
 
   def add_maybe!(recipe)
-    self.Recipefavourite.create!(:recipe_id => recipe.id, :rating => "maybe")
+    self.recipefavourites.create!(:recipe_id => recipe.id, :rating => "maybe")
   end
   
   def switch_pile!(recipe)
