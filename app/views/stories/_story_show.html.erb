@@ -2,7 +2,7 @@
 <div align ="center">
    <% if @story != nil %>
     <div id="title5_org" align ="center"><%= @story.title %></div>
-    <div id ="title4_gray" align ="center">by <%= @author_story.name %> on <%= @story.created_at.to_s(:long) %></div>
+    <div id ="title4_gray" align ="center">by <%= @author_story.name %> on <%= @story.created_at.strftime("%B %d, %Y") %></div>
    
     <br/>
 
@@ -10,12 +10,12 @@
     <% end %>
 </div>
 <br/>
-    <div id ="title8_black" align ="center">
+    <div id ="title9_black">
       <% if @story == nil %>
         This recipe has no stories yet.
         
       <% else %>
-        <div id="title8_black"><%= @story.thestory %></div>
+        <div id="title9_black"><%= @story.thestory %></div>
       <% end %>
     </div>
     <br/>

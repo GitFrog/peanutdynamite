@@ -12,26 +12,26 @@
     
 <!--  Keeper / Maybe flip-flop -->
     <div id="title4_gray">
-        <% if @keep == "keeper" then %>
-          <%= link_to "switch to maybe's", :action => 'show', :controller => 'users', :show => @show, :sort => @sort, :keep => "maybe" %>
-        <% elsif @keep == "maybe" then %>
-          <%= link_to "switch to keepers", :action => 'show', :controller => 'users', :show => @show, :sort => @sort, :keep => "keeper" %>
+        <% if @keeper_or_maybe == "keeper" then %>
+          <%= link_to "switch to maybe's", :action => 'show', :controller => 'users', :course => @course, :sortby => @sortby, :keeper_or_maybe => "maybe" %>
+        <% elsif @keeper_or_maybe == "maybe" then %>
+          <%= link_to "switch to keepers", :action => 'show', :controller => 'users', :course => @course, :sortby => @sortby, :keeper_or_maybe => "keeper" %>
         <% else %><br/>
         <% end %>
     </div>
 
 <!--  Recipe Header -->
     <div id ="title2_black">
-      <% if @keep == 'keeper' then %>Keeper's :<% elsif @keep == 'maybe' then %>Maybe's :<% else %><%= @keep %> <% end %>
+      <% if @keeper_or_maybe == 'keeper' then %>Keeper's :<% elsif @keeper_or_maybe == 'maybe' then %>Maybe's :<% else %><%= @keeper_or_maybe %> <% end %>
       <font size="1" style="font-size:28px; color:orange">
-        <% if @show.nil? %>All Recipes
-        <% else %><%= @show.capitalize %>
+        <% if @course.nil? %>All Recipes
+        <% else %><%= @course.capitalize %>
         <% end %>
       </font>      
     </div>
 
 <!--  Recipe Sorting Options -->
-    <% if (@keep == 'keeper' || @keep == 'maybe') %>
+    <% if (@keeper_or_maybe == 'keeper' || @keeper_or_maybe == 'maybe') %>
       <div><%= sort_options %></div>
     <% else %>
       <br/>

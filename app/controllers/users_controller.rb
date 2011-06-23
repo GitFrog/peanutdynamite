@@ -18,12 +18,12 @@ class UsersController < ApplicationController
       start_record = @page * items_per_page
       end_record = (@page+1) * items_per_page
 
-      @keep = case params[:keep]
+      @keeper_or_maybe = case params[:keeper_or_maybe]
         when nil then "keeper"
-        else params[:keep]
+        else params[:keeper_or_maybe]
       end
 
-      @show = case params[:show]
+      @course = case params[:course]
         when nil then nil
         when "all" then nil
         when "app" then "appetizer"
@@ -37,41 +37,32 @@ class UsersController < ApplicationController
         when "brd" then "bread"
         when "bev" then "beverage"
         when "presv" then "preserves"
-      else params[:show]
+      else params[:course]
       end
 
-      @sort = case params[:sort]
+      @sortby = case params[:sortby]
         when nil then "created_at DESC"
         when "new" then "created_at DESC"
         when "old" then "created_at ASC"
         when "chef" then "user_id"
         when "rate" then "rate"
         when "story" then "story"
-      else params[:sort]
+      else params[:sortby]
       end
 
-      if @show == nil
-        if @sort == "rate"
-          @recipes = @user.recipes.where("recipefavourites.rating = ?", @keep).sort_by{|recipe| -recipe.num_of_likes.to_i}[start_record...end_record]
-        elsif @sort == "story"
-          @recipes = @user.recipes.where("recipefavourites.rating = ?", @keep).sort_by{|recipe| -recipe.all_story_count.to_i}[start_record...end_record]
-        else
-          @recipes = @user.recipes.where("recipefavourites.rating = ?", @keep).order(@sort)[start_record...end_record]
-        end
+      look_for_this = "recipefavourites.rating = '" + @keeper_or_maybe.to_s + "'"
+      if @course != nil
+        look_for_this += " AND recipes.course = '" + @course.to_s + "'"
+      end
+
+      if @sortby == "rate"
+        @recipes = @user.recipes.where(look_for_this).sort_by{|recipe| -recipe.num_of_likes.to_i}[start_record...end_record]
+      elsif @sortby == "story"
+        @recipes = @user.recipes.where(look_for_this).sort_by{|recipe| -recipe.all_story_count.to_i}[start_record...end_record]
       else
-         if @sort == "rate"
-          @recipes = @user.recipes.where("recipes.course = ? AND recipefavourites.rating = ?", @show, @keep).sort_by{|recipe| -recipe.num_of_likes.to_i}[start_record...end_record]
-        elsif @sort == "story"
-          @recipes = @user.recipes.where("recipes.course = ? AND recipefavourites.rating = ?", @show, @keep).sort_by{|recipe| -recipe.all_story_count.to_i}[start_record...end_record]
-        else
-          @recipes = @user.recipes.where("recipes.course = ? AND recipefavourites.rating = ?", @show, @keep).order(@sort)[start_record...end_record]
-        end
+        @recipes = @user.recipes.where(look_for_this).order(@sortby)[start_record...end_record]
       end
-
-      if @recipes == nil then
-        #@page -= 1
-      end
-
+          
     else
       @user = User.new
       render 'new'

@@ -75,9 +75,9 @@ root {
   height: 1090px;
   padding-left: 20px;
   padding-right: 20px;
-  border-style: none none none none;
+  border-style: none dashed none dashed;
   border-color: lightgrey;
-  background-image: url("/images/napkin.jpg");
+  background-image: url("/image/napkin.jpg");
   background-repeat: no-repeat
 }
 #column2 {
@@ -88,7 +88,7 @@ root {
   height: 1090px;
   padding-left: 20px;
   padding-right: 20px;
-  border-style: none none none none;
+  border-style: none dashed none none;
   border-color: lightgrey;
   }
 

@@ -1,8 +1,8 @@
 <!--  Pagination -->
 <div class ="pagination" >
-    <%= link_to '<<', :action => 'show', :controller => 'users', :show => @show, :sort => @sort, :keep => @keep, :page => @page-1 %>
+    <%= link_to '<<', :action => 'show', :controller => 'users', :course => @course, :sortby => @sortby, :keeper_or_maybe => @keeper_or_maybe, :page => @page-1 %>
     <%= ' - pg ' + (@page+1).to_s + ' - '%>
-    <% if @recipes != nil %><%= link_to '>>', :action => 'show', :controller => 'users', :show => @show, :sort => @sort, :keep => @keep, :page => @page+1 %><%end%>
+    <% if @recipes != nil %><%= link_to '>>', :action => 'show', :controller => 'users', :course => @course, :sortby => @sortby, :keeper_or_maybe => @keeper_or_maybe, :page => @page+1 %><%end%>
 </div>
 
 <!--  Recipe Table -->
@@ -31,12 +31,12 @@
      <td><div id="title6_gray" align ="center">
          <%= recipe.stories.count %></div></td>
      <td><div id="title6_gray" align ="right">
-          <% if @keep == 'keeper' %>
-            <%= link_to "maybe", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'maybe', :loc => @keep, :page => @page %>,
-          <% elsif @keep == 'maybe' %>
-            <%= link_to "keeper", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'keeper', :loc => @keep, :page => @page %>,
+          <% if @keeper_or_maybe == 'keeper' %>
+            <%= link_to "maybe", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'maybe', :keeper_or_maybe => @keeper_or_maybe, :page => @page %>,
+          <% elsif @keeper_or_maybe == 'maybe' %>
+            <%= link_to "keeper", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'keeper', :keeper_or_maybe => @keeper_or_maybe, :page => @page %>,
           <% end %>
-          <%= link_to "reject", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'hate', :loc => @keep, :page => @page %>,
+          <%= link_to "reject", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'hate', :keeper_or_maybe => @keeper_or_maybe, :page => @page %>,
           <%= link_to "remove", :action => 'destroy', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id %>
         </div>
      </td>     

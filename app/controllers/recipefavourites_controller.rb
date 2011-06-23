@@ -7,7 +7,7 @@ class RecipefavouritesController < ApplicationController
   def create    
     # The user likes this recipe and wants it added to their book.  Let's get to work!
     Recipefavourite.create(:user_id => params[:user_id], :recipe_id => params[:recipe_id], :rating => 'maybe')
-    redirect_to params[:recipe_id]
+    redirect_to :action => 'show', :controller => 'recipes', :id => params[:recipe_id]
   end
 
   def update
@@ -17,7 +17,7 @@ class RecipefavouritesController < ApplicationController
     fav.save
     # Following this update, let's head back to the user's scrapbook,
     # making sure to send them back to where they came from (keeper vs recipe)
-    redirect_to :action => 'show', :controller => 'users', :keep => (params[:loc])
+    redirect_to :action => 'show', :controller => 'users', :keeper_or_maybe => (params[:keeper_or_maybe])
   end
   
   def destroy
