@@ -4,18 +4,29 @@ class ViewersController < ApplicationController
 
       items_per_page = 18
 
-      @page = case params[:page].to_i
-        when nil then 0
-        when -1 then 0
-        else params[:page].to_i
+      # default query setting if it can't find the :query hash
+      if params[:course] != nil && params[:sort] != nil && params[:page] != nil
+        params[:query] = {:sort => params[:sort], :course => params[:course], :foodtag => params[:foodtag], :page => params[:page]}
+      elsif params[:query] == nil
+        params[:query] = {:sort => "new", :course => "all", :foodtag => nil, :page => 0}
       end
 
-      start_record = @page * items_per_page
-      end_record = (@page+1) * items_per_page
 
-      @course = case params[:course]
-        when nil then nil
-        when "all" then nil
+      if params[:query][:page] == nil
+        page = 0
+      else
+        page = case params[:query][:page].to_i
+          when -1 then 0
+          else params[:query][:page].to_i
+        end     
+      end
+
+      start_record = page * items_per_page
+      end_record = (page+1) * items_per_page
+
+      course = case params[:query][:course]
+        when nil then "all recipes"
+        when "all" then "all recipes"
         when "app" then "appetizer"
         when "soup" then "soup, stew"
         when "salad" then "salad"
@@ -27,35 +38,44 @@ class ViewersController < ApplicationController
         when "brd" then "bread"
         when "bev" then "beverage"
         when "presv" then "preserves"
-      else params[:course]
+      else params[:query][:course]
       end
 
-      @sortby = case params[:sortby]
+      foodtag = params[:query][:foodtag]
+
+      sort = case params[:query][:sort]
         when nil then "created_at DESC"
         when "new" then "created_at DESC"
         when "old" then "created_at ASC"
         when "chef" then "user_id"
         when "rate" then "rate"
         when "story" then "story"
-      else params[:sortby]
+      else params[:query][:sort]
       end
 
-      if @course == nil then
-        if @sortby == "rate"
-          @recipes = Recipe.all.sort_by{|recipe| -recipe.rating_equation.to_i}[start_record...end_record]
-        elsif @sortby == "story"
-          @recipes = Recipe.all.sort_by{|recipe| -recipe.all_story_count.to_i}[start_record...end_record]
-        else
-          @recipes = Recipe.order(@sortby)[start_record...end_record]
-        end
-      else
-        if @sortby == "rate"
-          @recipes = Recipe.where("recipes.course = ?" , @course).sort_by{|recipe| -recipe.num_of_likes.to_i}[start_record...end_record]
-        elsif @sortby == "story"
-          @recipes = Recipe.where("recipes.course = ?", @course).sort_by{|recipe| -recipe.all_story_count.to_i}[start_record...end_record]
-        else
-          @recipes = Recipe.where("recipes.course = ?", @course).order(@sortby)[start_record...end_record]
-        end
+      @query = {:sort => sort, :course => course, :foodtag => foodtag, :page => page}
+        
+      @title_left = "Courses : "
+      @title_right = course.capitalize
+      
+      # TIME TO BUILD OUT MODEL OBJECT.  WOHOO!!!
+      @recipe = Recipe
+      if (foodtag != nil && foodtag != "")
+        look_for_this_foodtag = "recipetags.tag = " + "'" + foodtag + "'"
+        @recipe = @recipe.joins(:recipetags).where(look_for_this_foodtag)
+        @title_more_right = "  (filtered by " + foodtag.downcase + ")"
       end
+      if course != "all recipes"
+        look_for_this_course = "course = " + "'" + course +"'"
+        @recipe = @recipe.where(look_for_this_course)
+      end
+      if sort == "rate"
+        @recipes = @recipe.all.sort_by{|recipe| -recipe.rating_equation.to_i}[start_record...end_record]
+      elsif sort == "story"
+        @recipes = @recipe.all.sort_by{|recipe| -recipe.all_story_count.to_i}[start_record...end_record]
+      else
+        @recipes = @recipe.order(sort)[start_record...end_record]
+      end
+     
    end
 end

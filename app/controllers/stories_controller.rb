@@ -4,24 +4,25 @@ class StoriesController < ApplicationController
     
     @story = Story.find(params[:id])
     @recipe = @story.recipe
-    @author_recipe = User.find(@recipe.user_id)
-    @author_story = User.find(@story.user_id)
+    @author_recipe = @recipe.user
+    @author_story = @story.user
     @story_count = @recipe.stories.count # alright, how many stories does this recipe have?
     
-    @is_my_favourite = nil # default for now
-    @choose_stories = 'all' # default for now
+    @favourite_recipe = nil # default for now
+    @show_my_stories = "no" # default for now
     @my_story_count = 0 # default for now
 
     if signed_in?
-      if current_user.has_favourite?(@recipe) # If this recipe is one of my favourites then...
-        @is_my_favourite = true # Tells the view that this recipe is one of my favourite
+      fav = current_user.has_favourite_get_rating(@recipe)
+      if fav != nil # If this recipe is one of my favourites then...
+        @favourite_recipe = fav # Tells the view that this recipe is one of my favourite
         @my_story_count = @recipe.stories.where(:user_id => current_user.id).count
-        @choose_stories = case params[:choose_stories] # are we scrolling through my stories, or all stories?
-          when nil then 'all' # if not instructed, then scroll through my stories first
-          else params[:choose_stories]
+        @show_my_stories = case params[:show_my_stories] # are we scrolling through my stories, or all stories?
+          when nil then "yes" # if not instructed, then scroll through my stories first
+          else params[:show_my_stories]
           end        
       else # This is just some recipe I've come across
-        @is_my_favourite = false # since this is not in my scrapbook, give me option to add it
+        @favourite_recipe = "no" # since this is not in my scrapbook, give me option to add it
       end    
     end
       

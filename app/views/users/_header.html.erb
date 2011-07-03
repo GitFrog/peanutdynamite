@@ -3,8 +3,8 @@
     <div align="center"><br/>
       <div id="title0_black"><%=@user.bookname%></div>
       <div>
-      <%= link_to "main", :action => 'show', :controller => 'users' %> |
-      <%= link_to "add a recipe", new_recipe_path %> |
+      <%= link_to "reset", :action => 'show', :controller => 'users' %> |
+      <%= link_to "add a recipe", :action => 'new', :controller => 'recipes', :query => @query %> |
       <%= link_to "edit book" %> |
       <%= link_to "sign out", signout_path, :method => :delete %>
       </div>
@@ -12,31 +12,47 @@
     
 <!--  Keeper / Maybe flip-flop -->
     <div id="title4_gray">
-        <% if @keeper_or_maybe == "keeper" then %>
-          <%= link_to "switch to maybe's", :action => 'show', :controller => 'users', :course => @course, :sortby => @sortby, :keeper_or_maybe => "maybe" %>
-        <% elsif @keeper_or_maybe == "maybe" then %>
-          <%= link_to "switch to keepers", :action => 'show', :controller => 'users', :course => @course, :sortby => @sortby, :keeper_or_maybe => "keeper" %>
-        <% else %><br/>
-        <% end %>
+        <% if (@query != nil && @title_left != "Add New Recipe") %>
+          <%preserve = @query[:pile]%>
+            <% if @query[:pile] == "keeper" %><%@query[:pile] = "maybe"%>
+              <%= link_to "switch to maybe's", :action => 'show', :controller => 'users', :query => @query %>
+            <% elsif @query[:pile] == "maybe" %><%@query[:pile] = "keeper"%>
+              <%= link_to "switch to keeper's", :action => 'show', :controller => 'users', :query => @query %>
+            <% end %>
+          <%@query[:pile] = preserve%>
+        <% else %>
+          <br/>
+        <% end %>        
     </div>
 
 <!--  Recipe Header -->
     <div id ="title2_black">
-      <% if @keeper_or_maybe == 'keeper' then %>Keeper's :<% elsif @keeper_or_maybe == 'maybe' then %>Maybe's :<% else %><%= @keeper_or_maybe %> <% end %>
+      <%= @title_left %>
       <font size="1" style="font-size:28px; color:orange">
-        <% if @course.nil? %>All Recipes
-        <% else %><%= @course.capitalize %>
-        <% end %>
+        <%= @title_right %>
       </font>      
     </div>
 
 <!--  Recipe Sorting Options -->
-    <% if (@keeper_or_maybe == 'keeper' || @keeper_or_maybe == 'maybe') %>
-      <div><%= sort_options %></div>
+    <% if (@query != nil && @title_left != "Add New Recipe") %>
+      <% preserve = @query.clone %>
+        <% @query[:page] = 0 %>
+        <% @query[:sort] = "new" %>
+        <%=  link_to "newest", :action => 'show', :controller => 'users', :query => @query %> |
+        <% @query[:sort] = "old" %>
+        <%=  link_to "oldest", :action => 'show', :controller => 'users', :query => @query %> |
+        <% @query[:sort] = "chef" %>
+        <%=  link_to "chef", :action => 'show', :controller => 'users', :query => @query %> |
+        <% @query[:sort] = "rate" %>
+        <%=  link_to "rating", :action => 'show', :controller => 'users', :query => @query %> |
+        <% @query[:sort] = "story" %>
+        <%=  link_to "stories", :action => 'show', :controller => 'users', :query => @query %>
+      <% @query = preserve.clone %>
     <% else %>
       <br/>
     <%end%>
-      
+
+
 
     
 

@@ -17,6 +17,7 @@ DeadGrandmaCookies::Application.routes.draw do resources :home
   resources :recipes
   resources :stories
   resources :users
+  resources :viewers
   resources :recipefavourites
   resources :sessions, :only => [:new, :create, :destroy]
 
@@ -24,13 +25,11 @@ DeadGrandmaCookies::Application.routes.draw do resources :home
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
 
-  #match 'recipes' => 'recipes#index'
-  #root :to => "recipes#index"
-  
-   
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-  
+  resources :viewers do
+    collection do
+      get :show, :as => :show
+    end
+  end
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

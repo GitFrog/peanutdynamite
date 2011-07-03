@@ -9,23 +9,36 @@ class UsersController < ApplicationController
 
       @user = current_user
 
-      @page = case params[:page].to_i
-        when nil then 0
-        when -1 then 0
-        else params[:page].to_i
+      # default query setting if it can't find the :query hash
+      if params[:query] == nil
+        params[:query] = {
+            :sort => "new",
+            :course => "all",
+            :pile => "keeper",            
+            :page => 0}
       end
 
-      start_record = @page * items_per_page
-      end_record = (@page+1) * items_per_page
 
-      @keeper_or_maybe = case params[:keeper_or_maybe]
+      if params[:query][:page] == nil
+        page = 0
+      else
+        page = case params[:query][:page].to_i
+          when -1 then 0
+          else params[:query][:page].to_i
+        end
+      end
+
+      start_record = page * items_per_page
+      end_record = (page+1) * items_per_page
+
+      pile = case params[:query][:pile]
         when nil then "keeper"
-        else params[:keeper_or_maybe]
+        else params[:query][:pile]
       end
 
-      @course = case params[:course]
-        when nil then nil
-        when "all" then nil
+      course = case params[:query][:course]
+        when nil then "all recipes"
+        when "all" then "all recipes"
         when "app" then "appetizer"
         when "soup" then "soup, stew"
         when "salad" then "salad"            
@@ -37,30 +50,39 @@ class UsersController < ApplicationController
         when "brd" then "bread"
         when "bev" then "beverage"
         when "presv" then "preserves"
-      else params[:course]
+      else params[:query][:course]
       end
 
-      @sortby = case params[:sortby]
+      sort = case params[:query][:sort]
         when nil then "created_at DESC"
         when "new" then "created_at DESC"
         when "old" then "created_at ASC"
         when "chef" then "user_id"
         when "rate" then "rate"
         when "story" then "story"
-      else params[:sortby]
+      else params[:query][:sort]
       end
 
-      look_for_this = "recipefavourites.rating = '" + @keeper_or_maybe.to_s + "'"
-      if @course != nil
-        look_for_this += " AND recipes.course = '" + @course.to_s + "'"
+      look_for_this = "recipefavourites.rating = '" + pile.to_s + "'"
+      if course != "all recipes"
+        look_for_this += " AND recipes.course = '" + course.to_s + "'"
       end
 
-      if @sortby == "rate"
+       @query = {
+         :sort => sort,
+         :course => course,
+         :pile => pile,
+         :page => page}
+
+      @title_left = pile.capitalize + "'s: "
+      @title_right = course.capitalize
+
+      if sort == "rate"
         @recipes = @user.recipes.where(look_for_this).sort_by{|recipe| -recipe.num_of_likes.to_i}[start_record...end_record]
-      elsif @sortby == "story"
+      elsif sort == "story"
         @recipes = @user.recipes.where(look_for_this).sort_by{|recipe| -recipe.all_story_count.to_i}[start_record...end_record]
       else
-        @recipes = @user.recipes.where(look_for_this).order(@sortby)[start_record...end_record]
+        @recipes = @user.recipes.where(look_for_this).order(sort)[start_record...end_record]
       end
           
     else

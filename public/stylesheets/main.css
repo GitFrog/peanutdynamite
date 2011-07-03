@@ -136,10 +136,10 @@ root {
 
 #viewer_col1 {
   position: absolute;
-  top: 80px;
+  top: 110px;
   left: 30px;
   width: 600px;
-  height: 870px;
+  height: 840px;
 }
 
 #LogoQuote {

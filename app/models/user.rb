@@ -20,8 +20,13 @@ class User < ActiveRecord::Base
 
   before_save :encrypt_password
 
-  def has_favourite?(recipe)
-    self.recipefavourites.find_by_recipe_id(recipe)
+  def has_favourite_get_rating(recipe)
+    fav = recipefavourites.find_by_recipe_id(recipe)
+    if fav != nil
+      return fav.rating
+    else
+      return nil
+    end
   end
 
   def add_keeper!(recipe)

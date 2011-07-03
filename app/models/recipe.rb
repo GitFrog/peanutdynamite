@@ -2,6 +2,7 @@ class Recipe < ActiveRecord::Base
 
   has_many :recipefavourites
   has_many :users, :through => :recipefavourites
+  belongs_to :user
   has_many :stories
   has_many :recipetags
 

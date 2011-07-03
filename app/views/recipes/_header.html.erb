@@ -5,13 +5,14 @@
 <div id ="title4_gray">by <%= @author_recipe.name %> on <%= @recipe.created_at.strftime("%B %d, %Y") %></div>
 <div>
   <font size="1" style="font-size:12px; color:gray;">
-    <% if @myfavourite == nil %>
+    <% if @favourite_recipe == nil %>
       Create An Account
-    <% elsif @myfavourite == false %>
+    <% elsif @favourite_recipe == "no" %>
       <%= link_to "add to my book", :action => 'create', :controller => 'recipefavourites', :user_id => current_user, :recipe_id => @recipe %> 
-    <% elsif @myfavourite == true %>
-      This is in your book
-    <% else %>
+    <% elsif (@favourite_recipe == "keeper" || @favourite_recipe == "maybe") %>
+      This recipe is in your book
+    <% elsif @favourite_recipe == "hate" %>
+      You rejected this recipe. <%= link_to "Put back in my book", :action => 'update', :controller => 'recipefavourites', :user_id => current_user, :recipe_id => @recipe, :sendto => "maybe", :redirect => "recipe" %>
     <% end %>
   </font>
 </div>

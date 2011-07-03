@@ -10,12 +10,9 @@
     <% end %>
 </div>
 <br/>
-    <div id ="title9_black">
-      <% if @story == nil %>
-        This recipe has no stories yet.
-        
-      <% else %>
-        <div id="title9_black"><%= @story.thestory %></div>
+    <div id ="title9_black" align ="center">
+      <% if @story == nil %>This recipe has no stories yet.        
+      <% else %><div id="title9_black"><%= @story.thestory %></div>
       <% end %>
     </div>
     <br/>

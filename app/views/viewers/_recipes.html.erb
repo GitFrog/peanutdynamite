@@ -1,12 +1,16 @@
 <!--  Pagination -->
 <div class ="pagination" >
-    <%= link_to '<<', :action => 'show', :controller => 'viewers', :course => @course, :sortby => @sortby, :page => @page-1 %>
-    <%= ' - pg ' + (@page+1).to_s + ' - '%>
-    <% if @recipes != nil %><%= link_to '>>', :action => 'show', :controller => 'viewers', :course => @course, :sortby => @sortby, :page => @page+1 %><%end%>
+    <% @query[:page] -= 1 %>
+    <%= link_to '<<', :action => 'show', :controller => 'viewers', :query => @query %>
+    <% @query[:page] += 1 %>
+    <%= ' - pg ' + (@query[:page] + 1).to_s + ' - '%>
+    <% @query[:page] += 1 %>
+    <% if (@recipes != nil  && @recipes.count != 0) %><%= link_to '>>', :action => 'show', :controller => 'viewers', :query => @query %><%end%>
+    <% @query[:page] -= 1 %>
 </div>
 
 <!--  Recipe Table -->
-<br/>
+
  <% if (@recipes != nil  && @recipes.count != 0) %>
  <table width = "720">
     <tr>
@@ -19,9 +23,9 @@
    <%@recipes.each do |recipe| %>
     <tr>
       <td><div id="title6_black">
-          <%= link_to recipe.title_concat, recipe, {:style=>'color:black; hover'} %></div>
+          <%= link_to recipe.title_concat, :action => 'show', :controller => 'recipes', :id => recipe.id, :query => @query %></div> <!--{:style=>'color:black; hover'} -->
           <div id="title8_gray">by 
-          <%= recipe.users.first.name[0...30] %> on
+          <%= recipe.user.name[0...30] %> on
           <%= recipe.created_at.strftime("%B %d, %Y") %>
           </div>
       </td>      
@@ -35,7 +39,13 @@
    <% end %>  
  </table>
  <% else %>
-    <br/><div id="title2_gray" text-align = "center">An empty page, begging to be filled.</div>
+    <br/><div id="title2_gray">An empty page, begging to be filled.
+    <% if current_user.nil? %>
+      <%= link_to "  Create your own scrapbook?", new_user_path %>
+    <% else %>
+      <%= link_to "  Add a recipe?", new_recipe_path %>
+    <% end %>
+    </div>  
  <% end %>
 
 

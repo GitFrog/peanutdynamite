@@ -1,8 +1,12 @@
 <!--  Pagination -->
 <div class ="pagination" >
-    <%= link_to '<<', :action => 'show', :controller => 'users', :course => @course, :sortby => @sortby, :keeper_or_maybe => @keeper_or_maybe, :page => @page-1 %>
-    <%= ' - pg ' + (@page+1).to_s + ' - '%>
-    <% if @recipes != nil %><%= link_to '>>', :action => 'show', :controller => 'users', :course => @course, :sortby => @sortby, :keeper_or_maybe => @keeper_or_maybe, :page => @page+1 %><%end%>
+    <% @query[:page] -= 1 %>
+    <%= link_to '<<', :action => 'show', :controller => 'users', :query => @query %>
+    <% @query[:page] += 1 %>
+    <%= ' - pg ' + (@query[:page] + 1).to_s + ' - '%>
+    <% @query[:page] += 1 %>
+    <% if (@recipes != nil  && @recipes.count != 0) %><%= link_to '>>', :action => 'show', :controller => 'users', :query => @query %><%end%>
+    <% @query[:page] -= 1 %>
 </div>
 
 <!--  Recipe Table -->
@@ -20,31 +24,28 @@
    <%@recipes.each do |recipe| %>
     <tr>
       <td><div id="title6_black">
-          <%= link_to recipe.title_concat, recipe, {:style=>'color:black; hover'} %></div>
-          <div id="title8_gray"> 
-          <%#= recipe.users.first.name[0...30] %></div>
-      </td>      
-     <td><div id="title6_gray" align ="center">
+          <%= link_to recipe.title_concat, :action => 'show', :controller => 'recipes', :id => recipe.id, :query => @query %></div></td>
+      <td><div id="title6_gray" align ="center">
           <%= recipe.num_of_likes %></div></td>
-     <td><div id="title6_gray" align ="center">
+      <td><div id="title6_gray" align ="center">
           <%= recipe.num_of_hates %></div></td>
-     <td><div id="title6_gray" align ="center">
+      <td><div id="title6_gray" align ="center">
          <%= recipe.stories.count %></div></td>
-     <td><div id="title6_gray" align ="right">
-          <% if @keeper_or_maybe == 'keeper' %>
-            <%= link_to "maybe", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'maybe', :keeper_or_maybe => @keeper_or_maybe, :page => @page %>,
-          <% elsif @keeper_or_maybe == 'maybe' %>
-            <%= link_to "keeper", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'keeper', :keeper_or_maybe => @keeper_or_maybe, :page => @page %>,
+      <td><div id="title6_gray" align ="right">
+          <% if @query[:pile] == 'keeper' %>
+            <%= link_to "maybe", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :query => @query, :sendto => "maybe" %>,
+          <% elsif @query[:pile] == 'maybe' %>
+            <%= link_to "keeper", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :query => @query, :sendto => "keeper" %>,
           <% end %>
-          <%= link_to "reject", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :rating => 'hate', :keeper_or_maybe => @keeper_or_maybe, :page => @page %>,
-          <%= link_to "remove", :action => 'destroy', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id %>
-        </div>
-     </td>     
-   </tr>
+          <%= link_to "reject", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :query => @query, :sendto => "hate" %>,
+          <%= link_to "remove", :action => 'destroy', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :query => @query %>
+          </div>
+      </td>
+    </tr>
    <% end %>  
  </table>
  <% else %>
-    <br/><div id="title2_gray" text-align = "center">An empty page, begging to be filled.</div>
+    <br/><div id="title2_gray">An empty page, begging to be filled.</div>
  <% end %>
 
 
