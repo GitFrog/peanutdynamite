@@ -18,7 +18,7 @@ class RecipefavouritesController < ApplicationController
     # Following this update, let's head back to the user's scrapbook,
     # making sure to send them back to where they came from (keeper vs maybe)
     if params[:redirect] == nil # User is updating from scrapbook, so head back there
-      redirect_to :action => 'show', :controller => 'users', :query => params[:query]
+      redirect_to :action => 'index', :controller => 'users', :query => params[:query]
     else # User is updating from within a recipe, so head back to it
       redirect_to :action => 'show', :controller => 'recipes', :id => params[:recipe_id]
     end
