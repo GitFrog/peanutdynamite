@@ -6,12 +6,18 @@ class Recipe < ActiveRecord::Base
   has_many :stories
   has_many :recipetags
 
+  validates_uniqueness_of :title, :scope => :user_id
+
   def my_story_count(current_user_id)
     self.stories.where(:user_id => current_user_id).count.to_s
   end
 
   def all_story_count
     self.stories.count.to_s
+  end
+
+  def newest_story
+    self.stories.order("created_at DESC").first
   end
 
   def title_concat

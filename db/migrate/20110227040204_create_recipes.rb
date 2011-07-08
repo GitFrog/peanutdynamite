@@ -12,7 +12,7 @@ class CreateRecipes < ActiveRecord::Migration
       t.integer :yield
       t.timestamps
      end
-     add_index :user_id
+     add_index :user_id, :title
   end
 
   def self.down

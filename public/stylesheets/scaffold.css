@@ -27,6 +27,8 @@ a:hover { color: blue; }
 }
 
 #error_explanation {
+  position: absolute;
+  left: 440px;
   width: 300px;
   border: 2px solid red;
   padding-bottom: 0;

@@ -4,9 +4,10 @@ DeadGrandmaCookies::Application.routes.draw do resources :home
   get "stories/scrollup"
   get "pages/about"
   get "pages/home"
-  get "users/new"
-  get "users/show"
-  get "viewers/show"
+  get "users/new"  
+  get "users/index"  
+  get "viewers/index"
+  get "viewers/indexsweet"
   get "recipefavourites/destroy"
   get "recipefavourites/update"
   get "recipefavourites/create"
@@ -27,7 +28,13 @@ DeadGrandmaCookies::Application.routes.draw do resources :home
 
   resources :viewers do
     collection do
-      get :show, :as => :show
+      get :index, :as => :index
+    end
+  end
+
+  resources :users do
+    collection do
+      get :index, :as => :index
     end
   end
 

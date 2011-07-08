@@ -7,5 +7,6 @@ class Recipefavourite < ActiveRecord::Base
 
   validates :user_id, :presence => true
   validates :recipe_id, :presence => true
+  validates_uniqueness_of :user_id, :scope => :recipe_id
 
 end

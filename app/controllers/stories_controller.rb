@@ -35,7 +35,7 @@ class StoriesController < ApplicationController
   def new
     @recipe = Recipe.find(params[:recipe_id])
     @story = Story.new
-    @author_recipe = User.find(@recipe.user_id)
+    @author_recipe = @recipe.user
     #redirect_to @user
     #@story = Story.new
   end
@@ -45,10 +45,16 @@ class StoriesController < ApplicationController
 
     respond_to do |format|
       if @story.save
-        format.html { redirect_to(@story) }
-        #format.xml  { render :xml => @recipe, :status => :created, :location => @recipe }
+        if params[:story_tags] != nil
+          params[:story_tags][0...4].each do |story_tag|
+          Storytag.create(:story_id => @story.id, :tag => story_tag)
+          end
+          format.html {redirect_to @story}
+        end
       else
-        #format.html { render :action => "new" }
+
+
+        format.html { render new_story_path }
         #format.xml  { render :xml => @recipe.errors, :status => :unprocessable_entity }
       end
     end

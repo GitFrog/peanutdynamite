@@ -71,13 +71,16 @@ class RecipesController < ApplicationController
               Recipetag.create(:recipe_id => @recipe.id, :tag => food_tag)
             end
           end
-          redirect_to :action => 'show', :controller => 'users', :pile => "maybe"
+          @query = {:sort => "new", :course => "all", :pile => "maybe", :page => 0}
+           format.html {redirect_to users_path(:query => @query)}
         else
           @recipe.destroy
         end
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @recipe.errors, :status => :unprocessable_entity }
+        @user = current_user
+        @title_left = "Add New Recipe"
+        format.html { render new_recipe_path }
+        #format.xml  { render :xml => @recipe.errors, :status => :unprocessable_entity }
       end
     end
   end

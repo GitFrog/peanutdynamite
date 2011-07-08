@@ -1,6 +1,6 @@
 module ViewersHelper
 
-  def food_tag_select
+   def food_tag_select
     @food_tag_options = [
     nil,
     'BBQ, grill',
@@ -24,6 +24,30 @@ module ViewersHelper
     'Seasonal',
     'Slow Cooker',
     'Vegetarian'
+  ]
+  end
+
+  def story_tag_select
+    @story_tag_options = [
+    nil,
+    'work',
+    'school',
+    'love',
+    'spouse',
+    'kids',
+    'parents',
+    'friends',
+    'birth',
+    'death',
+    'marriage',
+    'divorce',
+    'money',
+    'health',
+    'travel',
+    'justice',
+    'moving on',
+    'dedication',
+    'thoughts'
   ]
   end
 

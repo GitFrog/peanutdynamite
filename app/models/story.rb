@@ -6,6 +6,14 @@ class Story < ActiveRecord::Base
 
   has_attached_file :photo, :styles => {:thumb=> "50x50#", :small=> "250x250#" }
 
+  def title_concat
+    if title.length > 39 then
+      title[0..36] + '...'
+    else
+      title
+    end
+  end
+
   def previous_story
     self.class.first(:conditions => ["id < ? AND recipe_id = ?", id, self.recipe_id], :order => "id desc")
   end

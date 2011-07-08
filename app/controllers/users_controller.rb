@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
  
-  def show #this shows the users recipe book
+  def index #this shows the users recipe book
 
     if signed_in?
 
