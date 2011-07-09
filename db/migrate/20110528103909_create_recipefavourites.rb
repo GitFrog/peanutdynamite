@@ -7,8 +7,8 @@ class CreateRecipefavourites < ActiveRecord::Migration
       t.text :modification
       t.timestamps
      end
-     add_index :user_id
-     add_index :recipe_id
+     add_index :recipefavourites, :user_id
+     add_index :recipefavourites, :recipe_id
   end
 
   def self.down

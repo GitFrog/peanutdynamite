@@ -11,7 +11,8 @@ class CreateStories < ActiveRecord::Migration
       t.integer :photo_file_size
       t.timestamps
     end
-    add_index :recipe_id, :user_id
+    add_index :stories, :user_id
+    add_index :stories, :recipe_id
   end
 
   def self.down

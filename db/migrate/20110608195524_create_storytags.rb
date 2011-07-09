@@ -5,7 +5,7 @@ class CreateStorytags < ActiveRecord::Migration
       t.string :tag, :limit => 20
       t.timestamps
      end
-     add_index :stories
+     add_index :storytags, :story_id
 
   end
 

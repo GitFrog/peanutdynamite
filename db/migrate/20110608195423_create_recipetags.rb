@@ -5,7 +5,7 @@ class CreateRecipetags < ActiveRecord::Migration
       t.string :tag, :limit => 20
       t.timestamps
      end
-     add_index :recipes
+     add_index :recipetags, :recipe_id
 
   end
 
