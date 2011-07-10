@@ -46,13 +46,13 @@ class ViewersController < ApplicationController
      
    end
 
-  def indexsweet #this shows the users recipe book
+  def indexstories #this shows the users recipe book
 
       # default query setting if it can't find the :query hash
       if params[:sort] != nil && params[:page] != nil
-        params[:query] = {:sort => params[:sort], :storytag => params[:storytag], :page => params[:page]}
+        params[:query] = {:emo => params[:emo], :sort => params[:sort], :storytag => params[:storytag], :page => params[:page]}
       elsif params[:query] == nil
-        params[:query] = {:sort => "new", :storytag => nil, :page => 0}
+        params[:query] = {:emo => params[:emo], :sort => "new", :storytag => nil, :page => 0}
       end
 
       items_per_page = 18
@@ -64,19 +64,21 @@ class ViewersController < ApplicationController
 
       sort = get_sort_info(params[:query][:sort])
 
-      @query = {:sort => sort, :storytag => storytag, :page => page}
+      emo = get_emo_info(params[:query][:emo])
+
+      @query = {:emo => emo, :sort => sort, :storytag => storytag, :page => page}
 
       @title_left = "Stories : "
-      @title_right = "Life is Sweet"
-      @action = 'indexsweet'
-
+      @title_right = emo
+      @action = 'indexstories'
+      
       # TIME TO BUILD OUT MODEL OBJECT.  WOHOO!!!
       @stories = Story
       if (storytag != nil && storytag != "")
         @stories = @stories.joins(:storytags).where("storytags.tag = ?", storytag)
         @title_more_right = "  ( filter by '" + storytag.downcase + "' )"
       end
-      @stories = @stories.where("stories.category = 'life is sweet'").order(sort)[start_record...end_record]
+      @stories = @stories.where("stories.category = ?", emo).order(sort)[start_record...end_record]
       #if sort == "rate"
         #@stories = @stories.all.sort_by{|story| -recipe.rating_equation.to_i}[start_record...end_record]
       #else
@@ -104,7 +106,16 @@ class ViewersController < ApplicationController
       when "old" then "created_at ASC"
       when "author" then "user_id"
       when "rate" then "rate"
-      else sort    
+      else sort
+    end
+  end
+
+  def get_emo_info(emo)
+    return case emo
+      when nil then "life is sweet"
+      when "sweet" then "life is sweet"
+      when "bite" then "bite me"
+      else emo
     end
   end
 

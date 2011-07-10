@@ -30,7 +30,7 @@ class RecipefavouritesController < ApplicationController
     # No problem....but we don't remove the actual recipe!  That would be mad! MAD!
     # Instead, let's just remove the link between this user and this recipe.  Sweet!
     Recipefavourite.where(:user_id => params[:user_id], :recipe_id => params[:recipe_id]).first.destroy
-    redirect_to :action => 'show', :controller => 'users', :query => params[:query]
+    redirect_to :action => 'index', :controller => 'users', :query => params[:query]
   end
   
 end

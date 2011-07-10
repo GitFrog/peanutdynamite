@@ -7,7 +7,7 @@ DeadGrandmaCookies::Application.routes.draw do resources :home
   get "users/new"  
   get "users/index"  
   get "viewers/index"
-  get "viewers/indexsweet"
+  get "viewers/indexstories"
   get "recipefavourites/destroy"
   get "recipefavourites/update"
   get "recipefavourites/create"

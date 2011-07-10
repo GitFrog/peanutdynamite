@@ -1,4 +1,8 @@
 <p>Sign in form</p>
+<% if @loginfail %>
+    <div id="title1_red">Invalid email/password combination.</div>
+    <br/>
+<% end %>
 <%= form_for(:session, :url => sessions_path) do |f| %>
   <div class="field">
     <%= f.label :email %><br />

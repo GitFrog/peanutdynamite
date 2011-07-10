@@ -7,12 +7,12 @@ class SessionsController < ApplicationController
   def create
     user = User.authenticate(params[:session][:email],
                              params[:session][:password])
+                           flash.now[:error] = user.to_s
     if user.nil?
-      flash.now[:error] = "Invalid email/password combination."
-      render 'user/new'
+      redirect_to url_for(new_user_path(:loginfail => true))
     else
       sign_in user
-      redirect_to user
+      redirect_to users_path
     end
   end
 

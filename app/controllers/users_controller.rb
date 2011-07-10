@@ -93,6 +93,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @loginfail = params[:loginfail]
   end
 
   def create

@@ -24,7 +24,7 @@
   <% @query[:sort] = "rate" %>
   <%=  link_to "rating", :action => @action, :controller => 'viewers', :query => @query %>
   <%# @query[:sort] = "story" %>
-  <%#=  link_to "most stories", :action => @action, :controller => 'viewers', :query => @query %>
+  <%#=  link_to "most stories", @action => @action, :controller => 'viewers', :query => @query %>
   <% @query = preserve.clone %>
 </div>
 
@@ -37,6 +37,7 @@
       <%= hidden_field_tag :course,@query[:course] %>
       <%= select_tag 'foodtag', options_for_select(food_tag_select.collect{|x| x}) %>
     <% else %>
+      <%= hidden_field_tag :emo, @query[:emo] %>
       <%= select_tag 'storytag', options_for_select(story_tag_select.collect{|x| x}) %><% end %>
     <%= submit_tag "filter now" %>
   <% end %> 
