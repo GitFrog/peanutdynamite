@@ -25,13 +25,13 @@
     <tr>
       <td><div id="title6_black">
           <%= link_to recipe.title_concat, :action => 'show', :controller => 'recipes', :id => recipe.id, :query => @query %></div></td>
-      <td><div id="title6_gray" align ="center">
+      <td><div id="title10_gray" align ="center">
           <%= recipe.num_of_likes %></div></td>
-      <td><div id="title6_gray" align ="center">
+      <td><div id="title10_gray" align ="center">
           <%= recipe.num_of_hates %></div></td>
-      <td><div id="title6_gray" align ="center">
+      <td><div id="title10_gray" align ="center">
          <%= recipe.stories.count %></div></td>
-      <td><div id="title6_gray" align ="right">
+      <td><div id="title10_gray" align ="right">
           <% if @query[:pile] == 'keeper' %>
             <%= link_to "maybe", :action => 'update', :controller => 'recipefavourites', :recipe_id => recipe.id, :user_id => current_user.id, :query => @query, :sendto => "maybe" %>,
           <% elsif @query[:pile] == 'maybe' %>
@@ -45,7 +45,7 @@
    <% end %>  
  </table>
  <% else %>
-    <br/><div id="title2_gray">An empty page, begging to be filled.</div>
+    <br/><div id="title6_gray">An empty page, begging to be filled.</div>
  <% end %>
 
 

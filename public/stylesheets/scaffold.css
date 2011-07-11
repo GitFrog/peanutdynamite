@@ -12,9 +12,6 @@ pre {
   font-size: 11px;
 }
 
-a { color: gray; text-decoration: none;}
-a:visited { color: gray; }
-a:hover { color: blue; }
 
 #notice {
   color: green;

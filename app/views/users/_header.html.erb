@@ -37,16 +37,27 @@
     <% if (@query != nil && @title_left != "Add New Recipe") %>
       <% preserve = @query.clone %>
         <% @query[:page] = 0 %>
+
         <% @query[:sort] = "new" %>
-        <%=  link_to "newest", :action => 'index', :controller => 'users', :query => @query %> |
+          <% if preserve[:sort] == "created_at DESC" %><span id ="highlight_org"><%=  link_to "newest", users_path(:query => @query) %> |</span>
+          <% else %><%=  link_to "newest", users_path(:query => @query) %> |<% end %>
+        
         <% @query[:sort] = "old" %>
-        <%=  link_to "oldest", :action => 'index', :controller => 'users', :query => @query %> |
+          <% if preserve[:sort] == "created_at ASC" %><span id ="highlight_org"><%=  link_to "oldest", users_path(:query => @query) %> |</span>
+          <% else %><%=  link_to "oldest", users_path(:query => @query) %> |<% end %>
+
         <% @query[:sort] = "chef" %>
-        <%=  link_to "chef", :action => 'index', :controller => 'users', :query => @query %> |
+          <% if preserve[:sort] == "user_id" %><span id ="highlight_org"><%=  link_to "chef", users_path(:query => @query) %> |</span>
+          <% else %><%=  link_to "chef", users_path(:query => @query) %> |<% end %>
+          
         <% @query[:sort] = "rate" %>
-        <%=  link_to "rating", :action => 'index', :controller => 'users', :query => @query %> |
+          <% if preserve[:sort] == "rate" %><span id ="highlight_org"><%=  link_to "rating", users_path(:query => @query) %> |</span>
+          <% else %><%=  link_to "rating", users_path(:query => @query) %> |<% end %>
+
         <% @query[:sort] = "story" %>
-        <%=  link_to "stories", :action => 'index', :controller => 'users', :query => @query %>
+          <% if preserve[:sort] == "story" %><span id ="highlight_org"><%=  link_to "stories", users_path(:query => @query) %></span>
+          <% else %><%=  link_to "stories", users_path(:query => @query) %><% end %>
+        
       <% @query = preserve.clone %>
     <% else %>
       <br/>

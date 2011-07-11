@@ -63,6 +63,8 @@ class UsersController < ApplicationController
       else params[:query][:sort]
       end
 
+      
+
       look_for_this = "recipefavourites.rating = '" + pile.to_s + "'"
       if course != "all recipes"
         look_for_this += " AND recipes.course = '" + course.to_s + "'"
@@ -107,4 +109,7 @@ class UsersController < ApplicationController
     end
   end
 
+
+
+  
 end

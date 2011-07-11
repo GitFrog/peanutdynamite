@@ -18,22 +18,22 @@
     <tr>
       <td><div id="title6_black">
           <%= link_to recipe.title_concat, :action => 'show', :controller => 'recipes', :id => recipe.id, :query => @query %></div> <!--{:style=>'color:black; hover'} -->
-          <div id="title8_gray">by 
+          <div id="title10_gray">by
           <%= recipe.user.name[0...30] %> on
           <%= recipe.created_at.strftime("%B %d, %Y") %>
           </div>
       </td>      
-     <td><div id="title6_gray" align ="center">
+     <td><div id="title10_gray" align ="center">
           <%= recipe.num_of_likes %></div></td>
-     <td><div id="title6_gray" align ="center">
+     <td><div id="title10_gray" align ="center">
           <%= recipe.num_of_hates %></div></td>
-     <td><div id="title6_gray" align ="center">
+     <td><div id="title10_gray" align ="center">
          <%= recipe.stories.count %></div></td>         
    </tr>
    <% end %>  
  </table>
  <% else %>
-    <br/><div id="title2_gray">An empty page, begging to be filled.
+    <br/><div id="title6_gray">An empty page, begging to be filled.
     <% if current_user.nil? %>
       <%= link_to "  Create your own scrapbook?", new_user_path %>
     <% else %>
