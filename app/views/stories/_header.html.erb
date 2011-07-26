@@ -1,43 +1,32 @@
 
-<!--  Story Header -->
-<% if ((@favourite_recipe == "keeper" || @favourite_recipe == "maybe") && @show_my_stories == "yes") %>
-    <div id="title2_black" align ="center">My Stories</div>
-<% else %>
-    <div id="title2_black" align ="center">All Stories</div>
-<% end %>
-
 <!--  Show Mine/All, or Add Story -->
 <% if (@favourite_recipe == "keeper" || @favourite_recipe == "maybe") %>
+    <br/>
     <div align ="center">
-      <%=  link_to "show mine (" + @recipe.my_story_count(current_user.id) + ")", :action => 'show', :controller => 'recipes', :id => @recipe.id, :show_my_stories => "yes" %> |
-      <%=  link_to "show all ("+@recipe.stories.count.to_s+")", :action => 'show', :controller => 'recipes', :id => @recipe.id, :show_my_stories => "no" %> |
-      <%=  link_to "add a story", {:controller => 'stories', :action => 'new', :recipe_id => @recipe} %>
+      <% if @show_my_stories == 'yes' %>
+        <span id="highlight_org"><%=  link_to "show mine (" + @recipe.my_story_count(current_user.id) + ")", :action => 'show', :controller => 'recipes', :id => @recipe.id, :show_my_stories => "yes" %> | </span>
+      <% else %>
+        <span id="title9_org"><%= link_to "show mine (" + @recipe.my_story_count(current_user.id) + ")", :action => 'show', :controller => 'recipes', :id => @recipe.id, :show_my_stories => "yes" %> | </span>
+      <% end %>
+      <% if @show_my_stories == 'no' %>
+        <span id="highlight_org"><%=  link_to "show all ("+@recipe.other_story_count(current_user.id).to_s+")", :action => 'show', :controller => 'recipes', :id => @recipe.id, :show_my_stories => "no" %> |</span>
+      <% else %>
+        <span id="title9_org"><%=  link_to "show all ("+@recipe.other_story_count(current_user.id).to_s+")", :action => 'show', :controller => 'recipes', :id => @recipe.id, :show_my_stories => "no" %> |</span>
+      <% end %>
+        <span id="title9_org"><%=  link_to "add a story", {:controller => 'stories', :action => 'new', :recipe_id => @recipe} %></span>
     </div>
     <br/>
 <% else %>
     <br/><br/>
 <% end %>
 
-<!--  Show Story!! -->
+<!--  Paginate!! -->
 <% if @story == nil %>
-    <br/>
-<% elsif ((@favourite_recipe == "keeper" || @favourite_recipe == "maybe") && @my_story_count.to_i > 0 && @show_my_stories == "yes") %>
-    <div id ="title4_gray" align ="center">
-      <% if @story.my_previous_story %><%= link_to '<<prev', :action => 'show', :controller => 'stories', :id => @story.my_previous_story, :show_my_stories => "yes" %>
-      <% else %><%= '<<prev' %><% end %>
-      <%= @story.my_story_location %>
-      <% if @story.my_next_story %><%= link_to 'next>>', :action => 'show', :controller => 'stories', :id => @story.my_next_story, :show_my_stories => "yes" %>
-      <% else %><%= 'next>>' %><% end %>
-    </div>
+  <br/>
 <% else %>
-    <div id ="title4_gray" align ="center">
-      <% if @story.previous_story %><%= link_to '<<prev', :action => 'show', :controller => 'stories', :id => @story.previous_story, :show_my_stories => "no" %>
-      <% else %><%= '<<prev' %><% end %>
-      <%= @story.story_location %>
-      <% if @story.next_story %><%= link_to 'next>>', :action => 'show', :controller => 'stories', :id => @story.next_story, :show_my_stories => "no" %>
-      <% else %><%= 'next>>' %><% end %>
-    </div>
-<% end %><br/>
+  <div class ="pagination" id ="pagination_story_top"><%= render 'stories/paginate' %></div>
+<% end %>
+
 
 
 

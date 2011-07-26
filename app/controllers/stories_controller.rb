@@ -8,7 +8,8 @@ class StoriesController < ApplicationController
     @author_story = @story.user
     
     @favourite_recipe = nil # default for now
-   
+    @show_my_stories = params[:show_my_stories]
+    
     if signed_in?
       fav = current_user.has_favourite_get_rating(@recipe)
       if fav != nil # If this recipe is one of my favourites then...

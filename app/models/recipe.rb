@@ -19,12 +19,12 @@ class Recipe < ActiveRecord::Base
   validates :course,        :presence => true
 
 
-  def my_story_count(current_user_id)
-    self.stories.where(:user_id => current_user_id).count.to_s
+  def my_story_count(me)
+    self.stories.where(:user_id => me).count.to_s
   end
 
-  def all_story_count
-    self.stories.count.to_s
+  def other_story_count(me)
+    self.stories.where("user_id <> ? AND private = ?", me, 0).count.to_s
   end
 
   def newest_story

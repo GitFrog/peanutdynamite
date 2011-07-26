@@ -22,12 +22,12 @@ class Story < ActiveRecord::Base
     end
   end
 
-  def previous_story
-    self.class.first(:conditions => ["id < ? AND recipe_id = ?", id, self.recipe_id], :order => "id desc")
+  def previous_story(me)
+    self.class.first(:conditions => ["id < ? AND recipe_id = ? AND user_id <> ? AND private = ?", id, self.recipe_id, me, 0], :order => "id desc")
   end
 
-  def next_story
-    self.class.first(:conditions => ["id > ? AND recipe_id = ?", id, self.recipe_id], :order => "id asc")
+  def next_story(me)
+    self.class.first(:conditions => ["id > ? AND recipe_id = ? AND user_id <> ? AND private = ?", id, self.recipe_id, me, 0], :order => "id asc")
   end
 
   def my_first_story
@@ -46,7 +46,7 @@ class Story < ActiveRecord::Base
     (self.class.count(:conditions => ["id < ? AND recipe_id = ? AND user_id = ?", id, self.recipe_id, self.user_id]) + 1).to_s + "/" + self.class.count(:conditions => ["recipe_id = ? AND user_id = ?", self.recipe_id, self.user_id]).to_s
   end
   
-  def story_location
-    (self.class.count(:conditions => ["id < ? AND recipe_id = ?", id, self.recipe_id]) + 1).to_s + "/" + self.class.count(:conditions => ["recipe_id = ?", self.recipe_id]).to_s
+  def story_location(me)
+    (self.class.count(:conditions => ["id < ? AND recipe_id = ? AND user_id <> ? AND private = ?", id, self.recipe_id, me, 0]) + 1).to_s + "/" + self.class.count(:conditions => ["recipe_id = ? AND user_id <> ? AND private = ?", self.recipe_id, me, 0]).to_s
   end
 end

@@ -5,7 +5,7 @@
 <div id="title2_black">
   <%= @recipe.title %>
 </div>
-<div id ="title8_gray">by <%= @author_recipe.name %> on <%= @recipe.created_at.strftime("%B %d, %Y") %></div>
+<div id ="title8_gray">by <%= @author_recipe.name %>, <%= @recipe.created_at.strftime("%B %d, %Y") %></div>
 
 <div id="heart">
     <% if @favourite_recipe == nil %>

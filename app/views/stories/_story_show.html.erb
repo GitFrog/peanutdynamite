@@ -1,11 +1,8 @@
 
 <div align ="center">
   <% if @story != nil %>
-    <div id="title5_org" align ="center"><%= @story.title %></div>
-    <div id ="title4_gray" align ="center">by <%= @author_story.name %> on <%= @story.created_at.strftime("%B %d, %Y") %></div>
-   
+    <div id="title4_org" align ="center"><%= @story.title %></div>   
     <br/>
-
     <% if @story.photo_file_size != nil %>
       <div id ="picture">
         <%= image_tag @story.photo.url(:small) %>
@@ -16,9 +13,13 @@
 </div>
     
 <% if @story == nil %>
-  <div id ="title8_black">This recipe has no stories yet.</div>
+  <div id ="title7_gray" align="center">This recipe has no stories yet.</div>
 <% else %>
-  <div id="title8_black"><%= @story.thestory %></div>
+  <div id="title7_gray"><%= @story.thestory %></div>
+  <br/>
+  <div id ="title8_gray">by <%= @author_story.name %>, <%= @story.created_at.strftime("%B %d, %Y") %></div>
+  <br/>
+  <%= render 'stories/paginate' %>
 <% end %>
       
 

@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
 
     @recipe = Recipe.find(params[:id]) #grab the recipe...easy enough
     @author_recipe = @recipe.user # now grab author of said recipe
-    @story_count = @recipe.stories.count # alright, how many stories does this recipe have?
+    @story_count = @recipe.stories.where("user_id <> ? AND private = ?", current_user.id, 0).count # alright, how many stories does this recipe have?
 
     @favourite_recipe = nil # default for now
     @show_my_stories = "no" # default for now
@@ -36,7 +36,7 @@ class RecipesController < ApplicationController
     elsif @story_count > 0 #if this recipe has any stories then...
         @story = @recipe.stories.where("user_id <> ? AND private = ?", current_user.id, 0).first # Grab the first story
         @author_story = @story.user # Get the stories author
-        @show_my_stories = 'yes'
+        @show_my_stories = 'no'
     end
 
 

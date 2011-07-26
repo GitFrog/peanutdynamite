@@ -11,7 +11,7 @@
 */
 
 /* -----------------------------------*/
-/* ---------->>> CONSTANTS <<<-----------*/
+/* ---------->>> CONSTANTS <<<--------*/
 /* -----------------------------------*/
 
 a { color: gray; text-decoration: none;}
@@ -143,9 +143,9 @@ a:hover { color: blue; }
   height: 840px;
 }
 
-/* --------------------------------------------*/
-/* ---------->>> DISPLAY RECIPES <<<-----------*/
-/* --------------------------------------------*/
+/* --------------------------------------------------------*/
+/* ---------->>> DISPLAY RECIPES AND STORIES <<<-----------*/
+/* --------------------------------------------------------*/
 
 #column1 {
   position: absolute;
@@ -156,16 +156,14 @@ a:hover { color: blue; }
   padding-left: 20px;
   padding-right: 20px;
   border-style: none dashed none none;
-  border-color: lightgrey;
-  background-image: url("/image/napkin.jpg");
-  background-repeat: no-repeat
+  border-color: lightgrey;  
 }
 
 #column2 {
   position: absolute;
   top: 125px;
   left: 502px;
-  width: 328px;
+  width: 350px;
   height: 1090px;
   padding-left: 20px;
   padding-right: 20px;
@@ -199,6 +197,14 @@ a:hover { color: blue; }
   left: -25px;
 }
 
+#pagination_story_top {
+  position: absolute;
+  font-size:1.0em;
+  width: 150px;
+  text-align: left;
+  top: -10px;
+  right: -10px;
+}
 /* -----------------------------------*/
 /* ---------->>> FOOTER <<<-----------*/
 /* -----------------------------------*/

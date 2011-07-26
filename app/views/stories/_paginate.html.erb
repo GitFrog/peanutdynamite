@@ -1,0 +1,48 @@
+
+<% if ((@favourite_recipe == "keeper" || @favourite_recipe == "maybe") && @show_my_stories == "yes") %>
+    <div id ="title6_gray" align ="center">
+
+      <% if @story.my_previous_story %>
+        <%= link_to '<<', :action => 'show', :controller => 'stories', :id => @story.my_previous_story, :show_my_stories => "yes" %>
+      <% else %>
+        <%= '---' %><% end %>
+
+      <%= @story.my_story_location %>
+      
+      <% if @story.my_next_story %>
+        <%= link_to '>>', :action => 'show', :controller => 'stories', :id => @story.my_next_story, :show_my_stories => "yes" %>
+      <% else %>
+        <%= '---' %>
+      <% end %>
+
+    </div>
+<% else %>
+    <div id ="title6_gray" align ="center">
+
+      <% if @story.previous_story(current_user.id) %>
+        <%= link_to '<<', :action => 'show', :controller => 'stories', :id => @story.previous_story(current_user.id), :show_my_stories => "no" %>
+      <% else %>
+        <%= '---' %>
+      <% end %>
+
+      <%= @story.story_location(current_user.id) %>
+
+      <% if @story.next_story(current_user.id) %>
+        <%= link_to '>>', :action => 'show', :controller => 'stories', :id => @story.next_story(current_user.id), :show_my_stories => "no" %>
+      <% else %>
+        <%= '---' %>
+      <% end %>
+
+    </div>
+<% end %><br/>
+
+
+
+
+
+
+
+
+
+
+
