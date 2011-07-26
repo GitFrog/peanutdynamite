@@ -1,6 +1,6 @@
 
 <!--  Recipe Table -->
-<br/>
+
  <% if (@recipes != nil  && @recipes.count != 0) %>
  <table width = "720">
     <tr>
@@ -14,9 +14,10 @@
   
    <%@recipes.each do |recipe| %>
     <tr>
-      <td></td>
+      <td><div id="title8_gray">
+          <%= recipe.id.to_s + "."%></div></td>
       <td><div id="title4_black">
-          <%= link_to recipe.title_concat, :action => 'show', :controller => 'recipes', :id => recipe.id, :query => @query %></div></td>
+          <%= link_to recipe.title_concat, recipe_path(:id => recipe.id, :query => @query) %></div></td>
       <td><div id="title7_gray" align ="center">
           <%= recipe.num_of_likes %></div></td>
       <td><div id="title7_gray" align ="center">
@@ -36,12 +37,14 @@
     </tr>
    <% end %>  
  </table>
- <div class ="pagination" align ="center" >
-   <%= render 'paginate' %>
- </div>
  <% else %>
     <br/><div id="title8_gray">An empty page, begging to be filled.</div>
  <% end %>
+
+ <br/>
+ <div class ="pagination" align ="center" >
+   <%= render 'paginate' %>
+ </div>
 
 
 

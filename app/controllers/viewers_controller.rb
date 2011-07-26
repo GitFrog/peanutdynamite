@@ -76,8 +76,9 @@ class ViewersController < ApplicationController
       @stories = Story
       if (storytag != nil && storytag != "")
         @stories = @stories.joins(:storytags).where("storytags.tag = ?", storytag)
-        @title_more_right = "  ( filter by '" + storytag.downcase + "' )"
+        @title_more_right = "  ( filtered by '" + storytag.downcase + "' )"
       end
+      @stories = @stories.where("private = ?", 0)
       @stories = @stories.where("stories.category = ?", emo).order(sort)[start_record...end_record]
       #if sort == "rate"
         #@stories = @stories.all.sort_by{|story| -recipe.rating_equation.to_i}[start_record...end_record]

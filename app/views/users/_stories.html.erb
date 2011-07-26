@@ -1,0 +1,37 @@
+
+<!--  Story Table -->
+
+ <% if (@stories != nil  && @stories.count != 0) %>
+ <table width = "720">
+    <tr>
+      <td width ="100"></td>
+      <td width ="620"></td>
+    </tr>
+  
+   <%@stories.each do |story| %>
+    <tr>
+      <td><div id="title4_gray">
+          <%= story.created_at.strftime("%B, %Y").to_s %></div></td>
+      <td><div id="title4_black">
+          <%= story.title_concat, story_path(:id => story.id, :query => @query) %></div></td>
+    </tr>
+   <% end %>  
+ </table>
+ <% else %>
+    <br/><div id="title8_gray">An empty page, begging to be filled.</div>
+ <% end %>
+
+ <br/>
+ <div class ="pagination" align ="center" >
+   <%= render 'paginate' %>
+ </div>
+
+
+
+ 
+
+
+  
+  
+
+

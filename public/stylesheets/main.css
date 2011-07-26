@@ -95,9 +95,6 @@ a:hover { color: blue; }
 /* ------------------------------------------------------*/
 
 .pagination {
-  position: absolute;  
-  width: 150px;
-  text-align: left;
   font-family:Georgia,Arial;
   font-size:1.5em;
   line-height:1.5em;
@@ -105,6 +102,9 @@ a:hover { color: blue; }
 }
 
 #pagination_user_top {
+  position: absolute;
+  width: 150px;
+  text-align: left;
   top: -30px;
   right: -65px;
 }
@@ -123,7 +123,7 @@ a:hover { color: blue; }
   position: absolute;
   top: 170px;
   left: 30px;
-  width: 600px;
+  width: 720px;
   height: 870px;  
 }
 

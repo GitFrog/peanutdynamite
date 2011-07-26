@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
     if signed_in?
 
-      items_per_page = 25
+      items_per_page = 23
 
       @user = current_user
 
@@ -28,6 +28,9 @@ class UsersController < ApplicationController
 
         @title_left = pile.capitalize + "'s: "
         @title_right = course.capitalize
+        @keeper_count = @user.recipes.where("recipefavourites.rating = 'keeper'").count
+        @maybe_count = @user.recipes.where("recipefavourites.rating = 'maybe'").count
+        @stories_count = @user.stories.count
 
       @recipe = @user.recipes.where("recipefavourites.rating = ?", pile.to_s)
       if course != "all recipes"
@@ -48,6 +51,39 @@ class UsersController < ApplicationController
     end
   end
 
+  def indexstories #this shows the users recipe book
+
+      items_per_page = 23
+
+      @user = current_user
+
+      # default query setting if it can't find the :query hash
+      if params[:query] == nil
+        params[:query] = {:sort => "new", :course => "all", :pile => "keeper", :page => 0}
+      end
+
+      page = get_page_info(params[:query][:page])
+      start_record = page * items_per_page
+      end_record = (page+1) * items_per_page
+
+      pile = get_pile_info(params[:query][:pile])
+
+      course = get_course_info(params[:query][:course])
+
+      sort = get_sort_info(params[:query][:sort])
+
+      @query = {:sort => sort, :course => course, :pile => pile, :page => page}
+
+      @title_left = "My Stories"
+      @title_right = ""
+      @keeper_count = @user.recipes.where("recipefavourites.rating = 'keeper'").count
+      @maybe_count = @user.recipes.where("recipefavourites.rating = 'maybe'").count
+      @stories_count = @user.stories.count
+
+      @stories = @user.stories.order("created_at DESC")
+    
+  end
+
   def new
     @user = User.new
     @loginfail = params[:loginfail]
@@ -63,7 +99,6 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-
 
 def get_page_info(page)
   if page == nil

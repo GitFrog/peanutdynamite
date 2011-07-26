@@ -11,10 +11,10 @@
       <div id="title9_org">
         <%preserve = @query[:pile]%>
         <%@query[:pile] = "keeper"%>
-          <%= link_to "keepers ()", users_path(:query => @query) %> |
+          <%= link_to "keepers (" + @keeper_count.to_s + ")", users_path(:query => @query) %> |
         <%@query[:pile] = "maybe"%>
-          <%= link_to "maybes ()", users_path(:query => @query) %> |
-        <%= link_to "stories ()", users_path(:query => @query) %> |
+          <%= link_to "maybes (" + @maybe_count.to_s + ")", users_path(:query => @query) %> |
+        <%= link_to "stories (" + @stories_count.to_s + ")", :action => 'indexstories', :controller => 'users', :query => @query %> |
         <%= link_to "add recipe", new_recipe_path(:query => @query) %> |
         <%= link_to "edit book" %> |
         <%= link_to "sign out", signout_path, :method => :delete %>
