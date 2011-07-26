@@ -1,9 +1,6 @@
 
 <!-- Book Title and Main Links -->
 
-<% rock = "lobster" %>
-<% if rock == "kitten" %>
-
     <div align="center"><br/>
       <div id="title0_black"><% "- " + @user.bookname + " -"%></div>
       <div id="title9_org">
@@ -21,52 +18,4 @@
     </div>
     <br/>
   
-
-<!--  Recipe Header -->
-
-    <div id ="title1_black">
-      <%= @title_left %>
-      <font size="1" style="font-size:28px; color:orange">
-        <%= @title_right %>
-      </font>      
-    </div>
-
-
-<!--  Recipe Sorting Options -->
-    <% if (@query != nil && @title_left != "Add New Recipe") %>
-      <% preserve = @query.clone %>
-        <% @query[:page] = 0 %>
-
-        <% @query[:sort] = "new" %>
-          <% if preserve[:sort] == "created_at DESC" %><span id ="highlight_org"><%=  link_to "newest", users_path(:query => @query) %></span>
-          <% else %><span id ="title9_org"><%=  link_to "newest", users_path(:query => @query) %></span><% end %>
-        
-        <% @query[:sort] = "old" %>
-          <% if preserve[:sort] == "created_at ASC" %> | <span id ="highlight_org"><%=  link_to "oldest", users_path(:query => @query) %></span>
-          <% else %> | <span id ="title9_org"><%=  link_to "oldest", users_path(:query => @query) %></span><% end %>
-
-        <% @query[:sort] = "mine" %>
-          <% if preserve[:sort] == "mine" %> | <span id ="highlight_org"><%=  link_to "just mine", users_path(:query => @query) %></span>
-          <% else %> | <span id ="title9_org"><%=  link_to "just mine", users_path(:query => @query) %></span><% end %>
-          
-        <% @query[:sort] = "rate" %>
-          <% if preserve[:sort] == "rate" %> | <span id ="highlight_org"><%=  link_to "rating", users_path(:query => @query) %></span>
-          <% else %> | <span id ="title9_org"><%=  link_to "rating", users_path(:query => @query) %></span><% end %>
-        
-      <% @query = preserve.clone %>
-    <% else %>
-      <br/>
-    <%end%>
-
-<% end %>
-  
-
-
-
-    
-
-
-  
-  
-
 
