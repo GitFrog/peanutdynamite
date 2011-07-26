@@ -62,8 +62,7 @@ class RecipesController < ApplicationController
   # POST /recipes.xml
   def create
     @recipe = Recipe.new(params[:recipe])
-    
-    
+        
       if @recipe.save
         if Recipefavourite.create(:user => current_user, :recipe_id => @recipe.id, :rating => "maybe")
           if params[:food_tags] != nil
@@ -77,6 +76,7 @@ class RecipesController < ApplicationController
       else
         @user = current_user
         @title_left = "Add New Recipe"
+        @query = {:sort => "new", :course => "all", :pile => "maybe", :page => 0}
         render 'new'
       end
     end

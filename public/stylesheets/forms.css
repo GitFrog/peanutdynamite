@@ -55,6 +55,8 @@ div.field, div.actions {
 
 
 
+#storyprivate {text-align: right; width: 200px; top: 100px; right: 10px;}
+
 #storytitlefield {width: 340px; top: 750px; left:10px;}
 #storytitlelabel {top: 730px; left: 10px;}
 
@@ -72,34 +74,25 @@ div.field, div.actions {
 
 #storysubmit {top: 1070px; left: 10px;}
 
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
-#error_explanation {
+.error_background {
   position: absolute;
-  left: 440px;
-  width: 300px;
-  border: 2px solid red;
+  font-size: 1.0em;
+  font-family:Georgia,Arial;
+  border: 2px solid orange;
   padding-bottom: 0;
   margin-bottom: 20px;
-  background-color: #f0f0f0;
+  background-color: white;
 }
 
-#error_explanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: -7px;
-  margin-bottom: 0px;
-  background-color: #c00;
-  color: #fff;
+#error_add_recipe {
+  left: 440px;
+  width: 300px;
 }
 
-#error_explanation ul li {
-  font-size: 12px;
-  list-style: square;
+#error_add_story {
+  top: 120px;
+  left: -380px;
+  width: 300px;
 }
+
+

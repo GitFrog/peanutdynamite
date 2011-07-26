@@ -6,7 +6,18 @@ class Recipe < ActiveRecord::Base
   has_many :stories
   has_many :recipetags
 
-  validates_uniqueness_of :title, :scope => :user_id
+  validates :ingredients,   :presence => true,
+                            :length => { :maximum => 3000 }
+
+  validates :instructions,  :presence => true,
+                            :length => { :maximum => 3000 }
+
+  validates :title,         :presence => true,
+                            :length => { :maximum => 100 },
+                            :uniqueness => { :case_sensitive => false }
+
+  validates :course,        :presence => true
+
 
   def my_story_count(current_user_id)
     self.stories.where(:user_id => current_user_id).count.to_s

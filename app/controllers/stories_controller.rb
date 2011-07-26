@@ -26,7 +26,7 @@ class StoriesController < ApplicationController
     @author_recipe = @recipe.user    
   end
 
-   def create
+  def create
     @story = Story.new(params[:story])
 
       if @story.save
@@ -37,6 +37,8 @@ class StoriesController < ApplicationController
           redirect_to @story
         end
       else
+        @recipe = @story.recipe
+        @author_recipe = @recipe.user
         render 'new'
       end    
   end

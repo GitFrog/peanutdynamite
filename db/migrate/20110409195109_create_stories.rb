@@ -4,8 +4,8 @@ class CreateStories < ActiveRecord::Migration
       t.integer :recipe_id
       t.integer :user_id
       t.integer :private
-      t.string :title, :limit => 50
-      t.text :thestory
+      t.string :title, :limit => 40
+      t.text :thestory, :limit => 3000
       t.string :category, :limit => 15
       t.string :photo_file_name
       t.string :photo_content_type

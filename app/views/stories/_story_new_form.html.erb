@@ -1,20 +1,11 @@
-<%= form_for @story, :html => { :multipart => true } do |f| %>
-  <% if @story.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@story.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+<%= form_for @story do |f| %>
 
-      <ul>
-      <% @story.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.hidden_field :recipe_id, :value => @recipe.id %>
 
- <%= f.hidden_field :user_id, :value => current_user.id %>
- <%= f.hidden_field :recipe_id, :value => @recipe.id %>
- 
-
+  <div class="input" id="storyprivate">
+    for my eyes only<%= f.check_box :private %>
+  </div>
   <div>
     <%= f.label :title, :class => "input", :id => "storytitlelabel" %><br />
     <%= f.text_field :title, :class => "input", :id => "storytitlefield" %>
@@ -75,4 +66,15 @@
     <%= f.submit "Add Story", :class => "input", :id => "storysubmit" %>
   </div>
 
+<% end %>
+
+<% if @story.errors.any? %>
+  <div class="error_background" id="error_add_story">
+    <ul>
+    <% @story.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    <li>Categories have to be re-entered</li>
+    </ul>
+  </div>
 <% end %>

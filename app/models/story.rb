@@ -6,6 +6,14 @@ class Story < ActiveRecord::Base
 
   has_attached_file :photo, :styles => {:thumb=> "50x50#", :small=> "250x250#" }
 
+  validates :thestory,      :presence => true,
+                            :length => { :maximum => 3000 }
+
+  validates :title,         :presence => true,
+                            :length => { :maximum => 40 }
+
+  validates :category,      :presence => true
+
   def title_concat
     if title.length > 39 then
       title[0..36] + '...'
