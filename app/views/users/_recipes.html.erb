@@ -2,14 +2,15 @@
 <!--  Recipe Table -->
 
  <% if (@recipes != nil  && @recipes.count != 0) %>
+ <div id ="action_labels"><%= image_tag 'action_labels.gif' %></div>
  <table width = "720">
     <tr>
       <td width ="30"></td>
       <td width ="400"></td>
-      <td width ="40" align ="center">:)</td>
-      <td width ="40" align ="center">:(</td>
-      <td width ="40" align ="center">[][]</td>
-      <td width ="170" align ="center">actions</td>
+      <td width ="40" align ="center"><%= image_tag 'thumbs_up.gif' %></td>
+      <td width ="40" align ="center"><%= image_tag 'thumbs_down.gif' %></td>
+      <td width ="40" align ="center"><%= image_tag 'pencil.gif' %></td>
+      <td width ="170" align ="center"></td>
     </tr>
   
    <%@recipes.each do |recipe| %>

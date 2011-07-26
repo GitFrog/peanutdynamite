@@ -31,6 +31,7 @@ class UsersController < ApplicationController
         @keeper_count = @user.recipes.where("recipefavourites.rating = 'keeper'").count
         @maybe_count = @user.recipes.where("recipefavourites.rating = 'maybe'").count
         @stories_count = @user.stories.count
+        @action = "index"
 
       @recipe = @user.recipes.where("recipefavourites.rating = ?", pile.to_s)
       if course != "all recipes"
@@ -79,8 +80,9 @@ class UsersController < ApplicationController
       @keeper_count = @user.recipes.where("recipefavourites.rating = 'keeper'").count
       @maybe_count = @user.recipes.where("recipefavourites.rating = 'maybe'").count
       @stories_count = @user.stories.count
+      @action = "indexstories"
 
-      @stories = @user.stories.order("created_at DESC")
+      @stories = @user.stories.order(sort)
     
   end
 

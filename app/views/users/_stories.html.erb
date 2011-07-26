@@ -2,21 +2,22 @@
 <!--  Story Table -->
 
  <% if (@stories != nil  && @stories.count != 0) %>
- <table width = "720">
-    <tr>
-      <td width ="100"></td>
-      <td width ="620"></td>
-    </tr>
-  
+ <br/>
+  <table width = "720">
+   <% last_date = nil %>
    <%@stories.each do |story| %>
     <tr>
-      <td><div id="title4_gray">
-          <%= story.created_at.strftime("%B, %Y").to_s %></div></td>
+      <td width ="160"><div id="title4_gray">
+        <% if last_date != story.created_at.strftime("%B %Y").to_s %>
+          <%= story.created_at.strftime("%B %Y").to_s %></div>
+        <% end %>
+      </td>
       <td><div id="title4_black">
-          <%= story.title_concat, story_path(:id => story.id, :query => @query) %></div></td>
+         <%= link_to story.title_concat, story_path(:id => story.id, :query => @query) %></div></td>
     </tr>
+   <% last_date = story.created_at.strftime("%B %Y").to_s %>
    <% end %>  
- </table>
+  </table>
  <% else %>
     <br/><div id="title8_gray">An empty page, begging to be filled.</div>
  <% end %>

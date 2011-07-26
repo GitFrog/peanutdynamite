@@ -30,7 +30,6 @@ a:hover { color: blue; }
 #title3_black {font-family:Georgia,Arial; font-size:1.4em; line-height:1.5em; color: black;}
 #title4_black A {font-family:Georgia,Arial; font-size:1.3em; line-height:1.5em; color: black;}
 #title4_black A:hover {color: blue;}
-
 #title5_black {font-family:Georgia,Arial; font-size:1.2em; line-height:1.5em; color: black;}
 #title6_black {font-family:Georgia,Arial; font-size:1.1em; line-height:1.5em; color: black;}
 #title7_black {font-family:Georgia,Arial; font-size:1.0em; line-height:1.5em; color: black;}
@@ -38,6 +37,8 @@ a:hover { color: blue; }
 #title9_black {font-family:Georgia,Arial; font-size:0.8em; line-height:1.5em; color: black;}
 #title10_black {font-family:Georgia,Arial; font-size:0.7em; line-height:1.5em; color: black;}
 
+#title4_gray {font-family:Georgia,Arial; font-size:1.3em; line-height:1.5em; color: gray;}
+#title5_gray {font-family:Georgia,Arial; font-size:1.2em; line-height:1.5em; color: gray;}
 #title6_gray {font-family:Georgia,Arial; font-size:1.1em; line-height:1.5em; color: gray;}
 #title7_gray {font-family:Georgia,Arial; font-size:1.0em; line-height:1.5em; color: gray;}
 #title8_gray {font-family:Georgia,Arial; font-size:0.9em; line-height:1.5em; color: gray;}
@@ -110,6 +111,12 @@ a:hover { color: blue; }
 }
 
 #pagination_user_bottom {}
+
+#action_labels {
+  position: absolute;
+  top: -100px;
+  right: -45px;
+}
 
 #mybook_title {
   position: absolute;

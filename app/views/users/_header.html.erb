@@ -41,19 +41,21 @@
 
         <% @query[:sort] = "new" %>
           <% if preserve[:sort] == "created_at DESC" %><span id ="highlight_org"><%=  link_to "newest", users_path(:query => @query) %></span>
-          <% else %><span id ="title9_org"><%=  link_to "newest", users_path(:query => @query) %></span><% end %>
+          <% else %><span id ="title9_org"><%=  link_to "newest", :action => @action, :controller => 'users', :query => @query %></span><% end %>
 
         <% @query[:sort] = "old" %>
           <% if preserve[:sort] == "created_at ASC" %> | <span id ="highlight_org"><%=  link_to "oldest", users_path(:query => @query) %></span>
-          <% else %> | <span id ="title9_org"><%=  link_to "oldest", users_path(:query => @query) %></span><% end %>
+          <% else %> | <span id ="title9_org"><%=  link_to "oldest", :action => @action, :controller => 'users', :query => @query %></span><% end %>
 
-        <% @query[:sort] = "mine" %>
-          <% if preserve[:sort] == "mine" %> | <span id ="highlight_org"><%=  link_to "just mine", users_path(:query => @query) %></span>
-          <% else %> | <span id ="title9_org"><%=  link_to "just mine", users_path(:query => @query) %></span><% end %>
+        <% if @action == "index" %>
+          <% @query[:sort] = "mine" %>
+            <% if preserve[:sort] == "mine" %> | <span id ="highlight_org"><%=  link_to "just mine", users_path(:query => @query) %></span>
+            <% else %> | <span id ="title9_org"><%=  link_to "just mine", :action => @action, :controller => 'users', :query => @query %></span><% end %>
 
-        <% @query[:sort] = "rate" %>
-          <% if preserve[:sort] == "rate" %> | <span id ="highlight_org"><%=  link_to "rating", users_path(:query => @query) %></span>
-          <% else %> | <span id ="title9_org"><%=  link_to "rating", users_path(:query => @query) %></span><% end %>
+          <% @query[:sort] = "rate" %>
+            <% if preserve[:sort] == "rate" %> | <span id ="highlight_org"><%=  link_to "rating", users_path(:query => @query) %></span>
+            <% else %> | <span id ="title9_org"><%=  link_to "rating", :action => @action, :controller => 'users', :query => @query %></span><% end %>
+        <% end %>
 
       <% @query = preserve.clone %>
     <% else %>
