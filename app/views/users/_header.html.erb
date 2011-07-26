@@ -1,6 +1,6 @@
 
 <!-- Book Title and Main Links -->
-
+<% if @poop = "head" %>
     <div align="center"><br/>
       <div id="title0_black"><%= "- " + @user.bookname + " -"%></div>
       <div id="title9_org">
@@ -20,14 +20,14 @@
   
 
 <!--  Recipe Header -->
-<% if @poop = "head" %>
+
     <div id ="title1_black">
       <%= @title_left %>
       <font size="1" style="font-size:28px; color:orange">
         <%= @title_right %>
       </font>      
     </div>
-<%end%>
+
 
 <!--  Recipe Sorting Options -->
     <% if (@query != nil && @title_left != "Add New Recipe") %>
@@ -54,7 +54,7 @@
     <% else %>
       <br/>
     <%end%>
-  
+  <%end%>
   
 
 
