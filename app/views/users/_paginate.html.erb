@@ -1,0 +1,19 @@
+
+
+    <% @query[:page] -= 1 %>
+      <% if @query[:page] > -1 %>
+        <%= link_to '<<', users_path(:query => @query) %>
+     <% else %>
+        <%= '---' %>
+     <% end %>
+  
+    <% @query[:page] += 1 %>
+      <%= 'pg ' + (@query[:page] + 1).to_s + ''%>
+
+    <% @query[:page] += 1 %>
+      <% if (@recipes != nil  && @recipes.count != 0) %>
+        <%= link_to '>>', users_path(:query => @query) %>
+      <% else %>
+        <%= '---' %>
+      <%end%>
+    <% @query[:page] -= 1 %>

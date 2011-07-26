@@ -95,16 +95,21 @@ a:hover { color: blue; }
 /* ------------------------------------------------------*/
 
 .pagination {
-  position: absolute;
-  top: -60px;
-  left: 420px;
-  width: 320px;
-  text-align: right;
+  position: absolute;  
+  width: 150px;
+  text-align: left;
   font-family:Georgia,Arial;
-  font-size:1.6em;
+  font-size:1.5em;
   line-height:1.5em;
   color: grey;
 }
+
+#pagination_user_top {
+  top: -30px;
+  right: -65px;
+}
+
+#pagination_user_bottom {}
 
 #mybook_title {
   position: absolute;
