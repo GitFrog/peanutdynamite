@@ -3,6 +3,7 @@ class CreateStories < ActiveRecord::Migration
     create_table :stories do |t|
       t.integer :recipe_id
       t.integer :user_id
+      t.integer :private
       t.string :title, :limit => 50
       t.text :thestory
       t.string :category, :limit => 15
