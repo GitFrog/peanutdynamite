@@ -1,6 +1,6 @@
 
 <!-- Book Title and Main Links -->
-<% if @poop = "head" %>
+
     <div align="center"><br/>
       <div id="title0_black"><%= "- " + @user.bookname + " -"%></div>
       <div id="title9_org">
@@ -17,7 +17,7 @@
       </div>
     </div>
     <br/>
-  <%end%>
+  
 
 <!--  Recipe Header -->
     <div id ="title1_black">
@@ -28,7 +28,7 @@
     </div>
 
 <!--  Recipe Sorting Options -->
-
+<% if @poop = "head" %>
     <% if (@query != nil && @title_left != "Add New Recipe") %>
       <% preserve = @query.clone %>
         <% @query[:page] = 0 %>
@@ -53,6 +53,7 @@
     <% else %>
       <br/>
     <%end%>
+  <%end%>
   
 
 
