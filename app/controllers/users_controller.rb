@@ -14,20 +14,20 @@ class UsersController < ApplicationController
         params[:query] = {:sort => "new", :course => "all", :pile => "keeper", :page => 0}
       end
 
-      page = get_page_info(params[:query][:page])
-      start_record = page * items_per_page
-      end_record = (page+1) * items_per_page
+        page = get_page_info(params[:query][:page])
+        start_record = page * items_per_page
+        end_record = (page+1) * items_per_page
 
-      pile = get_pile_info(params[:query][:pile])
+        pile = get_pile_info(params[:query][:pile])
 
-      course = get_course_info(params[:query][:course])
+        course = get_course_info(params[:query][:course])
 
-      sort = get_sort_info(params[:query][:sort])
+        sort = get_sort_info(params[:query][:sort])
 
-      @query = {:sort => sort, :course => course, :pile => pile, :page => page}
+        @query = {:sort => sort, :course => course, :pile => pile, :page => page}
 
-      @title_left = pile.capitalize + "'s: "
-      @title_right = course.capitalize
+        @title_left = pile.capitalize + "'s: "
+        @title_right = course.capitalize
 
       @recipe = @user.recipes.where("recipefavourites.rating = ?", pile.to_s)
       if course != "all recipes"

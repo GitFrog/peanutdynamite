@@ -40,7 +40,7 @@
           <% else %> | <span id ="title9_org"><%=  link_to "oldest", users_path(:query => @query) %></span><% end %>
 
         <% @query[:sort] = "mine" %>
-          <% if preserve[:sort] == "user_id" %> | <span id ="highlight_org"><%=  link_to "just mine", users_path(:query => @query) %></span>
+          <% if preserve[:sort] == "mine" %> | <span id ="highlight_org"><%=  link_to "just mine", users_path(:query => @query) %></span>
           <% else %> | <span id ="title9_org"><%=  link_to "just mine", users_path(:query => @query) %></span><% end %>
           
         <% @query[:sort] = "rate" %>
