@@ -21,8 +21,8 @@ class Recipe < ActiveRecord::Base
   end
 
   def title_concat
-    if title.length > 39 then
-      title[0..36] + '...'
+    if title.length > 36 then
+      title[0..33] + '...'
     else
       title
     end

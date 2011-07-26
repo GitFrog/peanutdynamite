@@ -3,11 +3,8 @@
 
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <br/>
-  <div class ="input" id ="publicfield">
-    public <%= check_box_tag "access", "public" %>
-  </div>
   <div class ="input" id="privatefield">
-    private <%= f.check_box :private %>
+    for my eyes only <%= f.check_box :private %>
   </div>
   <div>
     <%= f.label :ingredients, :class => "input", :id => "ingredlabel"%>

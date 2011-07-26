@@ -106,8 +106,8 @@ a:hover { color: blue; }
   position: absolute;
   width: 150px;
   text-align: left;
-  top: -30px;
-  right: -65px;
+  top: -210px;
+  right: -75px;
 }
 
 #pagination_user_bottom {}

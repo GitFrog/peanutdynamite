@@ -18,7 +18,7 @@ div.field, div.actions {
 .input {
   border: 1;
   position: absolute;
-  font-size:1.2em;
+  font-size:1.0em;
   color:black;
   font-family:Georgia,Arial;
   line-height:1.1em;
@@ -28,8 +28,7 @@ div.field, div.actions {
 #titlefield {width: 400px; top: 640px; left:10px;}
 #titlelabel {top: 620px; left: 10px;}
 
-#publicfield {top: -45px; left: 240px;}
-#privatefield {top: -45px; left: 340px;}
+#privatefield {top: -25px; left: 280px;}
 
 #ingredfield {width: 400px; top: 10px; height: 230px; left:10px;}
 #ingredlabel {top: -10px; left: 10px;}

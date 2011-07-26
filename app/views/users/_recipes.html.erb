@@ -1,6 +1,10 @@
 
-<!--  Recipe Table -->
+<!-- Pagination Top -->
+<div class ="pagination" id="pagination_user_top" >
+  <%= render 'paginate' %>
+</div>
 
+<!--  Recipe Table -->
  <% if (@recipes != nil  && @recipes.count != 0) %>
  <div id ="action_labels"><%= image_tag 'action_labels.gif' %></div>
  <table width = "720">
