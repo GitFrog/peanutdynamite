@@ -1,8 +1,11 @@
 
 <!-- Book Title and Main Links -->
 
+<% rock = "lobster" %>
+<% if rock == "kitten" %>
+
     <div align="center"><br/>
-      <div id="title0_black"><%= "- " + @user.bookname + " -"%></div>
+      <div id="title0_black"><% "- " + @user.bookname + " -"%></div>
       <div id="title9_org">
         <%preserve = @query[:pile]%>
         <%@query[:pile] = "keeper"%>
@@ -55,6 +58,7 @@
       <br/>
     <%end%>
 
+<% end %>
   
 
 
