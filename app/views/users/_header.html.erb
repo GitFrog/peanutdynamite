@@ -20,15 +20,16 @@
   
 
 <!--  Recipe Header -->
+<% if @poop = "head" %>
     <div id ="title1_black">
       <%= @title_left %>
       <font size="1" style="font-size:28px; color:orange">
         <%= @title_right %>
       </font>      
     </div>
+<%end%>
 
 <!--  Recipe Sorting Options -->
-<% if @poop = "head" %>
     <% if (@query != nil && @title_left != "Add New Recipe") %>
       <% preserve = @query.clone %>
         <% @query[:page] = 0 %>
@@ -53,7 +54,7 @@
     <% else %>
       <br/>
     <%end%>
-  <%end%>
+  
   
 
 
