@@ -18,11 +18,12 @@ a { color: gray; text-decoration: none;}
 a:visited { color: gray; }
 a:hover { color: blue; }
 
-#title6_red {font-family:Georgia,Arial; font-size:1.6em; color: rgb(252,21,21);}
+#title6_red {font-family:Georgia,Arial; font-size:1.1em; color: rgb(252,21,21);}
 
-#title2_org {font-family:Georgia,Arial; font-size:2.4em; line-height:1.5em; color: #FFC81F;}
-#title5_org {font-family:Georgia,Arial; font-size:1.8em; line-height:1.5em; color: #FFC81F;}
-#title6_org {font-family:Georgia,Arial; font-size:1.6em; line-height:1.5em; color: #FFC81F;}
+#title2_org {font-family:Georgia,Arial; font-size:1.6m; line-height:1.5em; color: #FFC81F;}
+#title4_org {font-family:Georgia,Arial; font-size:1.3em; line-height:1.5em; color: #FFC81F;}
+#title5_org {font-family:Georgia,Arial; font-size:1.2em; line-height:1.5em; color: #FFC81F;}
+#title6_org {font-family:Georgia,Arial; font-size:1.1em; line-height:1.5em; color: #FFC81F;}
 
 #title0_black {font-family:Georgia,Arial; font-size:2.0em; line-height:1.5em; color: black;}
 #title1_black {font-family:Georgia,Arial; font-size:1.8em; line-height:1.5em; color: black;}
@@ -45,7 +46,7 @@ a:hover { color: blue; }
 #title9_gray {font-family:Georgia,Arial; font-size:0.8em; line-height:1.5em; color: gray;}
 #title10_gray {font-family:Georgia,Arial; font-size:0.7em; line-height:1.5em; color: gray;}
 
-#title6_green {font-family:Georgia,Arial; font-size:1.6em; line-height:1.5em; color: rgb(0,153,51);}
+#title6_green {font-family:Georgia,Arial; font-size:1.1em; line-height:1.5em; color: rgb(0,153,51);}
 
 #title9_org A {font-family:Georgia,Arial; font-size:0.8em; line-height:1.5em; color: gray;}
 #title9_org A:hover {color: orange;}
@@ -184,6 +185,18 @@ a:hover { color: blue; }
   position: absolute;
   top: -60px;
   left: -10px;    
+}
+
+.recipe_number {
+  position: absolute;
+  top: -30px;
+  left: 5px;
+}
+
+#heart {
+  position: absolute;
+  top: -5px;
+  left: -25px;
 }
 
 /* -----------------------------------*/

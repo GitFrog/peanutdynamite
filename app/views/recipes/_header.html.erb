@@ -1,20 +1,22 @@
 
+<div class="recipe_number" id="title4_gray">
+  <%= "# " + @recipe.id.to_s %>
+</div>
 <div id="title2_black">
   <%= @recipe.title %>
 </div>
-<div id ="title4_gray">by <%= @author_recipe.name %> on <%= @recipe.created_at.strftime("%B %d, %Y") %></div>
-<div>
-  <font size="1" style="font-size:12px; color:gray;">
+<div id ="title8_gray">by <%= @author_recipe.name %> on <%= @recipe.created_at.strftime("%B %d, %Y") %></div>
+
+<div id="heart">
     <% if @favourite_recipe == nil %>
-      Create An Account
+       <%= link_to image_tag('grey_heart.gif'), new_user_path   %>
     <% elsif @favourite_recipe == "no" %>
-      <%= link_to "add to my book", :action => 'create', :controller => 'recipefavourites', :user_id => current_user, :recipe_id => @recipe %> 
+      <%= link_to image_tag('grey_heart.gif'), :action => 'create', :controller => 'recipefavourites', :user_id => current_user, :recipe_id => @recipe %>
     <% elsif (@favourite_recipe == "keeper" || @favourite_recipe == "maybe") %>
-      This recipe is in your book
+      <%= image_tag('red_heart.gif') %>
     <% elsif @favourite_recipe == "hate" %>
-      You rejected this recipe. <%= link_to "Put back in my book", :action => 'update', :controller => 'recipefavourites', :user_id => current_user, :recipe_id => @recipe, :sendto => "maybe", :redirect => "recipe" %>
-    <% end %>
-  </font>
+      <%= link_to image_tag('broken_heart.gif'), :action => 'update', :controller => 'recipefavourites', :user_id => current_user, :recipe_id => @recipe, :sendto => "maybe", :redirect => "recipe" %>
+    <% end %>  
 </div>
 
 
