@@ -1,8 +1,23 @@
 
 <!-- Book Title and Main Links -->
-
    
-  
+   <div align="center"><br/>
+      <div id="title0_black"><% "- " + @user.bookname + " -"%></div>
+      <div id="title9_org">
+        <%preserve = @query[:pile]%>
+        <%@query[:pile] = "keeper"%>
+          <%= link_to "keepers ()", users_path(:query => @query) %> |
+        <%@query[:pile] = "maybe"%>
+          <%= link_to "maybes ()", users_path(:query => @query) %> |
+        <%# link_to "stories ()" %> |
+        <%= link_to "add recipe", new_recipe_path(:query => @query) %> |
+        <%= link_to "edit book" %> |
+        <%= link_to "sign out", signout_path, :method => :delete %>
+        <%@query[:pile] = preserve%>
+      </div>
+    </div>
+    <br/>
+
 
 <!--  Recipe Header -->
 

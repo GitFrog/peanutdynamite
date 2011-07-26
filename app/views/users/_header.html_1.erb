@@ -11,7 +11,7 @@
           <%= link_to "keepers ()", users_path(:query => @query) %> |
         <%@query[:pile] = "maybe"%>
           <%= link_to "maybes ()", users_path(:query => @query) %> |
-        <%= link_to "stories ()", %> |
+        <%= link_to "stories ()" %> |
         <%= link_to "add recipe", new_recipe_path(:query => @query) %> |
         <%= link_to "edit book" %> |
         <%= link_to "sign out", signout_path, :method => :delete %>
