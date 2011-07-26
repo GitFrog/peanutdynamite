@@ -1,0 +1,78 @@
+<%= form_for @story, :html => { :multipart => true } do |f| %>
+  <% if @story.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@story.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+      <% @story.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <%= f.hidden_field :user_id, :value => current_user.id %>
+ <%= f.hidden_field :recipe_id, :value => @recipe.id %>
+ 
+
+  <div>
+    <%= f.label :title, :class => "input", :id => "storytitlelabel" %><br />
+    <%= f.text_field :title, :class => "input", :id => "storytitlefield" %>
+  </div>
+  <div>
+    <%= f.label "Picture", :class => "input", :id => "storyphotolabel" %><br />
+    <%= f.file_field :photo, :class => "input", :id => "storyphotofield" %>
+  </div>
+
+  <div>
+    <%= f.label 'Story' , :class => "input", :id => "storylabel"%><br />
+    <%= f.text_area :thestory, :class => "input", :id => "storyfield" %>
+  </div>
+  <div class="field">
+
+    <%= f.label "Sweet or Sour?", :class => "input", :id => "sweetsourlabel" %>
+    <%= f.select :category , emotion_select, {}, {:class => "input", :id => "sweetsourfield"} %>
+    
+  </div>
+<div class ="input" id = "lifelabel">Categorize</div>
+<div class ="input" id = "lifechecks">
+ 
+    <table>
+      <tr>
+        <td><%= check_box_tag "story_tags[]", "work" %> work</td>
+        <td><%= check_box_tag "story_tags[]", "school" %> school</td>
+        <td><%= check_box_tag "story_tags[]", "love" %> love</td>
+        <td><%= check_box_tag "story_tags[]", "spouse" %> spouse</td>
+      </tr>
+      <tr>
+        <td><%= check_box_tag "story_tags[]", "kids" %> kids</td>
+        <td><%= check_box_tag "story_tags[]", "parents" %> parents</td>
+        <td><%= check_box_tag "story_tags[]", "friends" %> friends</td>
+        <td><%= check_box_tag "story_tags[]", "birth" %> birth</td>
+      </tr>
+      <tr>
+        <td><%= check_box_tag "story_tags[]", "death" %> death</td>
+        <td><%= check_box_tag "story_tags[]", "marriage" %> marriage</td>
+        <td><%= check_box_tag "story_tags[]", "divorce" %> divorce</td>
+        <td><%= check_box_tag "story_tags[]", "money" %> money</td>
+      </tr>
+      <tr>
+        <td><%= check_box_tag "story_tags[]", "health" %> health</td>
+        <td><%= check_box_tag "story_tags[]", "travel" %> travel</td>
+        <td><%= check_box_tag "story_tags[]", "justice" %> justice</td>
+        <td><%= check_box_tag "story_tags[]", "moving_on" %> moving on</td>
+      </tr>
+      <tr>
+        <td><%= check_box_tag "story_tags[]", "dedication" %> dedication</td>
+        <td><%= check_box_tag "story_tags[]", "thoughts" %> thoughts</td>
+        
+      </tr>
+      
+    </table>
+  </div>
+
+  <div>
+    <%= f.submit "Add Story", :class => "input", :id => "storysubmit" %>
+  </div>
+
+<% end %>

@@ -1,0 +1,95 @@
+<%= form_for(@recipe) do |f| %>
+
+
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <br/>
+  <div class ="input" id ="publicfield">
+    public <%= check_box_tag "access", "public" %>
+  </div>
+  <div class ="input" id="privatefield">
+    private <%= f.check_box :private %>
+  </div>
+  <div>
+    <%= f.label :ingredients, :class => "input", :id => "ingredlabel"%>
+    <%= f.text_area :ingredients, :class => "input", :id => "ingredfield" %>
+  </div>
+  <div>
+    <%= f.label :instructions, :class => "input", :id => "instructlabel" %>
+    <%= f.text_area :instructions, :class => "input", :id => "instructfield" %>
+  </div>
+  <div>
+    <%= f.label :title, :class => "input", :id => "titlelabel" %>
+    <%= f.text_field :title, :class => "input", :id => "titlefield" %>
+  </div>
+  <div>
+    <%= f.label :course, :class => "input", :id => "courselabel" %>
+    <%= f.select :course , course_select, {}, {:class => "input", :id => "coursefield"} %>
+  </div>
+  <div>
+    <%= f.label "Prep (min)", :class => "input", :id => "preplabel" %>
+    <%= f.number_field :prepTime, :class => "input", :id => "prepfield" %>
+  </div>
+  <div>
+    <%= f.label "Cook (min)", :class => "input", :id => "cooklabel" %>
+    <%= f.number_field :cookTime, :class => "input", :id => "cookfield" %>
+  </div>
+  <div>
+    <%= f.label "Serves", :class => "input", :id => "yieldlabel" %>
+    <%= f.number_field :yield, :class => "input", :id => "yieldfield" %>
+  </div>
+  <div class ="input" id = "foodlabel">Categorize</div>
+  <div class ="input" id = "foodchecks"> 
+    <table>
+      <tr>        
+        <td><%= check_box_tag "food_tags[]", "BBQ" %> BBQ, grill</td>
+        <td><%= check_box_tag "food_tags[]", "Beef" %> Beef</td>
+        <td><%= check_box_tag "food_tags[]", "Cakes" %> Cakes</td>
+        <td><%= check_box_tag "food_tags[]", "Chicken" %> Chicken</td>                
+      </tr>
+      <tr>        
+        <td><%= check_box_tag "food_tags[]", "Cookies" %> Cookies</td>
+        <td><%= check_box_tag "food_tags[]", "Family" %> Family</td>
+        <td><%= check_box_tag "food_tags[]", "Healthy" %> Healthy</td>
+        <td><%= check_box_tag "food_tags[]", "Holidays" %> Holidays</td>                
+      </tr>
+      <tr>        
+        <td><%= check_box_tag "food_tags[]", "Italian" %> Italian</td>
+        <td><%= check_box_tag "food_tags[]", "Kids" %> Kids</td>
+        <td><%= check_box_tag "food_tags[]", "Lifestyle" %> Lifestyle</td>
+        <td><%= check_box_tag "food_tags[]", "Mexican" %> Mexican</td>        
+      </tr>
+      <tr>        
+        <td><%= check_box_tag "food_tags[]", "Ethnic" %> Ethnic</td>
+        <td><%= check_box_tag "food_tags[]", "Pasta" %> Pasta</td>
+        <td><%= check_box_tag "food_tags[]", "Pork" %> Pork</td>
+        <td><%= check_box_tag "food_tags[]", "Quick" %> Quick</td>        
+      </tr>
+      <tr>        
+        <td><%= check_box_tag "food_tags[]", "Restaurants" %> Restaurant</td>
+        <td><%= check_box_tag "food_tags[]", "Seafood" %> Seafood</td>
+        <td><%= check_box_tag "food_tags[]", "Seasonal" %> Seasonal</td>
+        <td><%= check_box_tag "food_tags[]", "Slow Cooker" %> Slow Cooker</td>        
+      </tr>
+      <tr>
+        <td><%= check_box_tag "food_tags[]", "Vegetarian" %> Vegetarian</td>
+      </tr>
+    </table>      
+  </div>
+  <div class="actions">
+    <%= f.submit "Add Recipe", :class => "input", :id => "submit" %>
+  </div>
+
+  
+ <% end %>
+
+<% if @recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+      <% @recipe.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>

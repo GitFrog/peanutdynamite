@@ -1,0 +1,53 @@
+<!--  Pagination -->
+<div class ="pagination" >    
+    <%=  render "paginate" %>
+</div>
+
+<!--  Recipe Table -->
+
+ <% if (@recipes != nil  && @recipes.count != 0) %>
+ <table width = "720">
+    <tr>
+      <td width ="600"></td>
+      <td width ="40" align ="center">:)</td>
+      <td width ="40" align ="center">:(</td>
+      <td width ="40" align ="center">[][]</td>      
+    </tr>
+  
+   <%@recipes.each do |recipe| %>
+    <tr>
+      <td><div id="title6_black">
+          <%= link_to recipe.title_concat, :action => 'show', :controller => 'recipes', :id => recipe.id, :query => @query %></div> <!--{:style=>'color:black; hover'} -->
+          <div id="title10_gray">by
+          <%= recipe.user.name[0...30] %> on
+          <%= recipe.created_at.strftime("%B %d, %Y") %>
+          </div>
+      </td>      
+     <td><div id="title10_gray" align ="center">
+          <%= recipe.num_of_likes %></div></td>
+     <td><div id="title10_gray" align ="center">
+          <%= recipe.num_of_hates %></div></td>
+     <td><div id="title10_gray" align ="center">
+         <%= recipe.stories.count %></div></td>         
+   </tr>
+   <% end %>  
+ </table>
+ <% else %>
+    <br/><div id="title6_gray">An empty page, begging to be filled.
+    <% if current_user.nil? %>
+      <%= link_to "  Create your own scrapbook?", new_user_path %>
+    <% else %>
+      <%= link_to "  Add a recipe?", new_recipe_path %>
+    <% end %>
+    </div>  
+ <% end %>
+
+
+
+ 
+
+
+  
+  
+
+

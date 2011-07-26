@@ -1,0 +1,15 @@
+
+<div id="paper_text"><br/>
+
+  <div><%#= image_tag('napkin.jpg', :border => 0, :id => "recipebackground")%></div>
+
+  <div id ="title5_org" align="center">Ingredients</div>
+  <div><%= simple_format(@recipe.ingredients, :id=>"title8_black") %></div>
+             
+  <div id ="title5_org" align="center">Directions</div>
+  <div><%= simple_format(@recipe.instructions, :id=>"title8_black" )%></div>
+  <br/>
+      
+  <div align="center">Prep in <%= @recipe.prepTime%> minutes   |  Cook for <%= @recipe.cookTime%> minutes <br/></div>
+  <div align="center">Makes for <%= @recipe.yield %> hungry<% if @recipe.cookTime == 1 %> person<% else %> people<%  end %></div>
+</div>

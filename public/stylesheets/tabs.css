@@ -1,0 +1,50 @@
+/*
+    Document   : newCascadeStyleSheet
+    Created on : 9-Mar-2011, 3:03:05 PM
+    Author     : Lee Hulse-Smith
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.tableft {
+  bottom: 782px;
+  margin: 0px auto;
+  padding: 0px;
+  position: absolute;
+  text-decoration: none;
+  border: none;
+  border-spacing: 0px;
+}
+#tab_home{left:130px}
+#tab_about{left:215px}
+#tab_courses{left:410px}
+#tab_lifeissweet{left:500px}
+#tab_biteme{left:590px}
+#tab_mybook{left:780px}
+
+.tabright {
+  right: 0px;
+  margin: 0px auto;
+  padding: 0px;
+  position: absolute;
+  text-decoration: none;
+  border: none;
+  border-spacing: 0px;
+}
+#tab_all{top:82px}
+#tab_apps{top:133px}
+#tab_soups{top:184px}
+#tab_sause{top:238px}
+#tab_salad{top:292px}
+#tab_side{top:345px}
+#tab_main{top:397px}
+#tab_sweet{top:453px}
+#tab_breky{top:503px}
+#tab_bread{top:555px}
+#tab_bevs{top:611px}
+#tab_presv{top:661px}
