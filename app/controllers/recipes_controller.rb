@@ -2,6 +2,14 @@ class RecipesController < ApplicationController
   
   layout "application"
 
+  def shortcut
+    if @recipe = Recipe.find(params[:id])
+      render 'show'
+    else
+      redirect_to root_path
+    end
+  end
+
   def show
 
     @recipe = Recipe.find(params[:id]) #grab the recipe...easy enough
@@ -38,12 +46,6 @@ class RecipesController < ApplicationController
         @author_story = @story.user # Get the stories author
         @show_my_stories = 'no'
     end
-
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @recipe }
-    end
   end
   
   def new
@@ -52,14 +54,11 @@ class RecipesController < ApplicationController
     @title_left = "Add New Recipe"
     @query = params[:query]       
   end
-
-  # GET /recipes/1/edit
+  
   def edit
     @recipe = Recipe.find(params[:id])
   end
-
-  # POST /recipes
-  # POST /recipes.xml
+  
   def create
     @recipe = Recipe.new(params[:recipe])
         

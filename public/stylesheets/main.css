@@ -71,6 +71,15 @@ a:hover { color: blue; }
   border-style: none;
 }
 
+.skinny_page {
+  position: absolute;
+  top: 105px;
+  left: 245px;
+  width: 460px;
+  height: 1110px;
+  border-style: none;
+}
+
 #LogoQuote {
   position: absolute;
   top: 10px;
@@ -84,11 +93,23 @@ a:hover { color: blue; }
 
 #home_quote {
   position: absolute;
-  font-size:2.4em;
+  font-size:2.0em;
   color:gray;
   font-family:Georgia,Arial;
   line-height:1.2em;
   top: 380px;
+  left: 150px;
+  height: 100px;
+  width: 480px;
+  text-align: center;
+}
+
+#recipe_shortcut {
+  position: absolute;
+  font-size:1.2em;
+  color:gray;
+  font-family:Georgia,Arial;
+  top: 500px;
   left: 150px;
   height: 100px;
   width: 480px;

@@ -1,6 +1,9 @@
 DeadGrandmaCookies::Application.routes.draw do resources :home
 
+  get "recipes/shortcut"
   get "recipes/index"
+  get "recipes/show"
+
   get "stories/scrollup"
   get "pages/about"
   get "pages/home"
