@@ -82,7 +82,7 @@ class UsersController < ApplicationController
       @stories_count = @user.stories.count
       @action = "indexstories"
 
-      @stories = @user.stories.order(sort)
+      @stories = @user.stories.order(sort)[start_record...end_record]
     
   end
 

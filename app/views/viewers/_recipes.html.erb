@@ -1,5 +1,5 @@
 <!--  Pagination -->
-<div class ="pagination" >    
+<div class ="pagination" id="pagination_viewer_top" >
     <%=  render "paginate" %>
 </div>
 
@@ -8,30 +8,38 @@
  <% if (@recipes != nil  && @recipes.count != 0) %>
  <table width = "720">
     <tr>
-      <td width ="600"></td>
-      <td width ="40" align ="center">:)</td>
-      <td width ="40" align ="center">:(</td>
-      <td width ="40" align ="center">[][]</td>      
-    </tr>
-  
+      <td width ="40"></td>
+      <td width ="560"></td>
+      <td width ="40" align ="center"><%= image_tag 'thumbs_up.gif' %></td>
+      <td width ="40" align ="center"><%= image_tag 'thumbs_down.gif' %></td>
+      <td width ="40" align ="center"><%= image_tag 'pencil.gif' %></td>
+    </tr>  
    <%@recipes.each do |recipe| %>
     <tr>
-      <td><div id="title6_black">
+      <td><div id="title8_gray">
+        <%= recipe.id.to_s + ". " %>
+        </div>
+      </td>
+      <td><div id="title4_black">
           <%= link_to recipe.title_concat, :action => 'show', :controller => 'recipes', :id => recipe.id, :query => @query %></div> <!--{:style=>'color:black; hover'} -->
-          <div id="title10_gray">by
-          <%= recipe.user.name[0...30] %> on
+          <div id="title8_gray">by
+          <%= recipe.user.name[0...30] %>, 
           <%= recipe.created_at.strftime("%B %d, %Y") %>
           </div>
       </td>      
-     <td><div id="title10_gray" align ="center">
+     <td><div id="title7_gray" align ="center">
           <%= recipe.num_of_likes %></div></td>
-     <td><div id="title10_gray" align ="center">
+     <td><div id="title7_gray" align ="center">
           <%= recipe.num_of_hates %></div></td>
-     <td><div id="title10_gray" align ="center">
-         <%= recipe.stories.count %></div></td>         
+     <td><div id="title7_gray" align ="center">
+          <%= recipe.total_story_count.to_s %></div></td>
    </tr>
    <% end %>  
  </table>
+  <br/>
+  <div class ="pagination" align ="center">
+      <%=  render "paginate" %>
+  </div>
  <% else %>
     <br/><div id="title6_gray">An empty page, begging to be filled.
     <% if current_user.nil? %>

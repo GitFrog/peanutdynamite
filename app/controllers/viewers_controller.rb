@@ -9,7 +9,7 @@ class ViewersController < ApplicationController
         params[:query] = {:sort => "new", :course => "all", :foodtag => nil, :page => 0}
       end
 
-      items_per_page = 18
+      items_per_page = 16
       page = get_page_number(params[:query][:page])
       start_record = page * items_per_page
       end_record = (page+1) * items_per_page
@@ -30,7 +30,7 @@ class ViewersController < ApplicationController
       @recipe = Recipe
       if (foodtag != nil && foodtag != "")
         @recipe = @recipe.joins(:recipetags).where("recipetags.tag = ?", foodtag)
-        @title_more_right = "  ( filter by '" + foodtag.downcase + "' )"
+        @title_more_right = "  ( filtered by '" + foodtag.downcase + "' )"
       end
       @recipe = @recipe.where("private = 0")
       if course != "all recipes"
@@ -55,7 +55,7 @@ class ViewersController < ApplicationController
         params[:query] = {:emo => params[:emo], :sort => "new", :storytag => nil, :page => 0}
       end
 
-      items_per_page = 18
+      items_per_page = 16
       page = get_page_number(params[:query][:page])
       start_record = page * items_per_page
       end_record = (page+1) * items_per_page

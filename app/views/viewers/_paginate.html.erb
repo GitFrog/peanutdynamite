@@ -1,9 +1,19 @@
- <% @query[:page] -= 1 %>
- <%= link_to '<<', :action => @action, :controller => 'viewers', :query => @query %>
- <% @query[:page] += 1 %>
- <%= ' - pg ' + (@query[:page] + 1).to_s + ' - ' %>
- <% @query[:page] += 1 %>
- <% if ((@recipes != nil  && @recipes.count != 0) || (@stories != nil  && @stories.count != 0)) %>
-  <%=  link_to '>>', :action => @action, :controller => 'viewers', :query => @query %>
- <% end %>
- <% @query[:page] -= 1 %>
+
+
+    <% @query[:page] -= 1 %>
+      <% if @query[:page] > -1 %>
+        <%= link_to '<<', :action => @action, :controller => 'viewers', :query => @query %>
+     <% else %>
+        <%= '---' %>
+     <% end %>
+
+    <% @query[:page] += 1 %>
+      <%= 'pg ' + (@query[:page] + 1).to_s + ''%>
+
+    <% @query[:page] += 1 %>
+      <% if (@recipes != nil  && @recipes.count != 0) %>
+        <%= link_to '>>', :action => @action, :controller => 'viewers', :query => @query %>
+      <% else %>
+        <%= '---' %>
+      <%end%>
+    <% @query[:page] -= 1 %>

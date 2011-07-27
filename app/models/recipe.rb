@@ -27,6 +27,10 @@ class Recipe < ActiveRecord::Base
     self.stories.where("user_id <> ? AND private = ?", me, 0).count.to_s
   end
 
+  def total_story_count
+    self.stories.where("private = ?", 0).count.to_s
+  end
+
   def newest_story
     self.stories.order("created_at DESC").first
   end

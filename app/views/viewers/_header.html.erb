@@ -11,22 +11,7 @@
   </font>
 </div>
 
-<!--  Recipe Sorting Options -->    
-<div>
-  <% preserve = @query.clone %>
-  <% @query[:page] = 0 %>
-  <% @query[:sort] = "new" %>
-  <%=  link_to "newest", :action => @action, :controller => 'viewers', :query => @query %> |
-  <% @query[:sort] = "old" %>
-  <%=  link_to "oldest", :action => @action, :controller => 'viewers', :query => @query %> |
-  <%# @query[:sort] = "chef" %>
-  <%#=  link_to "chef", :action => @action, :controller => 'viewers', :query => @query %>
-  <% @query[:sort] = "rate" %>
-  <%=  link_to "rating", :action => @action, :controller => 'viewers', :query => @query %>
-  <%# @query[:sort] = "story" %>
-  <%#=  link_to "most stories", @action => @action, :controller => 'viewers', :query => @query %>
-  <% @query = preserve.clone %>
-</div>
+
 
 <!--  Recipe Tag Options -->
 <div>
@@ -39,10 +24,33 @@
     <% else %>
       <%= hidden_field_tag :emo, @query[:emo] %>
       <%= select_tag 'storytag', options_for_select(story_tag_select.collect{|x| x}) %><% end %>
-    <%= submit_tag "filter now" %>
+    <%= submit_tag "filter now" %>    
+    <%= link_to 'clear filter', :action => @action, :controller => 'viewers', :storytag => nil, :course => @query[:course], :sort => @query[:sort], :page => 0  %>
   <% end %> 
 </div>
-<br/>
+
+<!--  Recipe Sorting Options -->
+<div>
+  <% preserve = @query.clone %>
+  <% @query[:page] = 0 %>  
+
+        <% @query[:sort] = "new" %>
+          <% if preserve[:sort] == "created_at DESC" %><span id ="highlight_grn"><%=  link_to "newest", users_path(:query => @query) %></span>
+          <% else %><span id ="title9_grn"><%=  link_to "newest", :action => @action, :controller => 'viewers', :query => @query %></span><% end %>
+
+        <% @query[:sort] = "old" %>
+          <% if preserve[:sort] == "created_at ASC" %> | <span id ="highlight_grn"><%=  link_to "oldest", users_path(:query => @query) %></span>
+          <% else %> | <span id ="title9_grn"><%=  link_to "oldest", :action => @action, :controller => 'viewers', :query => @query %></span><% end %>
+
+        <% if @action == "index" %>         
+          <% @query[:sort] = "rate" %>
+            <% if preserve[:sort] == "rate" %> | <span id ="highlight_grn"><%=  link_to "rating", users_path(:query => @query) %></span>
+            <% else %> | <span id ="title9_grn"><%=  link_to "rating", :action => @action, :controller => 'viewers', :query => @query %></span><% end %>
+        <% end %>
+  <% @query = preserve.clone %>
+</div>
+
+
 
     
 

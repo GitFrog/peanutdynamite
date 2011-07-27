@@ -8,7 +8,12 @@ class StoriesController < ApplicationController
     @author_story = @story.user
     
     @favourite_recipe = nil # default for now
-    @show_my_stories = params[:show_my_stories]
+
+    if @author_story == current_user
+      @show_my_stories = 'yes'
+    else
+      @show_my_stories = 'no'
+    end
     
     if signed_in?
       fav = current_user.has_favourite_get_rating(@recipe)
