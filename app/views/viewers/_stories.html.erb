@@ -1,5 +1,5 @@
 <!--  Pagination -->
-<div class ="pagination" >   
+<div class ="pagination" id="pagination_viewer_top" >
     <%=  render "paginate" %>
 </div>
 
@@ -17,22 +17,26 @@
   
    <%@stories.each do |story| %>
     <tr>
-      <td><div id="title6_black">
+      <td><div id="title4_black">
           <%= link_to story.title_concat(41), :action => 'show', :controller => 'stories', :id => story.id, :query => @query %></div> <!--{:style=>'color:black; hover'} -->
-          <div id="title8_gray">by 
+          <div id="title8_gray">by
           <%= story.user.name[0...30] %> on
           <%= story.created_at.strftime("%B %d, %Y") %>
           </div>
       </td>      
-     <td><div id="title6_gray" align ="center">
+     <td><div id="title7_gray" align ="center">
           <%#= recipe.num_of_likes %></div></td>
-     <td><div id="title6_gray" align ="center">
+     <td><div id="title7_gray" align ="center">
           <%#= recipe.num_of_hates %></div></td>
-     <td><div id="title6_gray" align ="center">
+     <td><div id="title7_gray" align ="center">
          <%#= recipe.stories.count %></div></td>
    </tr>
    <% end %>  
  </table>
+ <br/>
+  <div class ="pagination" align ="center">
+      <%=  render "paginate" %>
+  </div>
  <% else %>
     <br/><div id="title2_gray">An empty page, begging to be filled.
     <% if current_user.nil? %>

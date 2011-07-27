@@ -9,13 +9,13 @@
 
 <div id="heart">
     <% if @favourite_recipe == nil %>
-       <%= link_to image_tag('grey_heart.gif'), new_user_path   %>
+       <%= link_to image_tag('grey_heart.gif', :mouseover => "red_heart.gif"), new_user_path   %>
     <% elsif @favourite_recipe == "no" %>
-      <%= link_to image_tag('grey_heart.gif'), :action => 'create', :controller => 'recipefavourites', :user_id => current_user, :recipe_id => @recipe %>
+      <%= link_to image_tag('grey_heart.gif', :mouseover => "red_heart.gif"), :action => 'create', :controller => 'recipefavourites', :user_id => current_user, :recipe_id => @recipe %>
     <% elsif (@favourite_recipe == "keeper" || @favourite_recipe == "maybe") %>
       <%= image_tag('red_heart.gif') %>
     <% elsif @favourite_recipe == "hate" %>
-      <%= link_to image_tag('broken_heart.gif'), :action => 'update', :controller => 'recipefavourites', :user_id => current_user, :recipe_id => @recipe, :sendto => "maybe", :redirect => "recipe" %>
+      <%= link_to image_tag('broken_heart.gif', :mouseover => "red_heart.gif"), :action => 'update', :controller => 'recipefavourites', :user_id => current_user, :recipe_id => @recipe, :sendto => "maybe", :redirect => "recipe" %>
     <% end %>  
 </div>
 

@@ -52,7 +52,7 @@ a:hover { color: blue; }
 #title9_org A:hover {color: orange;}
 
 #title9_grn A {font-family:Georgia,Arial; font-size:0.8em; line-height:1.5em; color: gray;}
-#title9_grn A:hover {color: grn;}
+#title9_grn A:hover {color: green;}
 
 
 #highlight_org A {font-family:Georgia,Arial; font-size:0.8em; color: orange;}
@@ -131,7 +131,7 @@ a:hover { color: blue; }
   position: absolute;
   width: 150px;
   text-align: left;
-  top: -210px;
+  top: -205px;
   right: -75px;
 }
 
@@ -139,7 +139,7 @@ a:hover { color: blue; }
   position: absolute;
   width: 150px;
   text-align: left;
-  top: -140px;
+  top: -145px;
   right: -75px;
 }
 
