@@ -18,7 +18,7 @@
    <%@stories.each do |story| %>
     <tr>
       <td><div id="title6_black">
-          <%= link_to story.title_concat, :action => 'show', :controller => 'stories', :id => story.id, :query => @query %></div> <!--{:style=>'color:black; hover'} -->
+          <%= link_to story.title_concat(41), :action => 'show', :controller => 'stories', :id => story.id, :query => @query %></div> <!--{:style=>'color:black; hover'} -->
           <div id="title8_gray">by 
           <%= story.user.name[0...30] %> on
           <%= story.created_at.strftime("%B %d, %Y") %>

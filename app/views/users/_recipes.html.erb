@@ -22,7 +22,7 @@
       <td><div id="title8_gray">
           <%= recipe.id.to_s + "."%></div></td>
       <td><div id="title4_black">
-          <%= link_to recipe.title_concat, recipe_path(:id => recipe.id, :query => @query) %></div></td>
+          <%= link_to recipe.title_concat(36), recipe_path(:id => recipe.id, :query => @query) %></div></td>
       <td><div id="title7_gray" align ="center">
           <%= recipe.num_of_likes %></div></td>
       <td><div id="title7_gray" align ="center">

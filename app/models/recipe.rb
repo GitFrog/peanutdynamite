@@ -35,9 +35,9 @@ class Recipe < ActiveRecord::Base
     self.stories.order("created_at DESC").first
   end
 
-  def title_concat
-    if title.length > 36 then
-      title[0..33] + '...'
+  def title_concat(len)
+    if title.length > len then
+      title[0..len-3] + '...'
     else
       title
     end

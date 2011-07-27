@@ -14,9 +14,9 @@ class Story < ActiveRecord::Base
 
   validates :category,      :presence => true
 
-  def title_concat
-    if title.length > 39 then
-      title[0..36] + '...'
+  def title_concat(len)
+    if title.length > len then
+      title[0..len-3] + '...'
     else
       title
     end
