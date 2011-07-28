@@ -18,6 +18,9 @@
   <div id="title7_gray"><%= @story.thestory %></div>
   <br/>
   <div id ="title8_gray">by <%= @author_story.name %>, <%= @story.created_at.strftime("%B %d, %Y") %></div>
+  <% if @author_story == current_user %>
+    <%= link_to 'edit story', edit_story_path(@story.id) %>
+  <% end %>
   <br/>
   <%= render 'stories/paginate' %>
 <% end %>

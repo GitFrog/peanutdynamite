@@ -49,4 +49,25 @@ class StoriesController < ApplicationController
       end    
   end
 
-end
+  def edit
+    @story = Story.find(params[:id])
+    if (@story.user != current_user || @story == nil)
+      redirect_to @story
+    else
+      @recipe = @story.recipe
+      @author_recipe = @recipe.user
+    end
+  end
+
+   def update
+    @story = Story.find(params[:id])
+
+      if @story.update_attributes(params[:story])
+        redirect_to @story
+      else
+        render :action => "edit"
+      end
+   end
+   
+  end
+
