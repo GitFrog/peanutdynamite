@@ -1,30 +1,34 @@
- <p>Sign up form</p>
+ 
 <%= form_for(@user) do |f| %>
    <div class="field">
-    <%= f.label :name %><br/>
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
  <div class="field">
-    <%= f.label :bookname %><br/>
+    <%= f.label "Your Scrapbook's Name" %>
     <%= f.text_field :bookname %>
   </div>
   <div class="field">
-    <%= f.label :email %><br/>
+    <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :password %><br/>
+    <%= f.label :password %>
     <%= f.text_field :password %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %><br/>
+    <%= f.label :password_confirmation %>
     <%= f.text_field :password_confirmation %>
   </div>
   <div class="actions">
      <%= f.submit "Sign up" %>
   </div>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
+
+<% end %>
+
+<br/>
+<% if @user.errors.any? %>
+    <div class="error_background">
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -32,5 +36,3 @@
       </ul>
     </div>
    <% end %>
-
-<% end %>

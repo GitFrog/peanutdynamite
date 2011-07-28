@@ -67,8 +67,7 @@ a:hover { color: blue; }
   top: 105px;
   left: 90px;
   width: 780px;
-  height: 1110px;
-  border-style: none;
+  height: 1110px;  
 }
 
 .skinny_page {
@@ -114,6 +113,34 @@ a:hover { color: blue; }
   height: 100px;
   width: 480px;
   text-align: center;
+}
+
+/* -------------------------------------*/
+/* ---------->>> NEW USER <<<-----------*/
+/* -------------------------------------*/
+
+#new_user_col1 {
+  position: absolute;
+  top: 180px;
+  left: 5px;
+  width: 250px;
+  height: 700px;  
+}
+
+#new_user_col2 {
+  position: absolute;
+  top: 180px;
+  left: 290px;
+  width: 250px;
+  height: 700px;  
+}
+
+#new_user_col3 {
+  position: absolute;
+  top: 180px;
+  left: 572px;
+  width: 180px;
+  height: 700px;  
 }
 
 /* ------------------------------------------------------*/
