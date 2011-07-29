@@ -4,7 +4,11 @@ class Story < ActiveRecord::Base
   belongs_to :user
   has_many :storytags
 
-  has_attached_file :photo, :styles => {:thumb=> "50x50#", :small=> "250x250#" }
+  has_attached_file :photo, :styles => {:thumb=> "50x50#", :original=> "250x250#" },
+                    :storage => :s3,
+                    :s3_credentials => Rails.root.join("config/s3.yml"),
+                    :path => ":attachment/:id/:style.:extension",
+                    :bucket => 'deadgrandmacookies'
 
   validates :thestory,      :presence => true,
                             :length => { :maximum => 3000 }

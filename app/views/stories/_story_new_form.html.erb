@@ -1,4 +1,4 @@
-<%= form_for @story do |f| %>
+<%= form_for(@story, :html => { :multipart => true }) do |f| %>
 
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.hidden_field :recipe_id, :value => @recipe.id %>
@@ -25,6 +25,8 @@
     <%= f.select :category , emotion_select, {}, {:class => "input", :id => "sweetsourfield"} %>
     
   </div>
+
+
 <div class ="input" id = "lifelabel">Categorize</div>
 <div class ="input" id = "lifechecks">
  

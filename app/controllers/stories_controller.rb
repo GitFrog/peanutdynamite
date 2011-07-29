@@ -40,7 +40,9 @@ class StoriesController < ApplicationController
           params[:story_tags][0...4].each do |story_tag|
           Storytag.create(:story_id => @story.id, :tag => story_tag)
           end
-          redirect_to @story
+          respond_to do |format|
+            format.html {redirect_to @story}# index.html.erb
+          end
         end
       else
         @recipe = @story.recipe

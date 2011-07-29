@@ -5,7 +5,7 @@
     <br/>
     <% if @story.photo_file_size != nil %>
       <div id ="picture">
-        <%= image_tag @story.photo.url(:small) %>
+        <%= image_tag @story.photo.url(:original) %>
       </div>
       <br/>
     <% end %>
