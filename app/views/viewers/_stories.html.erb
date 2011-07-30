@@ -18,7 +18,7 @@
    <%@stories.each do |story| %>
     <tr>
       <td><div id="title7_gray" align ="center">
-          <%= image_tag story.photo.url(:thumb) %></div></td>
+          <% if story.photo.url != nil %><%= image_tag story.photo.url(:thumb) %><%end%></div></td>
       <td><div id="title4_black">
           <%= link_to story.title_concat(41), :action => 'show', :controller => 'stories', :id => story.id, :query => @query %></div> <!--{:style=>'color:black; hover'} -->
           <div id="title8_gray">by
@@ -37,7 +37,7 @@
       <%=  render "paginate" %>
   </div>
  <% else %>
-    <br/><div id="title2_gray">An empty page, begging to be filled.
+    <br/><div id="title6_gray">An empty page, begging to be filled.
     <% if current_user.nil? %>
       <%= link_to "  Create your own scrapbook?", new_user_path %>
     <% else %>

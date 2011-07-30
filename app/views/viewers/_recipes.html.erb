@@ -8,11 +8,11 @@
  <% if (@recipes != nil  && @recipes.count != 0) %>
  <table width = "720">
     <tr>
-      <td width ="40"></td>
-      <td width ="560"></td>
+      <td width ="35"></td>
+      <td width ="565"></td>
       <td width ="40" align ="center"><%= image_tag 'thumbs_up.gif' %></td>
       <td width ="40" align ="center"><%= image_tag 'thumbs_down.gif' %></td>
-      <td width ="40" align ="center"><%= image_tag 'pencil.gif' %></td>
+      <td width ="40" align ="center"><%= image_tag 'pencil.gif' %></td>      
     </tr>  
    <%@recipes.each do |recipe| %>
     <tr>
@@ -22,17 +22,18 @@
       </td>
       <td><div id="title4_black">
           <%= link_to recipe.title_concat(46), :action => 'show', :controller => 'recipes', :id => recipe.id, :query => @query %></div> <!--{:style=>'color:black; hover'} -->
-          <div id="title8_gray">by
-          <%= recipe.user.name[0...30] %>, 
-          <%= recipe.created_at.strftime("%B %d, %Y") %>
+          <div id="title8_gray">
+          <% recipe.user.name[0...30] %>
+          <% recipe.created_at.strftime("%B %d, %Y") %>
           </div>
-      </td>      
+      </td>
      <td><div id="title7_gray" align ="center">
           <%= recipe.num_of_likes %></div></td>
      <td><div id="title7_gray" align ="center">
           <%= recipe.num_of_hates %></div></td>
      <td><div id="title7_gray" align ="center">
           <%= recipe.total_story_count.to_s %></div></td>
+    
    </tr>
    <% end %>  
  </table>

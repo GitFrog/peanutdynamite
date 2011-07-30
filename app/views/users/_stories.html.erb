@@ -18,7 +18,7 @@
         <% end %>
       </td>
       <td width ="80">
-        <%= image_tag story.photo.url(:thumb) %>
+        <% if story.photo.url != nil %><%= image_tag story.photo.url(:thumb) %><% end %>
       </td>
       <td><div id="title4_black">
          <%= link_to story.title_concat(41), story_path(:id => story.id, :query => @query) %></div></td>

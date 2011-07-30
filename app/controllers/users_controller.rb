@@ -54,7 +54,7 @@ class UsersController < ApplicationController
 
   def indexstories #this shows the users recipe book
 
-      items_per_page = 23
+      items_per_page = 15
 
       @user = current_user
 
