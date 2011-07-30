@@ -52,7 +52,7 @@ a:hover { color: blue; }
 #title9_org A:hover {color: orange;}
 
 #title9_grn A {font-family:Georgia,Arial; font-size:0.8em; line-height:1.5em; color: gray;}
-#title9_grn A:hover {color: green;}
+#title9_grn A:hover {color: rgb(0,153,51);}
 
 
 #highlight_org A {font-family:Georgia,Arial; font-size:0.8em; color: orange;}

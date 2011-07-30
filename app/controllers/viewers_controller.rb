@@ -80,12 +80,7 @@ class ViewersController < ApplicationController
       end
       @stories = @stories.where("private = ?", 0)
       @stories = @stories.where("stories.category = ?", emo).order(sort)[start_record...end_record]
-      #if sort == "rate"
-        #@stories = @stories.all.sort_by{|story| -recipe.rating_equation.to_i}[start_record...end_record]
-      #else
-        #@stories = @stories.order(sort)[start_record...end_record]
-      #end
-
+      
    end
 
   def get_page_number(page)
