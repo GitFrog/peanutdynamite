@@ -9,14 +9,16 @@
 <br/>
   <table width = "720">
     <tr>
+      <td width ="80" align ="center"></td>
       <td width ="600"></td>
-      <td width ="40" align ="center"></td>
-      <td width ="40" align ="center"></td>
-      <td width ="40" align ="center"></td>      
+      <td width ="20" align ="center"></td>
+      <td width ="20" align ="center"></td>
     </tr>
   
    <%@stories.each do |story| %>
     <tr>
+      <td><div id="title7_gray" align ="center">
+          <%= image_tag story.photo.url(:thumb) %></div></td>
       <td><div id="title4_black">
           <%= link_to story.title_concat(41), :action => 'show', :controller => 'stories', :id => story.id, :query => @query %></div> <!--{:style=>'color:black; hover'} -->
           <div id="title8_gray">by
@@ -24,12 +26,9 @@
           <%= story.created_at.strftime("%B %d, %Y") %>
           </div>
       </td>      
-     <td><div id="title7_gray" align ="center">
-          <%#= recipe.num_of_likes %></div></td>
-     <td><div id="title7_gray" align ="center">
-          <%#= recipe.num_of_hates %></div></td>
-     <td><div id="title7_gray" align ="center">
-         <%#= recipe.stories.count %></div></td>
+     
+     <td></td>
+     <td></td>
    </tr>
    <% end %>  
  </table>

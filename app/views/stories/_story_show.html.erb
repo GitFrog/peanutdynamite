@@ -15,7 +15,7 @@
 <% if @story == nil %>
   <div id ="title7_gray" align="center">This recipe has no stories yet.</div>
 <% else %>
-  <div id="title7_gray"><%= @story.thestory %></div>
+  <div><%= simple_format(@story.thestory, :id=>"title7_gray" ) %></div>
   <br/>
   <div id ="title8_gray">by <%= @author_story.name %>, <%= @story.created_at.strftime("%B %d, %Y") %></div>
   <% if @author_story == current_user %>
