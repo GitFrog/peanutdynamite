@@ -3,8 +3,8 @@ class CreateRecipes < ActiveRecord::Migration
     create_table :recipes do |t|
       t.integer :user_id
       t.integer :private
-      t.text :ingredients, :limit => 3000
-      t.text :instructions, :limit => 3000
+      t.text :ingredients
+      t.text :instructions
       t.string :title, :limit => 100
       t.string :course, :limit => 12
       t.string :prepTime, :limit => 10
