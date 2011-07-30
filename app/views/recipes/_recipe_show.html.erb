@@ -8,6 +8,20 @@
   <div><%= simple_format(@recipe.instructions, :id=>"title7_black" )%></div>
   <br/>
       
-  <div align="center">Prep in <%= @recipe.prepTime%> minutes   |  Cook for <%= @recipe.cookTime%> minutes <br/></div>
-  <div align="center">Makes for <%= @recipe.yield %> hungry<% if @recipe.cookTime == 1 %> person<% else %> people<%  end %></div>
+  <div id="title8_black" align="center">
+    <% if @recipe.prepTime %>
+      Prep in <%= @recipe.prepTime%>
+    <%end%>
+    <% if @recipe.prepTime && @recipe.cookTime %>
+      |
+    <% end %>
+    <% if @recipe.cookTime %>
+      Cook for <%= @recipe.cookTime%>
+    <%end%>
+  </div>
+  <div id="title8_black" align="center">
+    <% if @recipe.yield %>
+      Makes for <%= @recipe.yield %> hungry<% if @recipe.cookTime == 1 %> person<% else %> people<% end %>
+    <% end %>
+  </div>
 </div>

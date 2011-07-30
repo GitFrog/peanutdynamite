@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 
-  def home    
+  def home
+    @errormsg = params[:errormsg]
   end
 
   def about

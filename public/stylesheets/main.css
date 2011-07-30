@@ -115,6 +115,15 @@ a:hover { color: blue; }
   text-align: center;
 }
 
+#recipe_shortcut_error {
+  position: absolute;
+  font-size:1.2em;
+  color:red;
+  font-family:Georgia,Arial;
+  top: 530px;
+  left: 364px;
+}
+
 /* -------------------------------------*/
 /* ---------->>> NEW USER <<<-----------*/
 /* -------------------------------------*/

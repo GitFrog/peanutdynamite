@@ -3,10 +3,12 @@ class RecipesController < ApplicationController
   layout "application"
 
   def shortcut
-    if @recipe = Recipe.find(params[:id])
-      render 'show'
+    if params[:id].empty?
+      redirect_to root_path(:errormsg => "enter a recipe number")
+    elsif Recipe.where(:id => params[:id]).empty?
+      redirect_to root_path(:errormsg => "could not find")
     else
-      redirect_to root_path
+      redirect_to recipe_path(params[:id])
     end
   end
 
@@ -20,7 +22,7 @@ class RecipesController < ApplicationController
     @show_my_stories = "no" # default for now
     @my_story_count = 0 # default for now
     @query = params[:query]
-
+    
     if signed_in?
       fav = current_user.has_favourite_get_rating(@recipe)
       if fav != nil # If this recipe is one of my favourites then...

@@ -9,9 +9,9 @@
         <span id="title9_org"><%= link_to "show mine (" + @recipe.my_story_count(current_user.id) + ")", :action => 'show', :controller => 'recipes', :id => @recipe.id, :show_my_stories => "yes" %> | </span>
       <% end %>
       <% if @show_my_stories == 'no' %>
-        <span id="highlight_org"><%=  link_to "show all ("+@recipe.other_story_count(current_user.id).to_s+")", :action => 'show', :controller => 'recipes', :id => @recipe.id, :show_my_stories => "no" %> |</span>
+        <span id="highlight_org"><%=  link_to "show others ("+@recipe.other_story_count(current_user.id).to_s+")", :action => 'show', :controller => 'recipes', :id => @recipe.id, :show_my_stories => "no" %> |</span>
       <% else %>
-        <span id="title9_org"><%=  link_to "show all ("+@recipe.other_story_count(current_user.id).to_s+")", :action => 'show', :controller => 'recipes', :id => @recipe.id, :show_my_stories => "no" %> |</span>
+        <span id="title9_org"><%=  link_to "show others ("+@recipe.other_story_count(current_user.id).to_s+")", :action => 'show', :controller => 'recipes', :id => @recipe.id, :show_my_stories => "no" %> |</span>
       <% end %>
         <span id="title9_org"><%=  link_to "add a story", :controller => 'stories', :action => 'new', :recipe_id => @recipe %></span>
     </div>

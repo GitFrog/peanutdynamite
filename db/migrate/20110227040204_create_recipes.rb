@@ -7,8 +7,8 @@ class CreateRecipes < ActiveRecord::Migration
       t.text :instructions, :limit => 3000
       t.string :title, :limit => 100
       t.string :course, :limit => 12
-      t.integer :prepTime
-      t.integer :cookTime
+      t.string :prepTime, :limit => 10
+      t.string :cookTime, :limit => 10
       t.integer :yield
       t.timestamps
      end
