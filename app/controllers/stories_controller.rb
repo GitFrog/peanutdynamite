@@ -61,7 +61,7 @@ class StoriesController < ApplicationController
     end
   end
 
-   def update
+  def update
     @story = Story.find(params[:id])
 
       if @story.update_attributes(params[:story])
@@ -69,7 +69,18 @@ class StoriesController < ApplicationController
       else
         render :action => "edit"
       end
-   end
-   
+  end
+
+  def destroy
+    @story = Story.find(params[:id])
+    @recipe = @story.recipe
+    
+    if (@story.user != current_user || @story == nil)
+      render 'show'
+    else
+      @story.destroy
+      redirect_to @recipe
+    end
+  end
   end
 

@@ -2,10 +2,14 @@
 <div class="recipe_number" id="title4_gray">
   <%= "# " + @recipe.id.to_s %>
 </div>
+
 <div id="title2_black">
   <%= @recipe.title %>
 </div>
-<div id ="title8_gray">by <%= @author_recipe.name %>, <%= @recipe.created_at.strftime("%B %d, %Y") %></div>
+
+<div id ="title8_gray">
+  by <%= @author_recipe.name %>, <%= @recipe.created_at.strftime("%B %d, %Y") %>
+</div>
 
 <div id="heart">
     <% if @favourite_recipe == nil %>

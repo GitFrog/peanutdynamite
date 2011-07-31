@@ -6,22 +6,24 @@
              
   <div id ="title4_org" align="center">Directions</div>
   <div><%= simple_format(@recipe.instructions, :id=>"title7_black" )%></div>
-  <br/>
-      
+        
   <div id="title8_black" align="center">
     <% if @recipe.prepTime %>
       Prep in <%= @recipe.prepTime%>
-    <%end%>
+    <% end %>
     <% if @recipe.prepTime && @recipe.cookTime %>
       |
     <% end %>
     <% if @recipe.cookTime %>
       Cook for <%= @recipe.cookTime%>
-    <%end%>
+    <% end %>
   </div>
   <div id="title8_black" align="center">
     <% if @recipe.yield %>
       Makes for <%= @recipe.yield %> hungry<% if @recipe.cookTime == 1 %> person<% else %> people<% end %>
     <% end %>
   </div>
+  <br/>
+  <div id ="title8_black" align="center"></div>
+  <div id ="title8_black" align="center"><% "www.deadgrandmacookies.com/recipes/" +@recipe.id.to_s %></div>
 </div>

@@ -82,18 +82,24 @@ class RecipesController < ApplicationController
       end
     end
  
-  def update
+  def edit
     @recipe = Recipe.find(params[:id])
-
-    respond_to do |format|
-      if @recipe.update_attributes(params[:recipe])
-        format.html { redirect_to(@recipe, :notice => 'Recipe was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @recipe.errors, :status => :unprocessable_entity }
-      end
+    if (@recipe.user != current_user || @recipe == nil)
+      redirect_to @story
+    else
+      @recipe = @story.recipe
+      @author_recipe = @recipe.user
     end
+  end
+
+  def update
+    @story = Story.find(params[:id])
+
+      if @story.update_attributes(params[:story])
+        redirect_to @story
+      else
+        render :action => "edit"
+      end
   end
   
   def destroy

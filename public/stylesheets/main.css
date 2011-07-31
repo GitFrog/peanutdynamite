@@ -24,6 +24,8 @@ a:hover { color: blue; }
 #title4_org {font-family:Georgia,Arial; font-size:1.3em; line-height:1.5em; color: #FFC81F;}
 #title5_org {font-family:Georgia,Arial; font-size:1.2em; line-height:1.5em; color: #FFC81F;}
 #title6_org {font-family:Georgia,Arial; font-size:1.1em; line-height:1.5em; color: #FFC81F;}
+#title8_org {font-family:Georgia,Arial; font-size:0.9em; line-height:1.5em; color: #FFC81F;}
+
 
 #title0_black {font-family:Georgia,Arial; font-size:2.0em; line-height:1.5em; color: black;}
 #title1_black {font-family:Georgia,Arial; font-size:1.8em; line-height:1.5em; color: black;}
@@ -268,6 +270,14 @@ a:hover { color: blue; }
   left: 5px;
 }
 
+.ref_for_friend {
+  position: absolute;
+  top: -17px;
+  right: 30px;
+  width: 250px;
+  text-align: right;
+}
+
 #heart {
   position: absolute;
   top: -5px;
@@ -277,11 +287,11 @@ a:hover { color: blue; }
 #pagination_story_top {
   position: absolute;
   font-size:1.0em;
-  width: 100px;
+  width: 360px;
   height: 50px;
-  text-align: left;
+  text-align: center;
   top: -20px;
-  right: 20px;
+  
 }
 /* -----------------------------------*/
 /* ---------->>> FOOTER <<<-----------*/
