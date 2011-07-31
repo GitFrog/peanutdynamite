@@ -87,6 +87,12 @@ a:hover { color: blue; }
   left: -10px;
 }
 
+#googleplus1 {
+  position: absolute;
+  top: 320px;
+  left: 540px;
+}
+
 #arrow1{position: absolute; top: -20px; left:130px;}
 #arrow2{position: absolute; top: -20px; left:300px;}
 #arrow3{position: absolute; top: -20px; left:480px;}
@@ -104,6 +110,7 @@ a:hover { color: blue; }
   width: 480px;
   text-align: center;
 }
+
 
 #recipe_shortcut {
   position: absolute;

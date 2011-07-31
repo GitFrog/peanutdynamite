@@ -6,13 +6,15 @@
   <div id ="arrow3"><%= image_tag('home_arrow3.gif') %></div>
   <div id ="arrow4"><%= image_tag('home_arrow4.gif') %></div>
   <div id ="home_quote">Where good food and great stories come together</div>
+  <div id ="googleplus1"><g:plusone></g:plusone></div>
   <div id ="recipe_shortcut">
     <% form_tag url_for(:action => 'shortcut', :controller => 'recipes'), :method => 'get' do %>
       Recipe Number <%= text_field_tag 'id' %><%= submit_tag 'Go' %>
     <% end %>
   </div> 
-  <div id="recipe_shortcut_error">
+  <div id="recipe_shortcut_error">    
     <%= @errormsg.to_s %>
   </div>
+
 
 </div>
