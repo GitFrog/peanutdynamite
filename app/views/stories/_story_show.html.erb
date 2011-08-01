@@ -1,7 +1,16 @@
 
 <div align ="center">
   <% if @story != nil %>
-    <div id="title4_org" align ="center"><%= @story.title %></div>   
+    <div id="title4_org" align ="center"><%= @story.title %></div>
+    <div id ="title8_gray" align="center"><%= @author_story.name %>, <%= @story.created_at.strftime("%B %d, %Y") %></div>
+
+    <% if @author_story == current_user %>
+      <div id ="title9_org" align="center">
+        <%= link_to 'edit', edit_story_path(@story.id) %> |
+        <%= link_to 'delete', @story, :method => :delete, :confirm => "Delete this story?" %>
+      </div>
+    <% end %>
+    
     <br/>
     <% if @story.photo_file_size != nil %>
       <div id ="picture">
@@ -17,14 +26,6 @@
 <% else %>
   <div><%= simple_format(@story.thestory, :id=>"title7_gray" ) %></div>
   
-  <div id ="title8_gray" align="center">by <%= @author_story.name %>, <%= @story.created_at.strftime("%B %d, %Y") %></div>
-  <% if @author_story == current_user %>
-    <div align="center">
-      <%= link_to 'edit', edit_story_path(@story.id) %> |
-      <%= link_to 'delete', @story, :method => :delete, :confirm => "Delete this story?" %>
-    </div>
-  <% end %>
-  <br/>
   <%= render 'stories/paginate' %>
 <% end %>
       

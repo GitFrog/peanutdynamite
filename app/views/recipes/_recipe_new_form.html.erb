@@ -2,6 +2,7 @@
 
 
   <%= f.hidden_field :user_id, :value => current_user.id %>
+  <% button_location = 'foodlabel' %>
   <br/>
   <div class ="input" id="privatefield">
     for my eyes only <%= f.check_box :private %>
@@ -34,6 +35,9 @@
     <%= f.label "Serves", :class => "input", :id => "yieldlabel" %>
     <%= f.number_field :yield, :class => "input", :id => "yieldfield" %>
   </div>
+
+  <% if @recipe_button == "Add Recipe" %>
+  <% button_location = 'submit' %>
   <div class ="input" id = "foodlabel">Categorize</div>
   <div class ="input" id = "foodchecks"> 
     <table>
@@ -72,8 +76,10 @@
       </tr>
     </table>      
   </div>
+  <% end %>
+
   <div class="actions">
-    <%= f.submit "Add Recipe", :class => "input", :id => "submit" %>
+    <%= f.submit @recipe_button, :class => "input", :id => button_location %>
   </div>
 
   

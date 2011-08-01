@@ -11,7 +11,7 @@
           <%= link_to "maybes (" + @maybe_count.to_s + ")", users_path(:query => @query) %> |
         <%= link_to "stories (" + @stories_count.to_s + ")", :action => 'indexstories', :controller => 'users' %> |
         <%= link_to "add recipe", new_recipe_path(:query => @query) %> |
-        <%= link_to "edit book" %> |
+        <%= link_to "edit book", edit_user_path(:id => current_user.id) %> |
         <%= link_to "sign out", signout_path, :method => :delete %>
         <%@query[:pile] = preserve%>
       </div>
@@ -42,14 +42,16 @@
       <% preserve = @query.clone %>
         <% @query[:page] = 0 %>
 
-        <% @query[:sort] = "new" %>
-          <% if preserve[:sort] == "created_at DESC" %><span id ="highlight_org"><%=  link_to "newest", users_path(:query => @query) %></span>
-          <% else %><span id ="title9_org"><%=  link_to "newest", :action => @action, :controller => 'users', :query => @query %></span><% end %>
+        <% if (@action == "index" || @action == 'indexstories') %>
+          <% @query[:sort] = "new" %>
+            <% if preserve[:sort] == "created_at DESC" %><span id ="highlight_org"><%=  link_to "newest", users_path(:query => @query) %></span>
+            <% else %><span id ="title9_org"><%=  link_to "newest", :action => @action, :controller => 'users', :query => @query %></span><% end %>
 
-        <% @query[:sort] = "old" %>
-          <% if preserve[:sort] == "created_at ASC" %> | <span id ="highlight_org"><%=  link_to "oldest", users_path(:query => @query) %></span>
-          <% else %> | <span id ="title9_org"><%=  link_to "oldest", :action => @action, :controller => 'users', :query => @query %></span><% end %>
-
+          <% @query[:sort] = "old" %>
+            <% if preserve[:sort] == "created_at ASC" %> | <span id ="highlight_org"><%=  link_to "oldest", users_path(:query => @query) %></span>
+            <% else %> | <span id ="title9_org"><%=  link_to "oldest", :action => @action, :controller => 'users', :query => @query %></span><% end %>
+        <% end %>
+            
         <% if @action == "index" %>
           <% @query[:sort] = "mine" %>
             <% if preserve[:sort] == "mine" %> | <span id ="highlight_org"><%=  link_to "just mine", users_path(:query => @query) %></span>

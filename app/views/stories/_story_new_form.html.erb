@@ -2,34 +2,34 @@
 
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.hidden_field :recipe_id, :value => @recipe.id %>
+  <% button_location = 'lifelabel' %>
 
   <div class="input" id="storyprivate">
     for my eyes only<%= f.check_box :private %>
+  </div>  
+  <div>
+    <%= f.label 'Story' , :class => "input", :id => "storylabel"%><br />
+    <%= f.text_area :thestory, :class => "input", :id => "storyfield" %>
   </div>
   <div>
     <%= f.label :title, :class => "input", :id => "storytitlelabel" %><br />
     <%= f.text_field :title, :class => "input", :id => "storytitlefield" %>
   </div>
+  <div class="field">
+    <%= f.label "Sweet or Sour?", :class => "input", :id => "sweetsourlabel" %>
+    <%= f.select :category , emotion_select, {}, {:class => "input", :id => "sweetsourfield"} %>    
+  </div>
+
   <div>
     <%= f.label "Picture", :class => "input", :id => "storyphotolabel" %><br />
     <%= f.file_field :photo, :class => "input", :id => "storyphotofield" %>
   </div>
 
-  <div>
-    <%= f.label 'Story' , :class => "input", :id => "storylabel"%><br />
-    <%= f.text_area :thestory, :class => "input", :id => "storyfield" %>
-  </div>
-  <div class="field">
 
-    <%= f.label "Sweet or Sour?", :class => "input", :id => "sweetsourlabel" %>
-    <%= f.select :category , emotion_select, {}, {:class => "input", :id => "sweetsourfield"} %>
-    
-  </div>
-
-
-<div class ="input" id = "lifelabel">Categorize</div>
-<div class ="input" id = "lifechecks">
- 
+  <% if @story_button == "Add Story" %>
+  <% button_location = 'storysubmit' %>
+  <div class ="input" id = "lifelabel">Categorize</div>
+  <div class ="input" id = "lifechecks">
     <table>
       <tr>
         <td><%= check_box_tag "story_tags[]", "work" %> work</td>
@@ -57,15 +57,14 @@
       </tr>
       <tr>
         <td><%= check_box_tag "story_tags[]", "dedication" %> dedication</td>
-        <td><%= check_box_tag "story_tags[]", "thoughts" %> thoughts</td>
-        
-      </tr>
-      
+        <td><%= check_box_tag "story_tags[]", "thoughts" %> thoughts</td>        
+      </tr>      
     </table>
   </div>
+  <% end %>
 
   <div>
-    <%= f.submit "Add Story", :class => "input", :id => "storysubmit" %>
+     <%= f.submit @story_button, :class => "input", :id => button_location %>
   </div>
 
 <% end %>

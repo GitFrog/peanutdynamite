@@ -20,7 +20,7 @@ class RecipesController < ApplicationController
 
     @favourite_recipe = nil # default for now
     @show_my_stories = "no" # default for now
-    @my_story_count = 0 # default for now
+    @my_story_count = 0 # default for now    
     @query = params[:query]
     
     if signed_in?
@@ -33,6 +33,10 @@ class RecipesController < ApplicationController
             when nil then "yes" # if not instructed, then scroll through my stories first
             else params[:show_my_stories]
             end
+        end
+        if @author_recipe == current_user
+          @edit_allowed = @recipe.recipe_edit
+          @edit_days_remaining = @recipe.recipe_edit_countdown
         end
       else # This is just some recipe I've come across
         @favourite_recipe = "no" # since this is not in my scrapbook, give me option to add it
@@ -53,13 +57,10 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @user = current_user
-    @title_left = "Add New Recipe"
+    @title_right = "Add New Recipe"
+    @recipe_button = "Add Recipe"
     @query = params[:query]       
-  end
-  
-  def edit
-    @recipe = Recipe.find(params[:id])
-  end
+  end  
   
   def create
     @recipe = Recipe.new(params[:recipe])
@@ -85,18 +86,21 @@ class RecipesController < ApplicationController
   def edit
     @recipe = Recipe.find(params[:id])
     if (@recipe.user != current_user || @recipe == nil)
-      redirect_to @story
+      redirect_to @recipe
     else
-      @recipe = @story.recipe
+      @user = current_user
       @author_recipe = @recipe.user
+      @title_right = "Edit Your Recipe"
+      @recipe_button = "Update"
+      @query = {:sort => "new", :course => "all", :pile => "maybe", :page => 0}
     end
   end
 
   def update
-    @story = Story.find(params[:id])
+    @recipe = Recipe.find(params[:id])
 
-      if @story.update_attributes(params[:story])
-        redirect_to @story
+      if @recipe.update_attributes(params[:recipe])
+        redirect_to @recipe
       else
         render :action => "edit"
       end
@@ -105,4 +109,5 @@ class RecipesController < ApplicationController
   def destroy
     redirect_to current_user
   end
+  
 end

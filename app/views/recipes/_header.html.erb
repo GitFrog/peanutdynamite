@@ -8,8 +8,14 @@
 </div>
 
 <div id ="title8_gray">
-  by <%= @author_recipe.name %>, <%= @recipe.created_at.strftime("%B %d, %Y") %>
+  <%= @author_recipe.name %>, <%= @recipe.created_at.strftime("%B %d, %Y") %>
 </div>
+
+<% if @edit_allowed == true %>
+  <div id ="title9_org">
+    <%= link_to "edit ("+@edit_days_remaining.to_s+" days left)", edit_recipe_path(@recipe.id) %>
+  </div>    
+<% end %>
 
 <div id="heart">
     <% if @favourite_recipe == nil %>

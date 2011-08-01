@@ -55,6 +55,25 @@ class Recipe < ActiveRecord::Base
     num_of_likes - num_of_hates
   end
 
+  def recipe_age_in_days
+    Date.today.mjd - self.created_at.to_date.mjd
+  end
+
+  def recipe_edit_countdown
+    if recipe_age_in_days < 30
+      30 - recipe_age_in_days
+    else
+      0
+    end
+  end
+
+  def recipe_edit
+    if recipe_age_in_days < 30
+      return true
+    else
+      return false
+    end
+  end
 
 
 end

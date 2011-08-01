@@ -9,6 +9,11 @@ class StoriesController < ApplicationController
     
     @favourite_recipe = nil # default for now
 
+    if @author_recipe == current_user
+      @edit_allowed = @recipe.recipe_edit
+      @edit_days_remaining = @recipe.recipe_edit_countdown
+    end
+
     if @author_story == current_user
       @show_my_stories = 'yes'
     else
@@ -29,7 +34,8 @@ class StoriesController < ApplicationController
   def new
     @recipe = Recipe.find(params[:recipe_id])
     @story = Story.new
-    @author_recipe = @recipe.user    
+    @author_recipe = @recipe.user
+    @story_button = "Add Story"
   end
 
   def create
@@ -58,6 +64,7 @@ class StoriesController < ApplicationController
     else
       @recipe = @story.recipe
       @author_recipe = @recipe.user
+      @story_button = "Update"
     end
   end
 
@@ -78,6 +85,9 @@ class StoriesController < ApplicationController
     if (@story.user != current_user || @story == nil)
       render 'show'
     else
+      if @story.photo_file_size != nil
+        @story.photo.destroy
+      end
       @story.destroy
       redirect_to @recipe
     end
