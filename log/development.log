@@ -21292,3 +21292,23 @@ Rendered users/_paginate.html.erb (2.0ms)
 Rendered users/_recipes.html.erb (154.0ms)
 Rendered users/index.html.erb within layouts/application (214.0ms)
 Completed 200 OK in 463ms (Views: 227.0ms | ActiveRecord: 458.0ms)
+
+
+Started GET "/users/13/edit" for 127.0.0.1 at 2011-08-01 21:55:14 -0400
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered users/_header.html.erb (6.0ms)
+Rendered users/_update_form.html.erb (5.0ms)
+Rendered users/edit.html.erb within layouts/application (108.0ms)
+Completed 200 OK in 257ms (Views: 135.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/13/edit" for 127.0.0.1 at 2011-08-01 21:55:29 -0400
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered users/_header.html.erb (5.0ms)
+Rendered users/_update_form.html.erb (5.0ms)
+Rendered users/edit.html.erb within layouts/application (38.0ms)
+Completed 200 OK in 256ms (Views: 65.0ms | ActiveRecord: 0.0ms)

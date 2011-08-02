@@ -112,7 +112,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     
-      if (@user.update_attribute(:name, params[:user][:name]) && @user.update_attribute(:bookname, params[:user][:bookname]) && @user.update_attribute(:name, params[:user][:email]))
+      if (@user.update_attribute(:name, params[:user][:name]) && @user.update_attribute(:bookname, params[:user][:bookname]) && @user.update_attribute(:email, params[:user][:email]))
         redirect_to users_path
       else
         @query = {:pile => 'keeper'}        
