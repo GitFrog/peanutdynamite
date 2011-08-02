@@ -68,7 +68,7 @@ class Recipe < ActiveRecord::Base
   end
 
   def recipe_edit
-    if self.private == 1 || recipe_age_in_days < 30
+    if self.private == '1' || recipe_age_in_days < 30
       return true
     else
       return false

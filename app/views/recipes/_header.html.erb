@@ -9,7 +9,9 @@
 
 <div id ="title8_gray">
   <%= @author_recipe.name %>, <%= @recipe.created_at.strftime("%B %d, %Y") %>
-  | <%= link_to "edit", edit_recipe_path(@recipe.id) %>
+  <% if @edit_allowed == true %>
+    | <span id="title9_org"><%= link_to "edit ("+@edit_days_remaining.to_s+" days left)", edit_recipe_path(@recipe.id) %></span>
+  <% end %>
 </div>
 
 <div id="heart">

@@ -87,6 +87,8 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     if (@recipe.user != current_user || @recipe == nil)
       redirect_to @recipe
+    elsif @recipe.recipe_edit != true
+      redirect_to @recipe
     else
       @user = current_user
       @author_recipe = @recipe.user
