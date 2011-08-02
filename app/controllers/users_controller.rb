@@ -111,24 +111,13 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if params[:user][:password].empty?
-      params[:user][:password] = @user.password
-      params[:user][:password_confirmation] = @user.encrypted_password
-    end
-      if @user.update_attributes(params[:user])
-        @user.password = nil
-        @user.password_confirmation = nil
-        redirect_to @user
+    
+      if (@user.update_attribute(:name, params[:user][:name]) && @user.update_attribute(:bookname, params[:user][:bookname]) && @user.update_attribute(:name, params[:user][:email]))
+        redirect_to users_path
       else
-        @query = {:pile => 'keeper'}
-        @user.password = nil
-        @user.password_confirmation = nil
-        params[:user][:password] = nil
-        params[:user][:password_confirmation] = nil
+        @query = {:pile => 'keeper'}        
         render 'edit'
-      end
-    @user.password = nil
-    @user.password_confirmation = nil
+      end   
   end
 
 

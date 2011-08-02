@@ -9,7 +9,7 @@ class ViewersController < ApplicationController
         params[:query] = {:sort => "new", :course => "all", :foodtag => nil, :page => 0}
       end
 
-      items_per_page = 23
+      items_per_page = 25
       page = get_page_number(params[:query][:page])
       start_record = page * items_per_page
       end_record = (page+1) * items_per_page
