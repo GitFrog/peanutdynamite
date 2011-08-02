@@ -14,12 +14,13 @@ class User < ActiveRecord::Base
   validates :email, :presence => true,
                     :uniqueness => { :case_sensitive => false }
                     #:format => { :with => email_regex }
-  validates :password, :presence => true,
+  validates :password, :presence => true, :on => :create,
                        :confirmation => true,
                        :length => { :within => 6..40 }
 
   before_save :encrypt_password
-
+  before_update :already_encrypted_password
+  
   def has_favourite_get_rating(recipe)
     fav = recipefavourites.find_by_recipe_id(recipe)
     if fav != nil
@@ -71,6 +72,14 @@ class User < ActiveRecord::Base
     def encrypt_password
       self.salt = make_salt if new_record?
       self.encrypted_password = encrypt(password)
+    end
+
+    def already_encrypted_password
+      if password.length > 40
+        self.encrypted_password = password
+      else
+        encrypt_password
+      end
     end
 
     def encrypt(string)

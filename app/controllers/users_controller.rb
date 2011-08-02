@@ -111,8 +111,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    
-      if (@user.update_attribute(:name, params[:user][:name]) && @user.update_attribute(:bookname, params[:user][:bookname]) && @user.update_attribute(:email, params[:user][:email]))
+      if params[:user][:password].empty?
+        params[:user][:password] = @user.encrypted_password        
+      end
+
+      if @user.update_attributes(params[:user])
         redirect_to users_path
       else
         @query = {:pile => 'keeper'}        
@@ -169,5 +172,13 @@ def get_sort_info(sort)
   else sort
   end  
 end
+def validate_password(p,pc)
+  if p == pc && p =! nil && p.length < 41 && p.length > 5
+    return true
+  else
+    return false
+  end
+end
+
 
 end
