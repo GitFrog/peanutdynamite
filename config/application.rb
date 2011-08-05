@@ -8,6 +8,10 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module DeadGrandmaCookies
   class Application < Rails::Application
+
+    if Rails.env == "production"
+      config.middleware.use("Rack::GoogleAnalytics", :web_property_id => "UA-24955918-1")
+    end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

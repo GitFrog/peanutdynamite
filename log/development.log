@@ -27433,3 +27433,200 @@ Rendered users/_paginate.html.erb (2.0ms)
 Rendered users/_recipes.html.erb (168.0ms)
 Rendered users/index.html.erb within layouts/application (240.0ms)
 Completed 200 OK in 535ms (Views: 250.0ms | ActiveRecord: 74.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-08-04 22:21:53 -0400
+  Processing by PagesController#home as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_pages_home_html_erb___1035620249_48924792__628325094 at c:/rails/DeadGrandmaCookies/app/views/pages/home.html.erb:11)
+Rendered pages/home.html.erb within layouts/application (46.0ms)
+Completed 200 OK in 99ms (Views: 98.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pages/about" for 127.0.0.1 at 2011-08-04 22:21:55 -0400
+  Processing by PagesController#about as HTML
+Rendered pages/about.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 41ms (Views: 41.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/viewers/index" for 127.0.0.1 at 2011-08-04 22:21:57 -0400
+  Processing by ViewersController#index as HTML
+  [1m[35mRecipe Load (2.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE (private = 0) ORDER BY created_at DESC
+Rendered viewers/_tabs.html.erb (25.0ms)
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_viewers__header_html_erb__692253428_47566488_686882232 at c:/rails/DeadGrandmaCookies/app/views/viewers/_header.html.erb:18)
+Rendered viewers/_header.html.erb (8.0ms)
+Rendered viewers/_paginate.html.erb (2.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 39)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 39)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 39) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 38)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 38)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 38) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 37)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 37)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 37) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 36)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 36)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 36) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 35)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 35)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 35) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 34)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 34)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 34) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 33)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 33)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 33) AND (private = 0)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 12 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 32)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 32)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 32) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 12 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 31)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 31)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 31) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 12 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 30)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 30)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 30) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 12 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 28)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 28)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 28) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 12 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 27)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 27)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 27) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 12 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 26)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 26)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 26) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 12 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 25)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 25)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 25) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 12 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 24)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 24)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 24) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 12 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 23)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 23)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 23) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 12 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 22)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 22)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 22) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 21)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 21)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 21) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 20)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 20)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 20) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 19)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 19)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 19) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 18)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 18)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 18) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 17)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 17)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 17) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 16)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 16)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 16) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 15)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 15)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 15) AND (private = 0)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 12)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 12)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 12) AND (private = 0)
+Rendered viewers/_paginate.html.erb (1.0ms)
+Rendered viewers/_recipes.html.erb (392.0ms)
+Rendered viewers/index.html.erb within layouts/application (463.0ms)
+Completed 200 OK in 543ms (Views: 463.0ms | ActiveRecord: 33.0ms)
+
+
+Started GET "/viewers/indexstories?emo=sweet" for 127.0.0.1 at 2011-08-04 22:21:58 -0400
+  Processing by ViewersController#indexstories as HTML
+  Parameters: {"emo"=>"sweet"}
+  [1m[36mStory Load (1.0ms)[0m  [1mSELECT `stories`.* FROM `stories` WHERE (private = 0) AND (stories.category = 'life is sweet') ORDER BY created_at DESC[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_viewers__header_html_erb__692253428_48932640_686882232 at c:/rails/DeadGrandmaCookies/app/views/viewers/_header.html.erb:18)
+Rendered viewers/_header.html.erb (6.0ms)
+Rendered viewers/_paginate.html.erb (2.0ms)
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered viewers/_paginate.html.erb (1.0ms)
+Rendered viewers/_stories.html.erb (110.0ms)
+Rendered viewers/indexstories.html.erb within layouts/application (144.0ms)
+Completed 200 OK in 209ms (Views: 173.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/index" for 127.0.0.1 at 2011-08-04 22:22:00 -0400
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 13)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 13)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 13)[0m
+  [1m[35mRecipe Load (2.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 13)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (18.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 39)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 39)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 39)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 39) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 38)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 38)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 38)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 38) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 37)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 37)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 37)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 37) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 36)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 36)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 36)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 36) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 35)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 35)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 35)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 35) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 34)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 34)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 34)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 34) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 33)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 33)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 33)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 33) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 28)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 28)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 28)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 28) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 18)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 18)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 18)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 18) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 11)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 11)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 11)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 11) AND (user_id <> 13 AND private = 0)
+Rendered users/_paginate.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (211.0ms)
+Rendered users/index.html.erb within layouts/application (273.0ms)
+Completed 200 OK in 588ms (Views: 288.0ms | ActiveRecord: 21.0ms)
