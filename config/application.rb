@@ -6,6 +6,10 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
+if Rails.env == "production"
+  config.middleware.use("Rack::GoogleAnalytics", :web_property_id => "UA-24955918-1'")
+end
+
 module DeadGrandmaCookies
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
