@@ -97,7 +97,7 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in @user
-      redirect_to @user
+      redirect_to users_path
     else
       render 'new'
     end

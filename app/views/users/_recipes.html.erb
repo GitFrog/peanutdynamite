@@ -42,14 +42,18 @@
     </tr>
    <% end %>  
  </table>
- <% else %>
-    <br/><div id="title8_gray">An empty page, begging to be filled.</div>
- <% end %>
-
  <br/>
  <div class ="pagination" align ="center" >
    <%= render 'paginate' %>
  </div>
+
+ <% elsif (@keeper_count == 0 && @maybecount == 0) %>
+   <% render 'virgin' %>
+ <% else %>
+    <br/><div id="title8_gray">An empty page, begging to be filled.</div>
+ <% end %>
+
+ 
 
 
 

@@ -10,6 +10,8 @@ class Story < ActiveRecord::Base
                     :path => ":attachment/:id/:style.:extension",
                     :bucket => 'deadgrandmacookies'
 
+  validates_uniqueness_of :title, :scope => :user_id
+
   validates :thestory,      :presence => true,
                             :length => { :maximum => 3000 }
 
