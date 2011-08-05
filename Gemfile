@@ -9,10 +9,6 @@ gem 'mysql2'
 gem "paperclip", "~> 2.3"
 gem 'aws-s3', :require => 'aws/s3'
 
-group :production do
-  gem 'rack-google_analytics', :require => "rack/google_analytics"
-end
-
 # Use unicorn as the web server
 # gem 'unicorn'
 
