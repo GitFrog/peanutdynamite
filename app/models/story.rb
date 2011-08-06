@@ -20,6 +20,12 @@ class Story < ActiveRecord::Base
 
   validates :category,      :presence => true
 
+  HUMANIZED_ATTRIBUTES = {:thestory => "Story", :category => "Sweet or Sour"}
+
+  def self.human_attribute_name(attr, options={})
+    HUMANIZED_ATTRIBUTES[attr.to_sym] || super
+  end
+
   def title_concat(len)
     if title.length > len then
       title[0..len-3] + '...'

@@ -21,14 +21,14 @@
   </div>
 
   <div>
-    <%= f.label "Picture", :class => "input", :id => "storyphotolabel" %><br />
+    <%= f.label "Picture (optional)", :class => "input", :id => "storyphotolabel" %><br />
     <%= f.file_field :photo, :class => "input", :id => "storyphotofield" %>
   </div>
 
 
   <% if @story_button == "Add Story" %>
   <% button_location = 'storysubmit' %>
-  <div class ="input" id = "lifelabel">Categorize</div>
+  <div class ="input" id = "lifelabel">Categories (optional)</div>
   <div class ="input" id = "lifechecks">
     <table>
       <tr>
@@ -75,7 +75,7 @@
     <% @story.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
-    <li>Categories have to be re-entered</li>
+    <li>If you selected any categories, they have to be re-entered.</li>
     </ul>
   </div>
 <% end %>

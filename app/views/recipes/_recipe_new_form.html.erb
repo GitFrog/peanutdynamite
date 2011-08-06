@@ -40,7 +40,7 @@
 
   <% if @recipe_button == "Add Recipe" %>
   <% button_location = 'submit' %>
-  <div class ="input" id = "foodlabel">Categorize</div>
+  <div class ="input" id = "foodlabel">Categories (optional)</div>
   <div class ="input" id = "foodchecks"> 
     <table>
       <tr>        
@@ -93,7 +93,7 @@
       <% @recipe.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
-      <li>Categories have to be re-entered</li>
+      <li>If you selected any categories, they have to be re-entered.</li>
       </ul>
     </div>
 <% end %>

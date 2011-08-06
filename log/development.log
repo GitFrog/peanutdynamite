@@ -31245,3 +31245,907 @@ Rendered recipes/_header.html.erb (14.0ms)
 Rendered stories/_story_new_form.html.erb (12.0ms)
 Rendered stories/new.html.erb within layouts/application (59.0ms)
 Completed 200 OK in 310ms (Views: 87.0ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/stories" for 127.0.0.1 at 2011-08-06 16:34:37 -0400
+  Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AC+1RQES4DVe9/fEa26avO15aVfuhgpazWwls2ECqyA=", "story"=>{"user_id"=>"13", "recipe_id"=>"39", "private"=>"0", "thestory"=>"", "title"=>"", "category"=>""}, "commit"=>"Add Story"}
+  [1m[36mSQL (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mStory Load (0.0ms)[0m  SELECT `stories`.`id` FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.`title` = BINARY '') LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mROLLBACK[0m
+  [1m[35mRecipe Load (69.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered recipes/_header.html.erb (14.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered stories/_story_new_form.html.erb (12.0ms)
+Rendered stories/new.html.erb within layouts/application (54.0ms)
+Completed 200 OK in 364ms (Views: 83.0ms | ActiveRecord: 71.0ms)
+
+
+Started GET "/users/index" for 127.0.0.1 at 2011-08-06 16:37:04 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  [1m[35mSQL (23.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 13)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 13)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 13)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 13)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (18.0ms)
+Rendered users/_header.html.erb (7.0ms)
+Rendered users/_paginate.html.erb (2.0ms)
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 39)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 39)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 39)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 39) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (28.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 38)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 38)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 38)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 38) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 37)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 37)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 37)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 37) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 36)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 36)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 36)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 36) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 35)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 35)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 35)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 35) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 34)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 34)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 34)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 34) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 33)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 33)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 33)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 33) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 28)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 28)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 28)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 28) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 18)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 18)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 18)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 18) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 11)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 11)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 11)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 11) AND (user_id <> 13 AND private = 0)[0m
+Rendered users/_paginate.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (215.0ms)
+Rendered users/index.html.erb within layouts/application (276.0ms)
+Completed 200 OK in 542ms (Views: 263.0ms | ActiveRecord: 66.0ms)
+
+
+Started GET "/recipes/39?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-06 16:37:06 -0400
+  Processing by RecipesController#show as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}, "id"=>"39"}
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 39) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mRecipefavourite Load (0.0ms)[0m  SELECT `recipefavourites`.* FROM `recipefavourites` WHERE `recipefavourites`.`recipe_id` = 39 AND (`recipefavourites`.user_id = 13) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 39)[0m
+  [1m[35mStory Load (1.0ms)[0m  SELECT `stories`.* FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 39) LIMIT 1
+Rendered recipes/_header.html.erb (2.0ms)
+Rendered recipes/_recipe_show.html.erb (1.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 39)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 39) AND (user_id <> 13 AND private = 0)
+  [1m[36mStory Load (1.0ms)[0m  [1mSELECT `stories`.* FROM `stories` WHERE (id < 4 AND recipe_id = 39 AND user_id = 13) ORDER BY id desc LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (id < 4 AND recipe_id = 39 AND user_id = 13)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (recipe_id = 39 AND user_id = 13)[0m
+  [1m[35mStory Load (1.0ms)[0m  SELECT `stories`.* FROM `stories` WHERE (id > 4 AND recipe_id = 39 AND user_id = 13) ORDER BY id asc LIMIT 1
+Rendered stories/_paginate.html.erb (19.0ms)
+Rendered stories/_header.html.erb (35.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `stories`.* FROM `stories` WHERE (id < 4 AND recipe_id = 39 AND user_id = 13) ORDER BY id desc LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (id < 4 AND recipe_id = 39 AND user_id = 13)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (recipe_id = 39 AND user_id = 13)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `stories`.* FROM `stories` WHERE (id > 4 AND recipe_id = 39 AND user_id = 13) ORDER BY id asc LIMIT 1
+Rendered stories/_paginate.html.erb (4.0ms)
+Rendered stories/_story_show.html.erb (19.0ms)
+Rendered recipes/show.html.erb within layouts/application (101.0ms)
+Completed 200 OK in 448ms (Views: 120.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/stories/new?recipe_id=39" for 127.0.0.1 at 2011-08-06 16:37:08 -0400
+  Processing by StoriesController#new as HTML
+  Parameters: {"recipe_id"=>"39"}
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered recipes/_header.html.erb (24.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered stories/_story_new_form.html.erb (19.0ms)
+Rendered stories/new.html.erb within layouts/application (70.0ms)
+Completed 200 OK in 324ms (Views: 99.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/stories/new?recipe_id=39" for 127.0.0.1 at 2011-08-06 16:37:49 -0400
+  Processing by StoriesController#new as HTML
+  Parameters: {"recipe_id"=>"39"}
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered recipes/_header.html.erb (25.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered stories/_story_new_form.html.erb (108.0ms)
+Rendered stories/new.html.erb within layouts/application (162.0ms)
+Completed 200 OK in 334ms (Views: 191.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/stories/new?recipe_id=39" for 127.0.0.1 at 2011-08-06 16:38:10 -0400
+  Processing by StoriesController#new as HTML
+  Parameters: {"recipe_id"=>"39"}
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered recipes/_header.html.erb (25.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered stories/_story_new_form.html.erb (22.0ms)
+Rendered stories/new.html.erb within layouts/application (83.0ms)
+Completed 200 OK in 305ms (Views: 115.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/index" for 127.0.0.1 at 2011-08-06 16:38:25 -0400
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 13)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 13)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 13)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 13)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (17.0ms)
+Rendered users/_header.html.erb (7.0ms)
+Rendered users/_paginate.html.erb (2.0ms)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 39)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 39)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 39)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 39) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 38)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 38)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 38)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 38) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 37)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 37)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 37)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 37) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 36)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 36)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 36)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 36) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 35)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 35)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 35)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 35) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 34)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 34)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 34)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 34) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 33)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 33)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 33)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 33) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 28)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 28)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 28)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 28) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 18)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 18)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 18)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 18) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 11)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 11)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 11)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 11) AND (user_id <> 13 AND private = 0)
+Rendered users/_paginate.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (277.0ms)
+Rendered users/index.html.erb within layouts/application (337.0ms)
+Completed 200 OK in 594ms (Views: 350.0ms | ActiveRecord: 19.0ms)
+
+
+Started GET "/recipes/new?query[course]=all+recipes&query[page]=0&query[pile]=maybe&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-06 16:38:26 -0400
+  Processing by RecipesController#new as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"maybe", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered users/_header.html.erb (6.0ms)
+Rendered recipes/_recipe_new_form.html.erb (23.0ms)
+Rendered recipes/new.html.erb within layouts/application (59.0ms)
+Completed 200 OK in 231ms (Views: 73.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/index" for 127.0.0.1 at 2011-08-06 16:42:48 -0400
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 13)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 13)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 13)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 13)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (17.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (2.0ms)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 39)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 39)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 39)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 39) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 38)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 38)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 38)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 38) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 37)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 37)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 37)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 37) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 36)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 36)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 36)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 36) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 35)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 35)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 35)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 35) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 34)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 34)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 34)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 34) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 33)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 33)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 33)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 33) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (39.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 28)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 28)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 28)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 28) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 18)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 18)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 18)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 18) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 11)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 11)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 11)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 11) AND (user_id <> 13 AND private = 0)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (185.0ms)
+Rendered users/index.html.erb within layouts/application (244.0ms)
+Completed 200 OK in 519ms (Views: 218.0ms | ActiveRecord: 57.0ms)
+
+
+Started GET "/recipes/new?query[course]=all+recipes&query[page]=0&query[pile]=maybe&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-06 16:42:49 -0400
+  Processing by RecipesController#new as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"maybe", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered users/_header.html.erb (6.0ms)
+Rendered recipes/_recipe_new_form.html.erb (24.0ms)
+Rendered recipes/new.html.erb within layouts/application (61.0ms)
+Completed 200 OK in 213ms (Views: 76.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/index" for 127.0.0.1 at 2011-08-06 16:42:53 -0400
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 13)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 13)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 13)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 13)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (19.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (2.0ms)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 39)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 39)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 39)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 39) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 38)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 38)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 38)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 38) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 37)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 37)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 37)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 37) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 36)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 36)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 36)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 36) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 35)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 35)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 35)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 35) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 34)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 34)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 34)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 34) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 33)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 33)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 33)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 33) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 28)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 28)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 28)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 28) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 18)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 18)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 18)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 18) AND (user_id <> 13 AND private = 0)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 11)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 11)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 11)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 11) AND (user_id <> 13 AND private = 0)
+Rendered users/_paginate.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (235.0ms)
+Rendered users/index.html.erb within layouts/application (302.0ms)
+Completed 200 OK in 950ms (Views: 318.0ms | ActiveRecord: 23.0ms)
+
+
+Started GET "/recipes/39?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-06 16:42:55 -0400
+  Processing by RecipesController#show as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}, "id"=>"39"}
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 39) AND (user_id <> 13 AND private = 0)
+  [1m[36mRecipefavourite Load (0.0ms)[0m  [1mSELECT `recipefavourites`.* FROM `recipefavourites` WHERE `recipefavourites`.`recipe_id` = 39 AND (`recipefavourites`.user_id = 13) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 39)
+  [1m[36mStory Load (0.0ms)[0m  [1mSELECT `stories`.* FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 39) LIMIT 1[0m
+Rendered recipes/_header.html.erb (2.0ms)
+Rendered recipes/_recipe_show.html.erb (1.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 39)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 39) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mStory Load (1.0ms)[0m  SELECT `stories`.* FROM `stories` WHERE (id < 4 AND recipe_id = 39 AND user_id = 13) ORDER BY id desc LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (id < 4 AND recipe_id = 39 AND user_id = 13)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (recipe_id = 39 AND user_id = 13)
+  [1m[36mStory Load (1.0ms)[0m  [1mSELECT `stories`.* FROM `stories` WHERE (id > 4 AND recipe_id = 39 AND user_id = 13) ORDER BY id asc LIMIT 1[0m
+Rendered stories/_paginate.html.erb (20.0ms)
+Rendered stories/_header.html.erb (32.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `stories`.* FROM `stories` WHERE (id < 4 AND recipe_id = 39 AND user_id = 13) ORDER BY id desc LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (id < 4 AND recipe_id = 39 AND user_id = 13)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (recipe_id = 39 AND user_id = 13)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `stories`.* FROM `stories` WHERE (id > 4 AND recipe_id = 39 AND user_id = 13) ORDER BY id asc LIMIT 1[0m
+Rendered stories/_paginate.html.erb (76.0ms)
+Rendered stories/_story_show.html.erb (346.0ms)
+Rendered recipes/show.html.erb within layouts/application (426.0ms)
+Completed 200 OK in 770ms (Views: 440.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/stories/new?recipe_id=39" for 127.0.0.1 at 2011-08-06 16:42:57 -0400
+  Processing by StoriesController#new as HTML
+  Parameters: {"recipe_id"=>"39"}
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered recipes/_header.html.erb (25.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered stories/_story_new_form.html.erb (20.0ms)
+Rendered stories/new.html.erb within layouts/application (77.0ms)
+Completed 200 OK in 293ms (Views: 107.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/stories" for 127.0.0.1 at 2011-08-06 16:42:59 -0400
+  Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AC+1RQES4DVe9/fEa26avO15aVfuhgpazWwls2ECqyA=", "story"=>{"user_id"=>"13", "recipe_id"=>"39", "private"=>"0", "thestory"=>"", "title"=>"", "category"=>""}, "commit"=>"Add Story"}
+  [1m[36mSQL (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mStory Load (0.0ms)[0m  SELECT `stories`.`id` FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.`title` = BINARY '') LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mROLLBACK[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered recipes/_header.html.erb (14.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered stories/_story_new_form.html.erb (11.0ms)
+Rendered stories/new.html.erb within layouts/application (54.0ms)
+Completed 200 OK in 421ms (Views: 120.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/stories" for 127.0.0.1 at 2011-08-06 16:43:18 -0400
+  Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AC+1RQES4DVe9/fEa26avO15aVfuhgpazWwls2ECqyA=", "story"=>{"user_id"=>"13", "recipe_id"=>"39", "private"=>"0", "thestory"=>"", "title"=>"", "category"=>""}, "commit"=>"Add Story"}
+  [1m[36mSQL (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mStory Load (1.0ms)[0m  SELECT `stories`.`id` FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.`title` = BINARY '') LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mROLLBACK[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered recipes/_header.html.erb (14.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered stories/_story_new_form.html.erb (12.0ms)
+Rendered stories/new.html.erb within layouts/application (55.0ms)
+Completed 200 OK in 720ms (Views: 82.0ms | ActiveRecord: 5.0ms)
+
+
+Started POST "/stories" for 127.0.0.1 at 2011-08-06 16:43:24 -0400
+  Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AC+1RQES4DVe9/fEa26avO15aVfuhgpazWwls2ECqyA=", "story"=>{"user_id"=>"13", "recipe_id"=>"39", "private"=>"0", "thestory"=>"", "title"=>"", "category"=>""}, "commit"=>"Add Story"}
+  [1m[36mSQL (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mStory Load (1.0ms)[0m  SELECT `stories`.`id` FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.`title` = BINARY '') LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mROLLBACK[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered recipes/_header.html.erb (15.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered stories/_story_new_form.html.erb (12.0ms)
+Rendered stories/new.html.erb within layouts/application (55.0ms)
+Completed 200 OK in 325ms (Views: 87.0ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/stories" for 127.0.0.1 at 2011-08-06 16:43:54 -0400
+  Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AC+1RQES4DVe9/fEa26avO15aVfuhgpazWwls2ECqyA=", "story"=>{"user_id"=>"13", "recipe_id"=>"39", "private"=>"0", "thestory"=>"", "title"=>"", "category"=>""}, "commit"=>"Add Story"}
+  [1m[36mSQL (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mStory Load (0.0ms)[0m  SELECT `stories`.`id` FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.`title` = BINARY '') LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mROLLBACK[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered recipes/_header.html.erb (15.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered stories/_story_new_form.html.erb (12.0ms)
+Rendered stories/new.html.erb within layouts/application (56.0ms)
+Completed 200 OK in 311ms (Views: 86.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/index" for 127.0.0.1 at 2011-08-06 16:44:02 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 13)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 13)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 13)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 13)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (19.0ms)
+Rendered users/_header.html.erb (9.0ms)
+Rendered users/_paginate.html.erb (2.0ms)
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 39)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 39)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 39)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 39) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 38)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 38)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 38)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 38) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 37)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 37)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 37)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 37) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 36)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 36)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 36)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 36) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 35)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 35)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 35)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 35) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 34)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 34)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 34)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 34) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 33)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 33)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 33)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 33) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 28)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 28)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 28)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 28) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 18)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 18)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 18)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 18) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 11)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 11)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 11)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 11) AND (user_id <> 13 AND private = 0)[0m
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (153.0ms)
+Rendered users/index.html.erb within layouts/application (217.0ms)
+Completed 200 OK in 489ms (Views: 231.0ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/recipes/39?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-06 16:44:05 -0400
+  Processing by RecipesController#show as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}, "id"=>"39"}
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 39) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mRecipefavourite Load (0.0ms)[0m  SELECT `recipefavourites`.* FROM `recipefavourites` WHERE `recipefavourites`.`recipe_id` = 39 AND (`recipefavourites`.user_id = 13) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 39)[0m
+  [1m[35mStory Load (0.0ms)[0m  SELECT `stories`.* FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 39) LIMIT 1
+Rendered recipes/_header.html.erb (2.0ms)
+Rendered recipes/_recipe_show.html.erb (1.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 39)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 39) AND (user_id <> 13 AND private = 0)
+  [1m[36mStory Load (0.0ms)[0m  [1mSELECT `stories`.* FROM `stories` WHERE (id < 4 AND recipe_id = 39 AND user_id = 13) ORDER BY id desc LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (id < 4 AND recipe_id = 39 AND user_id = 13)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (recipe_id = 39 AND user_id = 13)[0m
+  [1m[35mStory Load (1.0ms)[0m  SELECT `stories`.* FROM `stories` WHERE (id > 4 AND recipe_id = 39 AND user_id = 13) ORDER BY id asc LIMIT 1
+Rendered stories/_paginate.html.erb (16.0ms)
+Rendered stories/_header.html.erb (29.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `stories`.* FROM `stories` WHERE (id < 4 AND recipe_id = 39 AND user_id = 13) ORDER BY id desc LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (id < 4 AND recipe_id = 39 AND user_id = 13)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (recipe_id = 39 AND user_id = 13)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `stories`.* FROM `stories` WHERE (id > 4 AND recipe_id = 39 AND user_id = 13) ORDER BY id asc LIMIT 1
+Rendered stories/_paginate.html.erb (4.0ms)
+Rendered stories/_story_show.html.erb (18.0ms)
+Rendered recipes/show.html.erb within layouts/application (92.0ms)
+Completed 200 OK in 452ms (Views: 103.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/stories/new?recipe_id=39" for 127.0.0.1 at 2011-08-06 16:44:07 -0400
+  Processing by StoriesController#new as HTML
+  Parameters: {"recipe_id"=>"39"}
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered recipes/_header.html.erb (26.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered stories/_story_new_form.html.erb (20.0ms)
+Rendered stories/new.html.erb within layouts/application (74.0ms)
+Completed 200 OK in 260ms (Views: 102.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/stories" for 127.0.0.1 at 2011-08-06 16:44:09 -0400
+  Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AC+1RQES4DVe9/fEa26avO15aVfuhgpazWwls2ECqyA=", "story"=>{"user_id"=>"13", "recipe_id"=>"39", "private"=>"0", "thestory"=>"", "title"=>"", "category"=>""}, "commit"=>"Add Story"}
+  [1m[35mSQL (0.0ms)[0m  BEGIN
+  [1m[36mStory Load (1.0ms)[0m  [1mSELECT `stories`.`id` FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.`title` = BINARY '') LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  ROLLBACK
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered recipes/_header.html.erb (14.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered stories/_story_new_form.html.erb (12.0ms)
+Rendered stories/new.html.erb within layouts/application (60.0ms)
+Completed 200 OK in 485ms (Views: 87.0ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/stories" for 127.0.0.1 at 2011-08-06 16:46:04 -0400
+  Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AC+1RQES4DVe9/fEa26avO15aVfuhgpazWwls2ECqyA=", "story"=>{"user_id"=>"13", "recipe_id"=>"39", "private"=>"0", "thestory"=>"", "title"=>"", "category"=>""}, "commit"=>"Add Story"}
+  [1m[35mSQL (0.0ms)[0m  BEGIN
+  [1m[36mStory Load (0.0ms)[0m  [1mSELECT `stories`.`id` FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.`title` = BINARY '') LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  ROLLBACK
+  [1m[36mRecipe Load (3.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered recipes/_header.html.erb (15.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered stories/_story_new_form.html.erb (101.0ms)
+Rendered stories/new.html.erb within layouts/application (133.0ms)
+Completed   in 397ms
+
+ActionView::Template::Error (wrong number of arguments (2 for 1)):
+    72: <% if @story.errors.any? %>
+    73:   <div class="error_background" id="error_add_story">
+    74:     <ul>
+    75:     <% @story.errors.full_messages.each do |msg| %>
+    76:       <li><%= msg %></li>
+    77:     <% end %>
+    78:     <li>If you selected any categories, they have to be re-entered.</li>
+  app/models/story.rb:27:in `human_attribute_name'
+  app/views/stories/_story_new_form.html.erb:75:in `_app_views_stories__story_new_form_html_erb__447836368_38538216_773886584'
+  app/views/stories/new.html.erb:8:in `_app_views_stories_new_html_erb__404261107_49773348_63897018'
+  app/controllers/stories_controller.rb:57:in `create'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (38.0ms)
+
+
+Started POST "/stories" for 127.0.0.1 at 2011-08-06 16:46:13 -0400
+  Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AC+1RQES4DVe9/fEa26avO15aVfuhgpazWwls2ECqyA=", "story"=>{"user_id"=>"13", "recipe_id"=>"39", "private"=>"0", "thestory"=>"", "title"=>"", "category"=>""}, "commit"=>"Add Story"}
+  [1m[35mSQL (0.0ms)[0m  BEGIN
+  [1m[36mStory Load (1.0ms)[0m  [1mSELECT `stories`.`id` FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.`title` = BINARY '') LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  ROLLBACK
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered recipes/_header.html.erb (14.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered stories/_story_new_form.html.erb (10.0ms)
+Rendered stories/new.html.erb within layouts/application (40.0ms)
+Completed   in 346ms
+
+ActionView::Template::Error (wrong number of arguments (2 for 1)):
+    72: <% if @story.errors.any? %>
+    73:   <div class="error_background" id="error_add_story">
+    74:     <ul>
+    75:     <% @story.errors.full_messages.each do |msg| %>
+    76:       <li><%= msg %></li>
+    77:     <% end %>
+    78:     <li>If you selected any categories, they have to be re-entered.</li>
+  app/models/story.rb:27:in `human_attribute_name'
+  app/views/stories/_story_new_form.html.erb:75:in `_app_views_stories__story_new_form_html_erb__447836368_48849144_773886584'
+  app/views/stories/new.html.erb:8:in `_app_views_stories_new_html_erb__404261107_50057952_63897018'
+  app/controllers/stories_controller.rb:57:in `create'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (28.0ms)
+
+
+Started POST "/stories" for 127.0.0.1 at 2011-08-06 16:48:03 -0400
+  Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AC+1RQES4DVe9/fEa26avO15aVfuhgpazWwls2ECqyA=", "story"=>{"user_id"=>"13", "recipe_id"=>"39", "private"=>"0", "thestory"=>"", "title"=>"", "category"=>""}, "commit"=>"Add Story"}
+  [1m[35mSQL (16.0ms)[0m  SHOW TABLES
+Completed   in 57ms
+
+NoMethodError (undefined method `attributes' for #<Class:0x6210528>):
+  app/models/story.rb:23:in `<class:Story>'
+  app/models/story.rb:1:in `<top (required)>'
+  app/controllers/stories_controller.rb:42:in `create'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (27.0ms)
+
+
+Started POST "/stories" for 127.0.0.1 at 2011-08-06 16:48:21 -0400
+  Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AC+1RQES4DVe9/fEa26avO15aVfuhgpazWwls2ECqyA=", "story"=>{"user_id"=>"13", "recipe_id"=>"39", "private"=>"0", "thestory"=>"", "title"=>"", "category"=>""}, "commit"=>"Add Story"}
+  [1m[36mSQL (1.0ms)[0m  [1mSHOW TABLES[0m
+Completed   in 43ms
+
+NoMethodError (undefined method `attributes' for #<Class:0x5ffc5c8>):
+  app/models/story.rb:23:in `<class:Story>'
+  app/models/story.rb:1:in `<top (required)>'
+  app/controllers/stories_controller.rb:42:in `create'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (31.0ms)
+
+
+Started POST "/stories" for 127.0.0.1 at 2011-08-06 16:48:33 -0400
+  Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AC+1RQES4DVe9/fEa26avO15aVfuhgpazWwls2ECqyA=", "story"=>{"user_id"=>"13", "recipe_id"=>"39", "private"=>"0", "thestory"=>"", "title"=>"", "category"=>""}, "commit"=>"Add Story"}
+  [1m[35mSQL (1.0ms)[0m  SHOW TABLES
+Completed   in 41ms
+
+NoMethodError (undefined method `thestory=' for #<Class:0x5ffb4b8>):
+  app/models/story.rb:23:in `<class:Story>'
+  app/models/story.rb:1:in `<top (required)>'
+  app/controllers/stories_controller.rb:42:in `create'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (29.0ms)
+
+
+Started POST "/stories" for 127.0.0.1 at 2011-08-06 16:49:39 -0400
+  Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AC+1RQES4DVe9/fEa26avO15aVfuhgpazWwls2ECqyA=", "story"=>{"user_id"=>"13", "recipe_id"=>"39", "private"=>"0", "thestory"=>"", "title"=>"", "category"=>""}, "commit"=>"Add Story"}
+  [1m[36mSQL (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mStory Load (0.0ms)[0m  SELECT `stories`.`id` FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.`title` = BINARY '') LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered recipes/_header.html.erb (15.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered stories/_story_new_form.html.erb (11.0ms)
+Rendered stories/new.html.erb within layouts/application (42.0ms)
+Completed   in 316ms
+
+ActionView::Template::Error (wrong number of arguments (2 for 1)):
+    72: <% if @story.errors.any? %>
+    73:   <div class="error_background" id="error_add_story">
+    74:     <ul>
+    75:     <% @story.errors.full_messages.each do |msg| %>
+    76:       <li><%= msg %></li>
+    77:     <% end %>
+    78:     <li>If you selected any categories, they have to be re-entered.</li>
+  app/models/story.rb:27:in `human_attribute_name'
+  app/views/stories/_story_new_form.html.erb:75:in `_app_views_stories__story_new_form_html_erb__447836368_37149600_773886584'
+  app/views/stories/new.html.erb:8:in `_app_views_stories_new_html_erb__404261107_37481496_63897018'
+  app/controllers/stories_controller.rb:57:in `create'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (12.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (72.0ms)
+
+
+Started POST "/stories" for 127.0.0.1 at 2011-08-06 16:51:38 -0400
+  Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AC+1RQES4DVe9/fEa26avO15aVfuhgpazWwls2ECqyA=", "story"=>{"user_id"=>"13", "recipe_id"=>"39", "private"=>"0", "thestory"=>"", "title"=>"", "category"=>""}, "commit"=>"Add Story"}
+  [1m[36mSQL (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mStory Load (1.0ms)[0m  SELECT `stories`.`id` FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.`title` = BINARY '') LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mROLLBACK[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered recipes/_header.html.erb (14.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered stories/_story_new_form.html.erb (11.0ms)
+Rendered stories/new.html.erb within layouts/application (40.0ms)
+Completed   in 294ms
+
+ActionView::Template::Error (wrong number of arguments (2 for 1)):
+    72: <% if @story.errors.any? %>
+    73:   <div class="error_background" id="error_add_story">
+    74:     <ul>
+    75:     <% @story.errors.full_messages.each do |msg| %>
+    76:       <li><%= msg %></li>
+    77:     <% end %>
+    78:     <li>If you selected any categories, they have to be re-entered.</li>
+  app/models/story.rb:25:in `human_attribute_name'
+  app/views/stories/_story_new_form.html.erb:75:in `_app_views_stories__story_new_form_html_erb__447836368_36028464_773886584'
+  app/views/stories/new.html.erb:8:in `_app_views_stories_new_html_erb__404261107_36317748_63897018'
+  app/controllers/stories_controller.rb:57:in `create'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (28.0ms)
+
+
+Started POST "/stories" for 127.0.0.1 at 2011-08-06 16:51:42 -0400
+  Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AC+1RQES4DVe9/fEa26avO15aVfuhgpazWwls2ECqyA=", "story"=>{"user_id"=>"13", "recipe_id"=>"39", "private"=>"0", "thestory"=>"", "title"=>"", "category"=>""}, "commit"=>"Add Story"}
+  [1m[36mSQL (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mStory Load (1.0ms)[0m  SELECT `stories`.`id` FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.`title` = BINARY '') LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered recipes/_header.html.erb (15.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered stories/_story_new_form.html.erb (11.0ms)
+Rendered stories/new.html.erb within layouts/application (43.0ms)
+Completed   in 331ms
+
+ActionView::Template::Error (wrong number of arguments (2 for 1)):
+    72: <% if @story.errors.any? %>
+    73:   <div class="error_background" id="error_add_story">
+    74:     <ul>
+    75:     <% @story.errors.full_messages.each do |msg| %>
+    76:       <li><%= msg %></li>
+    77:     <% end %>
+    78:     <li>If you selected any categories, they have to be re-entered.</li>
+  app/models/story.rb:25:in `human_attribute_name'
+  app/views/stories/_story_new_form.html.erb:75:in `_app_views_stories__story_new_form_html_erb__447836368_37454868_773886584'
+  app/views/stories/new.html.erb:8:in `_app_views_stories_new_html_erb__404261107_38390844_63897018'
+  app/controllers/stories_controller.rb:57:in `create'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (28.0ms)
+
+
+Started POST "/stories" for 127.0.0.1 at 2011-08-06 17:00:42 -0400
+  Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AC+1RQES4DVe9/fEa26avO15aVfuhgpazWwls2ECqyA=", "story"=>{"user_id"=>"13", "recipe_id"=>"39", "private"=>"0", "thestory"=>"", "title"=>"", "category"=>""}, "commit"=>"Add Story"}
+  [1m[36mSQL (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mStory Load (1.0ms)[0m  SELECT `stories`.`id` FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.`title` = BINARY '') LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered recipes/_header.html.erb (17.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered stories/_story_new_form.html.erb (12.0ms)
+Rendered stories/new.html.erb within layouts/application (46.0ms)
+Completed   in 314ms
+
+ActionView::Template::Error (wrong number of arguments (2 for 1)):
+    72: <% if @story.errors.any? %>
+    73:   <div class="error_background" id="error_add_story">
+    74:     <ul>
+    75:     <% @story.errors.full_messages.each do |msg| %>
+    76:       <li><%= msg %></li>
+    77:     <% end %>
+    78:     <li>If you selected any categories, they have to be re-entered.</li>
+  app/models/story.rb:25:in `human_attribute_name'
+  app/views/stories/_story_new_form.html.erb:75:in `_app_views_stories__story_new_form_html_erb__447836368_38429808_773886584'
+  app/views/stories/new.html.erb:8:in `_app_views_stories_new_html_erb__404261107_48828972_63897018'
+  app/controllers/stories_controller.rb:57:in `create'
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.0ms)
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (201.0ms)
+
+
+Started POST "/stories" for 127.0.0.1 at 2011-08-06 17:00:48 -0400
+  Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AC+1RQES4DVe9/fEa26avO15aVfuhgpazWwls2ECqyA=", "story"=>{"user_id"=>"13", "recipe_id"=>"39", "private"=>"0", "thestory"=>"", "title"=>"", "category"=>""}, "commit"=>"Add Story"}
+  [1m[36mSQL (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mStory Load (1.0ms)[0m  SELECT `stories`.`id` FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.`title` = BINARY '') LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered recipes/_header.html.erb (14.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered stories/_story_new_form.html.erb (12.0ms)
+Rendered stories/new.html.erb within layouts/application (54.0ms)
+Completed 200 OK in 391ms (Views: 82.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/stories" for 127.0.0.1 at 2011-08-06 17:09:26 -0400
+  Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AC+1RQES4DVe9/fEa26avO15aVfuhgpazWwls2ECqyA=", "story"=>{"user_id"=>"13", "recipe_id"=>"39", "private"=>"0", "thestory"=>"", "title"=>"", "category"=>""}, "commit"=>"Add Story"}
+  [1m[36mSQL (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mStory Load (0.0ms)[0m  SELECT `stories`.`id` FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.`title` = BINARY '') LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered recipes/_header.html.erb (14.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered stories/_story_new_form.html.erb (11.0ms)
+Rendered stories/new.html.erb within layouts/application (55.0ms)
+Completed 200 OK in 301ms (Views: 82.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/stories" for 127.0.0.1 at 2011-08-06 17:09:52 -0400
+  Processing by StoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AC+1RQES4DVe9/fEa26avO15aVfuhgpazWwls2ECqyA=", "story"=>{"user_id"=>"13", "recipe_id"=>"39", "private"=>"0", "thestory"=>"", "title"=>"", "category"=>""}, "commit"=>"Add Story"}
+  [1m[36mSQL (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mStory Load (1.0ms)[0m  SELECT `stories`.`id` FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.`title` = BINARY '') LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT `recipes`.* FROM `recipes` WHERE `recipes`.`id` = 39 LIMIT 1
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+Rendered recipes/_header.html.erb (19.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered stories/_story_new_form.html.erb (10.0ms)
+Rendered stories/new.html.erb within layouts/application (60.0ms)
+Completed 200 OK in 313ms (Views: 88.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/index" for 127.0.0.1 at 2011-08-06 17:09:58 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 13)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 13)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 13)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 13)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (17.0ms)
+Rendered users/_header.html.erb (7.0ms)
+Rendered users/_paginate.html.erb (2.0ms)
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 39)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 39)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 39)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 39) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 38)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 38)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 38)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 38) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 37)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 37)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 37)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 37) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 36)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 36)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 36)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 36) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 35)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 35)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 35)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 35) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 34)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 34)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 34)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 34) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 33)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 33)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 33)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 33) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 28)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 28)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 28)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 28) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 18)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 18)[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 18)
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 18) AND (user_id <> 13 AND private = 0)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'keeper' AND (`recipefavourites`.recipe_id = 11)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipefavourites` WHERE `recipefavourites`.`rating` = 'hate' AND (`recipefavourites`.recipe_id = 11)[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE `stories`.`user_id` = 13 AND (`stories`.recipe_id = 11)
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.recipe_id = 11) AND (user_id <> 13 AND private = 0)[0m
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (145.0ms)
+Rendered users/index.html.erb within layouts/application (206.0ms)
+Completed 200 OK in 463ms (Views: 220.0ms | ActiveRecord: 20.0ms)
+
+
+Started GET "/recipes/new?query[course]=all+recipes&query[page]=0&query[pile]=maybe&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-06 17:10:01 -0400
+  Processing by RecipesController#new as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"maybe", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered users/_header.html.erb (6.0ms)
+Rendered recipes/_recipe_new_form.html.erb (24.0ms)
+Rendered recipes/new.html.erb within layouts/application (63.0ms)
+Completed 200 OK in 188ms (Views: 79.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2011-08-06 17:10:03 -0400
+  Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AC+1RQES4DVe9/fEa26avO15aVfuhgpazWwls2ECqyA=", "recipe"=>{"user_id"=>"13", "private"=>"0", "ingredients"=>"", "instructions"=>"", "title"=>"", "course"=>"", "prepTime"=>"", "cookTime"=>"", "yield"=>""}, "commit"=>"Add Recipe"}
+  [1m[36mSQL (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT `recipes`.`id` FROM `recipes` WHERE (LOWER(`recipes`.`title`) = LOWER('')) LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 13 LIMIT 1
+Rendered users/_header.html.erb (6.0ms)
+Rendered recipes/_recipe_new_form.html.erb (14.0ms)
+Rendered recipes/new.html.erb within layouts/application (175.0ms)
+Completed 200 OK in 375ms (Views: 195.0ms | ActiveRecord: 1.0ms)
