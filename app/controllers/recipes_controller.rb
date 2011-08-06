@@ -15,6 +15,13 @@ class RecipesController < ApplicationController
   def show
 
     @recipe = Recipe.find(params[:id]) #grab the recipe...easy enough
+    if @recipe.private == true #should you be viewing this recipe?
+      if current_user.nil?
+        redirect back_path(:errormsg => "could not find")
+      elsif @recipe.user_id != current_user.id
+        redirect back_path(:errormsg => "could not find")
+      end
+    end
     @author_recipe = @recipe.user # now grab author of said recipe
     @story_count = @recipe.stories.where("user_id <> ? AND private = ?", current_user.id, 0).count # alright, how many stories does this recipe have?
 
