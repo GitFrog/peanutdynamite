@@ -252,16 +252,14 @@ a:hover { color: blue; }
   border-color: lightgrey;
   }
 
-#column1_add_story {
+  
+#instructions_column {
   position: absolute;
-  top: 125px;
-  left: 70px;
+  top: 112px;
+  left: 450px;
   width: 390px;
   height: 1090px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-style: none none none none;
-  border-color: lightgrey;
+ 
 }
 #picture {
   width: 250px;
