@@ -20,11 +20,11 @@ a:hover { color: blue; }
 
 #title6_red {font-family:Georgia,Arial; font-size:1.1em; color: rgb(252,21,21);}
 
-#title2_org {font-family:Georgia,Arial; font-size:1.6m; line-height:1.5em; color: #FFC81F;}
-#title4_org {font-family:Georgia,Arial; font-size:1.3em; line-height:1.5em; color: #FFC81F;}
-#title5_org {font-family:Georgia,Arial; font-size:1.2em; line-height:1.5em; color: #FFC81F;}
-#title6_org {font-family:Georgia,Arial; font-size:1.1em; line-height:1.5em; color: #FFC81F;}
-#title8_org {font-family:Georgia,Arial; font-size:0.9em; line-height:1.5em; color: #FFC81F;}
+#title2_org {font-family:Georgia,Arial; font-size:1.6m; line-height:1.5em; color: orange;}
+#title4_org {font-family:Georgia,Arial; font-size:1.3em; line-height:1.5em; color: orange;}
+#title5_org {font-family:Georgia,Arial; font-size:1.2em; line-height:1.5em; color: orange;}
+#title6_org {font-family:Georgia,Arial; font-size:1.1em; line-height:1.5em; color: orange;}
+#title8_org {font-family:Georgia,Arial; font-size:0.9em; line-height:1.5em; color: orange;}
 
 
 #title0_black {font-family:Georgia,Arial; font-size:2.0em; line-height:1.5em; color: black;}

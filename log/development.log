@@ -27977,3 +27977,904 @@ Rendered users/_paginate.html.erb (1.0ms)
 Rendered users/_recipes.html.erb (11.0ms)
 Rendered users/index.html.erb within layouts/application (70.0ms)
 Completed 200 OK in 391ms (Views: 98.0ms | ActiveRecord: 53.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2011-08-05 19:38:18 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (19.0ms)
+Rendered users/_header.html.erb (9.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (11.0ms)
+Rendered users/index.html.erb within layouts/application (111.0ms)
+Completed 200 OK in 501ms (Views: 138.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2011-08-05 19:38:33 -0400
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (19.0ms)
+Rendered users/_header.html.erb (9.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (11.0ms)
+Rendered users/index.html.erb within layouts/application (76.0ms)
+Completed 200 OK in 366ms (Views: 166.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2011-08-05 19:39:32 -0400
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (18.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (0.0ms)
+Rendered users/_recipes.html.erb (19.0ms)
+Rendered users/index.html.erb within layouts/application (82.0ms)
+Completed 200 OK in 396ms (Views: 110.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2011-08-05 19:40:00 -0400
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (19.0ms)
+Rendered users/_header.html.erb (9.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (0.0ms)
+Rendered users/_recipes.html.erb (23.0ms)
+Rendered users/index.html.erb within layouts/application (91.0ms)
+Completed 200 OK in 384ms (Views: 120.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 19:41:22 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (19.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (19.0ms)
+Rendered users/index.html.erb within layouts/application (80.0ms)
+Completed 200 OK in 329ms (Views: 109.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=maybe&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 19:41:24 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"maybe", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (18.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (0.0ms)
+Rendered users/_recipes.html.erb (19.0ms)
+Rendered users/index.html.erb within layouts/application (80.0ms)
+Completed 200 OK in 419ms (Views: 126.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users/indexstories" for 127.0.0.1 at 2011-08-05 19:41:26 -0400
+  Processing by UsersController#indexstories as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (2.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mStory Load (1.0ms)[0m  [1mSELECT `stories`.* FROM `stories` WHERE (`stories`.user_id = 15) ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (18.0ms)
+Rendered users/_header.html.erb (7.0ms)
+Rendered users/_paginate.html.erb (2.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_stories.html.erb (18.0ms)
+Rendered users/indexstories.html.erb within layouts/application (94.0ms)
+Completed 200 OK in 723ms (Views: 122.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 19:41:29 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (19.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (0.0ms)
+Rendered users/_recipes.html.erb (18.0ms)
+Rendered users/index.html.erb within layouts/application (78.0ms)
+Completed 200 OK in 381ms (Views: 106.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 19:42:36 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (18.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (0.0ms)
+Rendered users/_recipes.html.erb (18.0ms)
+Rendered users/index.html.erb within layouts/application (88.0ms)
+Completed 200 OK in 351ms (Views: 117.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 19:57:49 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (18.0ms)
+Rendered users/_header.html.erb (7.0ms)
+Rendered users/_paginate.html.erb (2.0ms)
+Rendered users/_virgin.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (19.0ms)
+Rendered users/index.html.erb within layouts/application (79.0ms)
+Completed 200 OK in 472ms (Views: 108.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 19:58:47 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (20.0ms)
+Rendered users/_header.html.erb (12.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (22.0ms)
+Rendered users/index.html.erb within layouts/application (99.0ms)
+Completed 200 OK in 373ms (Views: 129.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 20:00:04 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (89.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (19.0ms)
+Rendered users/index.html.erb within layouts/application (290.0ms)
+Completed 200 OK in 512ms (Views: 321.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 20:00:16 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (18.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (2.0ms)
+Rendered users/_virgin.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (19.0ms)
+Rendered users/index.html.erb within layouts/application (81.0ms)
+Completed 200 OK in 375ms (Views: 109.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 20:03:07 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (19.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (18.0ms)
+Rendered users/index.html.erb within layouts/application (81.0ms)
+Completed 200 OK in 333ms (Views: 114.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 20:07:45 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (19.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (2.0ms)
+Rendered users/_virgin.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (19.0ms)
+Rendered users/index.html.erb within layouts/application (84.0ms)
+Completed 200 OK in 343ms (Views: 112.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 20:10:47 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (18.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (19.0ms)
+Rendered users/index.html.erb within layouts/application (80.0ms)
+Completed 200 OK in 501ms (Views: 108.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 20:29:12 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (19.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (0.0ms)
+Rendered users/_recipes.html.erb (19.0ms)
+Rendered users/index.html.erb within layouts/application (86.0ms)
+Completed 200 OK in 347ms (Views: 115.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 20:53:04 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (18.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (19.0ms)
+Rendered users/index.html.erb within layouts/application (80.0ms)
+Completed 200 OK in 495ms (Views: 108.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/images/gray_heart" for 127.0.0.1 at 2011-08-05 20:53:05 -0400
+
+ActionController::RoutingError (No route matches "/images/gray_heart"):
+  
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:04:11 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (18.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (2.0ms)
+Rendered users/_virgin.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (20.0ms)
+Rendered users/index.html.erb within layouts/application (81.0ms)
+Completed 200 OK in 447ms (Views: 109.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/images/grey_heart" for 127.0.0.1 at 2011-08-05 21:04:12 -0400
+
+ActionController::RoutingError (No route matches "/images/grey_heart"):
+  
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:08:12 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (20.0ms)
+Rendered users/_header.html.erb (7.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (19.0ms)
+Rendered users/index.html.erb within layouts/application (83.0ms)
+Completed 200 OK in 355ms (Views: 110.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:10:02 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (79.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (32.0ms)
+Rendered users/index.html.erb within layouts/application (193.0ms)
+Completed 200 OK in 458ms (Views: 221.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/images/tab_maybook.jpg" for 127.0.0.1 at 2011-08-05 21:10:03 -0400
+
+ActionController::RoutingError (No route matches "/images/tab_maybook.jpg"):
+  
+
+Rendered C:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:10:16 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (21.0ms)
+Rendered users/_header.html.erb (10.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (20.0ms)
+Rendered users/index.html.erb within layouts/application (88.0ms)
+Completed 200 OK in 408ms (Views: 120.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:11:08 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (18.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (20.0ms)
+Rendered users/index.html.erb within layouts/application (82.0ms)
+Completed 200 OK in 363ms (Views: 110.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:11:48 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (22.0ms)
+Rendered users/_header.html.erb (9.0ms)
+Rendered users/_paginate.html.erb (50.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (70.0ms)
+Rendered users/index.html.erb within layouts/application (139.0ms)
+Completed 200 OK in 438ms (Views: 173.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:17:37 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (26.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (17.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (21.0ms)
+Rendered users/index.html.erb within layouts/application (81.0ms)
+Completed 200 OK in 417ms (Views: 108.0ms | ActiveRecord: 26.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:19:42 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (19.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (21.0ms)
+Rendered users/index.html.erb within layouts/application (89.0ms)
+Completed 200 OK in 410ms (Views: 118.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:20:02 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (19.0ms)
+Rendered users/_header.html.erb (9.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (21.0ms)
+Rendered users/index.html.erb within layouts/application (85.0ms)
+Completed 200 OK in 347ms (Views: 148.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:29:21 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (19.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (15.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (33.0ms)
+Rendered users/index.html.erb within layouts/application (97.0ms)
+Completed 200 OK in 611ms (Views: 125.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:30:14 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (26.0ms)
+Rendered users/_header.html.erb (7.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (20.0ms)
+Rendered users/index.html.erb within layouts/application (90.0ms)
+Completed 200 OK in 353ms (Views: 119.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:31:50 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (17.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (75.0ms)
+Rendered users/index.html.erb within layouts/application (136.0ms)
+Completed 200 OK in 391ms (Views: 164.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:33:04 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (19.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (20.0ms)
+Rendered users/index.html.erb within layouts/application (82.0ms)
+Completed 200 OK in 348ms (Views: 112.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:35:31 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (20.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (20.0ms)
+Rendered users/index.html.erb within layouts/application (82.0ms)
+Completed 200 OK in 464ms (Views: 110.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:37:40 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (18.0ms)
+Rendered users/_header.html.erb (9.0ms)
+Rendered users/_paginate.html.erb (2.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (20.0ms)
+Rendered users/index.html.erb within layouts/application (94.0ms)
+Completed 200 OK in 402ms (Views: 122.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:39:10 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (17.0ms)
+Rendered users/_header.html.erb (7.0ms)
+Rendered users/_paginate.html.erb (2.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (22.0ms)
+Rendered users/index.html.erb within layouts/application (83.0ms)
+Completed 200 OK in 507ms (Views: 112.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:39:41 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (19.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (21.0ms)
+Rendered users/index.html.erb within layouts/application (89.0ms)
+Completed 200 OK in 384ms (Views: 118.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:40:03 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (20.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (22.0ms)
+Rendered users/index.html.erb within layouts/application (186.0ms)
+Completed 200 OK in 489ms (Views: 216.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:40:33 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (23.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (2.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (26.0ms)
+Rendered users/index.html.erb within layouts/application (98.0ms)
+Completed 200 OK in 358ms (Views: 132.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:44:07 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (17.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (2.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (19.0ms)
+Rendered users/index.html.erb within layouts/application (81.0ms)
+Completed 200 OK in 534ms (Views: 284.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:48:11 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (20.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (21.0ms)
+Rendered users/index.html.erb within layouts/application (86.0ms)
+Completed 200 OK in 386ms (Views: 115.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:49:40 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (21.0ms)
+Rendered users/_header.html.erb (9.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (21.0ms)
+Rendered users/index.html.erb within layouts/application (89.0ms)
+Completed 200 OK in 382ms (Views: 122.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:49:58 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (0.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (18.0ms)
+Rendered users/_header.html.erb (9.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (21.0ms)
+Rendered users/index.html.erb within layouts/application (84.0ms)
+Completed 200 OK in 370ms (Views: 114.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:50:18 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (22.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (21.0ms)
+Rendered users/index.html.erb within layouts/application (90.0ms)
+Completed 200 OK in 384ms (Views: 122.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:51:05 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (20.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (2.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (20.0ms)
+Rendered users/index.html.erb within layouts/application (122.0ms)
+Completed 200 OK in 343ms (Views: 151.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:56:16 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (18.0ms)
+Rendered users/_header.html.erb (8.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (20.0ms)
+Rendered users/index.html.erb within layouts/application (81.0ms)
+Completed 200 OK in 334ms (Views: 109.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 21:59:39 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (18.0ms)
+Rendered users/_header.html.erb (7.0ms)
+Rendered users/_paginate.html.erb (2.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (20.0ms)
+Rendered users/index.html.erb within layouts/application (82.0ms)
+Completed 200 OK in 337ms (Views: 112.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 22:07:13 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (19.0ms)
+Rendered users/_header.html.erb (6.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (27.0ms)
+Rendered users/index.html.erb within layouts/application (88.0ms)
+Completed 200 OK in 523ms (Views: 117.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 22:09:56 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (28.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_header.html.erb (17.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (14.0ms)
+Rendered users/index.html.erb within layouts/application (98.0ms)
+Completed 200 OK in 415ms (Views: 127.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 22:10:26 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (1.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (18.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_header.html.erb (15.0ms)
+Rendered users/_paginate.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (11.0ms)
+Rendered users/index.html.erb within layouts/application (78.0ms)
+Completed 200 OK in 355ms (Views: 106.0ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 22:10:41 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (18.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_header.html.erb (15.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (10.0ms)
+Rendered users/index.html.erb within layouts/application (78.0ms)
+Completed 200 OK in 346ms (Views: 106.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 22:11:24 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (187.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_header.html.erb (15.0ms)
+Rendered users/_paginate.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (11.0ms)
+Rendered users/index.html.erb within layouts/application (248.0ms)
+Completed 200 OK in 500ms (Views: 276.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 22:13:00 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)
+  [1m[36mRecipe Load (1.0ms)[0m  [1mSELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC[0m
+Rendered users/_tabs.html.erb (18.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_header.html.erb (16.0ms)
+Rendered users/_paginate.html.erb (1.0ms)
+Rendered users/_recipes.html.erb (10.0ms)
+Rendered users/index.html.erb within layouts/application (79.0ms)
+Completed 200 OK in 333ms (Views: 106.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users?query[course]=all+recipes&query[page]=0&query[pile]=keeper&query[sort]=created_at+DESC" for 127.0.0.1 at 2011-08-05 22:13:26 -0400
+  Processing by UsersController#index as HTML
+  Parameters: {"query"=>{"course"=>"all recipes", "page"=>"0", "pile"=>"keeper", "sort"=>"created_at DESC"}}
+  [1m[35mUser Load (1.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 15 LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'maybe')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) FROM `stories` WHERE (`stories`.user_id = 15)[0m
+  [1m[35mRecipe Load (0.0ms)[0m  SELECT `recipes`.* FROM `recipes` INNER JOIN `recipefavourites` ON `recipes`.id = `recipefavourites`.recipe_id WHERE ((`recipefavourites`.user_id = 15)) AND (recipefavourites.rating = 'keeper') ORDER BY created_at DESC
+Rendered users/_tabs.html.erb (19.0ms)
+Rendered users/_virgin.html.erb (2.0ms)
+Rendered users/_header.html.erb (16.0ms)
+Rendered users/_paginate.html.erb (2.0ms)
+Rendered users/_recipes.html.erb (12.0ms)
+Rendered users/index.html.erb within layouts/application (83.0ms)
+Completed 200 OK in 352ms (Views: 112.0ms | ActiveRecord: 3.0ms)
