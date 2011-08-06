@@ -53,6 +53,7 @@ class StoriesController < ApplicationController
       else
         @recipe = @story.recipe
         @author_recipe = @recipe.user
+        @story_button = "Add Story"
         render 'new'
       end    
   end

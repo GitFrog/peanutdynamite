@@ -85,6 +85,7 @@ class RecipesController < ApplicationController
       else
         @user = current_user
         @title_left = "Add New Recipe"
+        @recipe_button = "Add Recipe"
         @query = {:sort => "new", :course => "all", :pile => "maybe", :page => 0}
         render 'new'
       end
