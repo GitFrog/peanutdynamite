@@ -47,7 +47,7 @@
    <%= render 'paginate' %>
  </div>
 
- <% elsif (@keeper_count != 0 && @maybe_count != 0) %>
+ <% elsif (@keeper_count != 0 || @maybe_count != 0) %>
     <br/><div id="title8_gray">An empty page, begging to be filled.</div>
     <br/>
     <div class ="pagination" align ="center" >
