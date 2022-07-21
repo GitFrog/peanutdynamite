@@ -43,6 +43,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    mysql2 (0.2.6)
     mysql2 (0.2.6-x86-mingw32)
     paperclip (2.3.11)
       activerecord (>= 2.3.0)
@@ -71,10 +72,11 @@ GEM
     thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
-    tzinfo (0.3.24)
+    tzinfo (0.3.61)
     xml-simple (1.1.0)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES
